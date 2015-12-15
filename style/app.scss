@@ -1,0 +1,38 @@
+@import 'reset.css';
+
+$primary: #428bca; // #337ab7
+$success: #5cb85c;
+$info:    #5bc0de;
+$warning: #f0ad4e;
+$danger:  #d9534f;
+$red: rgba(0, 0, 200, 0.5);
+$blue: rgba(200, 10, 50, 0.5);
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-section {
+    background-color: $primary;
+    color: white;
+    padding: 20px 30px;
+
+    .app-title {
+        font-size: 25px;
+
+        i { font-size: 40px; }
+    }
+}
+
+.music-section {
+    padding: 20px 30px;
+    background-color: $info;
+    width: 21%;
+    display: inline-block;
+    .clip-list {
+        .title { padding: 20px 0; }
+
+        .on  { background-color: $warning; }
+        .off {}
+    }
+}
