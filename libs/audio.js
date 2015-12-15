@@ -44,7 +44,7 @@ class Clip {
 
 class Engine {
     constructor() {
-        this.context = new AudioContext()
+        this.context = new (window.AudioContext || window.webkitAudioContext)()
     }
 
     load(clipData) {
