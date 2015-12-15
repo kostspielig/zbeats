@@ -34,24 +34,28 @@ class App extends Component {
                 </div>
                 <div className='music-section beat'>
                     <MusicSection
+                       title='Beat'
                        clips={this.state.clips.beat}
                        setClip={this.setClip.bind(this)}
                     />
                 </div>
                 <div className='music-section bass'>
                     <MusicSection
+                       title='Bass'
                        clips={this.state.clips.bass}
                        setClip={this.setClip.bind(this)}
                     />
                 </div>
                 <div className='music-section pads'>
                     <MusicSection
+                       title='Bass'
                        clips={this.state.clips.pads}
                        setClip={this.setClip.bind(this)}
                     />
                 </div>
                 <div className='music-section leads'>
                     <MusicSection
+                       title='Leads'
                        clips={this.state.clips.leads}
                        setClip={this.setClip.bind(this)}
                     />

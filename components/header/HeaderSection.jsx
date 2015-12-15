@@ -4,7 +4,7 @@ class HeaderSection extends Component {
     render() {
         return (
            <div className='app-title'>
-               <h1>zBeats</h1>
+               <i className="material-icons">album</i> zBeats
            </div>
         )
     }

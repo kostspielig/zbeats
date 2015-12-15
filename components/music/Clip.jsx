@@ -14,18 +14,20 @@ class Clip extends Component {
 
         clip.volume = e.target.value
         this.setState(clip)
-        clip.clip.changeVolume(e.target.value)
+        if (clip.active)
+            clip.clip.changeVolume(e.target.value)
     }
 
     render() {
         const {clip} = this.props;
-        var clipState = clip.active ? 'on' : 'off'
+        let clipState = clip.active ? 'on' : 'off'
+        let playIcon = !clip.active ? 'play_arrow' : 'stop'
         clip.volume = clip.volume ? clip.volume : 100
         return (
             <li className={clipState}>
                 {clip.name}
-                <div onClick={this.onClick.bind(this)}>play/stop</div>
-                <input type='range' min='0' max='100' value={clip.volume} onChange={this.changeVolume.bind(this)}/>
+                <div onClick={this.onClick.bind(this)}><i className="material-icons">{playIcon}</i></div>
+                <input type='range' min='0' max='100' value={clip.volume} onChange={this.changeVolume.bind(this)} />
             </li>
         )
     }
