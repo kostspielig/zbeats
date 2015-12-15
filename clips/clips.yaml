@@ -1,0 +1,49 @@
+beat:
+  - sample: beat/looperman-l-1212605-0072974-gruzzle-deep-house-beat-120bpm.wav
+    tags: [ house ]
+    bpm: 120
+    name: deep-house
+
+  - sample: beat/looperman-l-1319133-0091072-fanto8bc-power-beat-120bpm.wav
+    tags: [ power ]
+    bpm: 120
+    name: power-beat
+
+  - sample: beat/looperman-l-1319133-0090836-fanto8bc-fto-break-beat-120bpm.wav
+    tags: [ break ]
+    bpm: 120
+    name: break-beat
+
+bass:
+  - sample: bass/looperman-l-0111346-0021947-planetjazzbass-capitalism-120bpm.wav
+    tags: [ jazz, capitalism ]
+    bpm: 120
+    name: jazzbass
+
+  - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
+    tags: [ chord ]
+    bpm: 120
+    name: chord-bass
+
+pads:
+  - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
+    tags: [ ambient ]
+    bpm: 120
+    name: synchro-pad
+
+  - sample: pads/looperman-l-0262259-0031167-califken-chormotion-120bpm.wav
+    tags: [ choir ]
+    bpm: 120
+    name: choir
+
+
+leads:
+  - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
+    tags: [ piano, melodramatic ]
+    bpm: 120
+    name: piano
+
+  - sample: leads/looperman-l-0000003-0000084-serialchiller-chilla-dist-guitar-riff-3-120bpm.wav
+    tags: [ guitar ]
+    bpm: 120
+    name: guitar
