@@ -8,7 +8,6 @@ var clips = require('json!yaml!../clips/clips.yaml')
 class App extends Component {
     constructor(props) {
         super(props)
-        console.log("CLIPS:", clips)
         this.state = {}
         this.state.clips = clips
         this.state.engine = new Engine()
@@ -19,10 +18,10 @@ class App extends Component {
         })
     }
 
-    setClip(activeClip) {
-        activeClip.active = !activeClip.active
-        this.setState({activeClip})
-        activeClip.clip.play()
+    setClip(clip) {
+        clip.active = !clip.active
+        this.setState({clip})
+        clip.clip.toggle()
     }
 
     render() {
