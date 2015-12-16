@@ -25,7 +25,9 @@
   "dependencies": {
     "babel-loader": "^5.3.3",
     "json-loader": "^0.5.4",
+    "material-ui": "^0.13.4",
     "react-dom": "^0.14.3",
+    "react-tap-event-plugin": "^0.2.1",
     "webpack": "^1.12.9",
     "yaml-loader": "^0.1.0"
   },
