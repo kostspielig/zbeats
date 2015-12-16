@@ -28,12 +28,12 @@ class Clip {
         request.send()
     }
 
-    play() {
+    play(startTime) {
         this.source = this.context.createBufferSource() // creates a sound source
         this.source.buffer = this.buffer // tell the source which sound to play
         this.source.connect(this.track.gainNode)
         this.source.loop = true
-        this.source.start(0)
+        this.source.start(startTime)
         this.playing = true
     }
 
@@ -65,7 +65,13 @@ class Track {
     toggle(clip) {
         if (this.currentClip !== clip) {
             this.currentClip && this.currentClip.stop()
-            clip.play()
+            if (this.engine.startTime !== null)
+                this.engine.startTime = this.context.currentTime
+            const now = this.context.currentTime
+            const start = this.engine.startTime
+            const bpm = this.engine.bpm
+            const next = Math.ceil(now / 60.0 * bpm / 4.0) * 60 * 4 / bpm
+            clip.play(next)
             this.currentClip = clip
         } else {
             clip.stop()
@@ -85,6 +91,8 @@ class Track {
 class Engine {
     constructor() {
         this.context = new (window.AudioContext || window.webkitAudioContext)()
+        this.startTime = null
+        this.bpm = 120
     }
 
     addTrack() {
