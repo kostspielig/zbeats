@@ -3,6 +3,7 @@ class Clip {
     constructor(track, clipData) {
         this.track = track
         this.context = track.context
+        this.clipData = clipData
         var url = '../clips/' + clipData.sample
         var request = new XMLHttpRequest()
         request.open("GET", url, true)
@@ -33,19 +34,15 @@ class Clip {
         this.source.buffer = this.buffer // tell the source which sound to play
         this.source.connect(this.track.gainNode)
         this.source.loop = true
+        this.source.playbackRate.value = this.track.engine.bpm / this.clipData.bpm
         this.source.start(startTime)
         this.playing = true
     }
 
-    stop() {
-        this.source.stop(0)
+    stop(stopTime) {
+        this.source.stop(stopTime)
         this.playing = false
     }
-
-    toggle() {
-        this.playing ? this.stop() : this.play();
-    }
-
 }
 
 class Track {
@@ -63,18 +60,18 @@ class Track {
     }
 
     toggle(clip) {
+        if (this.engine.startTime !== null)
+            this.engine.startTime = this.context.currentTime
+        const now = this.context.currentTime
+        const start = this.engine.startTime
+        const bpm = this.engine.bpm
+        const next = Math.ceil(now / 60.0 * bpm / 4.0) * 60 * 4 / bpm
         if (this.currentClip !== clip) {
-            this.currentClip && this.currentClip.stop()
-            if (this.engine.startTime !== null)
-                this.engine.startTime = this.context.currentTime
-            const now = this.context.currentTime
-            const start = this.engine.startTime
-            const bpm = this.engine.bpm
-            const next = Math.ceil(now / 60.0 * bpm / 4.0) * 60 * 4 / bpm
+            this.currentClip && this.currentClip.stop(next)
             clip.play(next)
             this.currentClip = clip
         } else {
-            clip.stop()
+            clip.stop(next)
             this.currentClip = null
         }
     }
