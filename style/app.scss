@@ -13,20 +13,16 @@ body {
 }
 
 .header-section {
-    background-color: $primary;
     color: white;
-    padding: 20px 30px;
+    font-size: 25px;
 
-    .app-title {
-        font-size: 25px;
+    .material-icons { font-size: 40px; }
 
-        i { font-size: 40px; }
-    }
 }
 
 .music-section {
     padding: 20px 30px;
-    background-color: $info;
+    background-color: #CCC;
     width: 21%;
     display: inline-block;
     .clip-list {

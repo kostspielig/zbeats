@@ -1,7 +1,8 @@
 
 class Clip {
-    constructor(context, clipData) {
-        this.context = context
+    constructor(track, clipData) {
+        this.track = track
+        this.context = track.context
         var url = '../clips/' + clipData.sample
         var request = new XMLHttpRequest()
         request.open("GET", url, true)
@@ -28,36 +29,55 @@ class Clip {
     }
 
     play() {
-        if (!this.context.createGain)
-            this.context.createGain = this.context.createGainNode
-        this.gainNode = this.context.createGain()
         this.source = this.context.createBufferSource() // creates a sound source
         this.source.buffer = this.buffer // tell the source which sound to play
-
-        this.source.connect(this.gainNode)
-        this.gainNode.connect(this.context.destination)
+        this.source.connect(this.track.gainNode)
         this.source.loop = true
-        if (!this.source.start)
-            this.source.start = this.source.noteOn
         this.source.start(0)
+        this.playing = true
     }
 
     stop() {
-        if (!this.source.stop)
-            this.source.stop = source.noteOff
         this.source.stop(0)
+        this.playing = false
     }
 
     toggle() {
         this.playing ? this.stop() : this.play();
-        this.playing = !this.playing;
+    }
+
+}
+
+class Track {
+    constructor(engine) {
+        this.engine = engine
+        this.context = engine.context
+        this.gainNode = this.context.createGain()
+        this.gainNode.connect(this.context.destination)
+        this.currentClip = null
+        this.volume = 100
+    }
+
+    load(clipData) {
+        return new Clip(this, clipData)
+    }
+
+    toggle(clip) {
+        if (this.currentClip !== clip) {
+            this.currentClip && this.currentClip.stop()
+            clip.play()
+            this.currentClip = clip
+        } else {
+            clip.stop()
+            this.currentClip = null
+        }
     }
 
     changeVolume(value, max=100) {
-        let volume = value
+        // Let's use an x*x curve (x-squared) since simple linear (x)
+        // does not sound as good.
+        this.volume = value
         let fraction = parseInt(value) / parseInt(max)
-        // Let's use an x*x curve (x-squared) since simple linear (x) does not
-        // sound as good.
         this.gainNode.gain.value = fraction * fraction
     }
 }
@@ -67,8 +87,8 @@ class Engine {
         this.context = new (window.AudioContext || window.webkitAudioContext)()
     }
 
-    load(clipData) {
-        return new Clip(this.context, clipData)
+    addTrack() {
+        return new Track(this)
     }
 }
 

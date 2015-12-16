@@ -15,6 +15,11 @@ beat:
     name: break-beat
 
 bass:
+  - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
+    tags: [ chord ]
+    bpm: 120
+    name: chord-bass
+
   - sample: bass/looperman-l-0111346-0021947-planetjazzbass-capitalism-120bpm.wav
     tags: [ jazz, capitalism ]
     bpm: 120
@@ -23,7 +28,7 @@ bass:
   - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
     tags: [ chord ]
     bpm: 120
-    name: chord-bass
+    name: chord-bass2
 
 pads:
   - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
@@ -36,6 +41,10 @@ pads:
     bpm: 120
     name: choir
 
+  - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
+    tags: [ ambient ]
+    bpm: 120
+    name: synchro-pad2
 
 leads:
   - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
@@ -47,3 +56,8 @@ leads:
     tags: [ guitar ]
     bpm: 120
     name: guitar
+
+  - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
+    tags: [ piano, melodramatic ]
+    bpm: 120
+    name: piano2

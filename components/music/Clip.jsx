@@ -1,34 +1,34 @@
 import React, {Component} from 'react'
 
+import Card from 'material-ui/lib/card/card'
+import CardActions from 'material-ui/lib/card/card-actions'
+import CardExpandable from 'material-ui/lib/card/card-expandable'
+import CardHeader from 'material-ui/lib/card/card-header'
+import FlatButton from 'material-ui/lib/flat-button'
+import IconButton from 'material-ui/lib/icon-button'
+import CardText from 'material-ui/lib/card/card-text'
+
 class Clip extends Component {
+
     onClick(e) {
         e.preventDefault()
         const {setClip, clip} = this.props
         setClip(clip)
-        if (clip.volume)
-            clip.clip.changeVolume(clip.volume)
-    }
-
-    changeVolume(e) {
-        const {clip} = this.props
-
-        clip.volume = e.target.value
-        this.setState(clip)
-        if (clip.active)
-            clip.clip.changeVolume(e.target.value)
     }
 
     render() {
-        const {clip} = this.props;
-        let clipState = clip.active ? 'on' : 'off'
-        let playIcon = !clip.active ? 'play_arrow' : 'stop'
-        clip.volume = clip.volume ? clip.volume : 100
+        const {clip} = this.props
+        let clipState = clip.clip.playing ? 'on' : 'off'
+        let playIcon = !clip.clip.playing ? 'play_arrow' : 'stop'
         return (
-            <li className={clipState}>
-                {clip.name}
-                <div onClick={this.onClick.bind(this)}><i className="material-icons">{playIcon}</i></div>
-                <input type='range' min='0' max='100' value={clip.volume} onChange={this.changeVolume.bind(this)} />
-            </li>
+            <Card initiallyExpanded={true}>
+              <CardHeader
+                title={clip.name}
+                subtitle={clip.bpm}
+                avatar={<IconButton iconClassName='material-icons'
+                        onClick={this.onClick.bind(this)}>{playIcon}</IconButton>}>
+              </CardHeader>
+            </Card>
         )
     }
 }

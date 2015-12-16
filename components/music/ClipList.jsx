@@ -5,15 +5,17 @@ class ClipList extends Component {
     render() {
         const {clips, setClip} = this.props
         return (
-            <ul>{
-                clips.map( clip => {
-                    return <Clip
-                        clip={clip}
-                        key={clip.name}
-                        setClip={setClip}
-                    />
-                })
-            }</ul>
+            <ul>
+              {
+                  clips.map(clip => {
+                      return <Clip
+                                   clip={clip}
+                                   key={clip.name}
+                                   setClip={setClip}
+                                   />
+                  })
+              }
+            </ul>
         )
     }
 }
