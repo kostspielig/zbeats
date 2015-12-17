@@ -9,7 +9,7 @@ var items = require('json!yaml!../data/shop.yaml')
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
-import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme'
+import LightRawTheme from '../style/zbeats-theme'
 
 @ThemeDecorator(ThemeManager.getMuiTheme(LightRawTheme))
 class App extends Component {
@@ -17,7 +17,12 @@ class App extends Component {
         super(props)
         this.state = {}
         this.state.clips = clips
+
+
         this.state.items = items
+
+
+
         this.state.shopItems = []
         this.state.engine = new Engine()
         this.state.tracks = {}
