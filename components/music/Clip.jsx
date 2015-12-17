@@ -21,7 +21,7 @@ class Clip extends Component {
         let clipState = clip.clip.playing ? 'on' : 'off'
         let playIcon = !clip.clip.playing ? 'play_arrow' : 'stop'
         return (
-            <Card initiallyExpanded={true}>
+            <Card>
               <CardHeader
                 title={clip.name}
                 subtitle={clip.bpm}

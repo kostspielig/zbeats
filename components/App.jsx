@@ -1,15 +1,23 @@
 import React, {Component} from 'react'
 import HeaderSection from './header/HeaderSection.jsx'
+import ShopSection from './shop/ShopSection.jsx'
 import Track from './music/Track.jsx'
 import Engine from '../libs/audio.js'
 
 var clips = require('json!yaml!../clips/clips.yaml')
+var items = require('json!yaml!../data/shop.yaml')
 
+import ThemeManager from 'material-ui/lib/styles/theme-manager'
+import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
+import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme'
+
+@ThemeDecorator(ThemeManager.getMuiTheme(LightRawTheme))
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {}
         this.state.clips = clips
+        this.state.items = items
         this.state.engine = new Engine()
         this.state.tracks = {}
         Object.keys(clips).forEach((key) => {
@@ -74,6 +82,11 @@ class App extends Component {
                  track={this.state.tracks.leads}
                  clips={this.state.clips.leads}
                  setClip={this.setClip.bind(this)}
+                 />
+             </div>
+             <div className='shop-section'>
+               <ShopSection
+                 items={this.state.items}
                  />
              </div>
            </div>

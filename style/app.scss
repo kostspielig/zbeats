@@ -21,8 +21,7 @@ body {
 }
 
 .music-section {
-    padding: 20px 30px;
-    background-color: #CCC;
+    padding: 20px 15px;
     width: 21%;
     display: inline-block;
     .clip-list {
@@ -31,4 +30,9 @@ body {
         .on  { background-color: $warning; }
         .off {}
     }
+}
+
+.shop-section {
+    .title { padding: 20px 0; }
+    .shop-item { width: 25%; float: left; }
 }

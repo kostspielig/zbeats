@@ -14,9 +14,14 @@ beat:
     bpm: 120
     name: break-beat
 
+  - sample: beat/looperman-l-1319133-0090561-fanto8bc-amaryllis-house-beat-130bpm.wav
+    tags: [ house ]
+    bpm: 130
+    name: house-beat
+
 bass:
   - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
-    tags: [ chord, ambient ]
+    tags: [ chord, casual ]
     bpm: 120
     name: chord-bass
 
@@ -26,13 +31,13 @@ bass:
     name: jazzbass
 
   - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
-    tags: [ chord, ambient ]
+    tags: [ chord, casual ]
     bpm: 120
     name: chord-bass2
 
 pads:
   - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
-    tags: [ ambient ]
+    tags: [ casual ]
     bpm: 120
     name: synchro-pad
 
@@ -41,10 +46,10 @@ pads:
     bpm: 120
     name: choir
 
-  - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
-    tags: [ ambient ]
-    bpm: 120
-    name: synchro-pad2
+  - sample: pads/looperman-l-0207475-0031447-nightingale-tearing-100bpm.wav
+    tags: [ casual ]
+    bpm: 100
+    name: nightingale-tearing
 
 leads:
   - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
@@ -61,3 +66,19 @@ leads:
     tags: [ violin, hip-hop ]
     bpm: 100
     name: violin
+
+  - sample: leads/JC_Guitar95C-01.wav
+    tags: [ guitar, jazz ]
+    bpm: 95
+    name: jazz-guitar
+
+voice:
+  - sample: voice/looperman-l-0000013-0010403-djpuzzle-carla-starla-take-control-120bpm.wav
+    tags: [ house ]
+    bpm: 120
+    name: Take-control
+
+  - sample: voice/looperman-l-0000013-0000395-djpuzzle-robot-voice-120bpm.wav
+    tags: [ dance, house ]
+    bpm: 120
+    name: Dance-with-me
