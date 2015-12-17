@@ -30,10 +30,15 @@ bass:
     bpm: 120
     name: jazzbass
 
-  - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
-    tags: [ chord, casual ]
-    bpm: 120
-    name: chord-bass2
+  - sample: bass/looperman-l-0111346-0035676-planetjazzbass-indian-winter-100bpm.wav
+    tags: [ jazz, casual, winter, indian ]
+    bpm: 100
+    name: indian-jazz-bass
+
+  - sample: bass/looperman-l-0141594-0033805-fergal-tech-bass-2-140bpm.wav
+    tags: [ techno, casual ]
+    bpm: 140
+    name: tech-bass
 
 pads:
   - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
@@ -50,6 +55,11 @@ pads:
     tags: [ casual ]
     bpm: 100
     name: nightingale-tearing
+
+  - sample: pads/looperman-l-0626891-0076433-ebcott3-hip-hop-ambient-pad-140bpm.wav
+    tags: [ casual, hip-hop ]
+    bpm: 140
+    name: hip-hop-ambient
 
 leads:
   - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav

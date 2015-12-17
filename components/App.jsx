@@ -18,6 +18,7 @@ class App extends Component {
         this.state = {}
         this.state.clips = clips
         this.state.items = items
+        this.state.shopItems = []
         this.state.engine = new Engine()
         this.state.tracks = {}
         Object.keys(clips).forEach((key) => {
@@ -31,6 +32,13 @@ class App extends Component {
     setClip(clip) {
         this.setState({clip})
         clip.clip.track.toggle(clip.clip)
+        this.updateShop(this.state.shopItems)
+    }
+
+    updateShop(shopItems) {
+        // Calculate
+        shopItems = this.state.items.slice(2,6)
+        this.setState({shopItems})
     }
 
     setBpm(bpm) {
@@ -84,9 +92,17 @@ class App extends Component {
                  setClip={this.setClip.bind(this)}
                  />
              </div>
+             <div className='music-section voice'>
+               <Track
+                 title='Voice'
+                 track={this.state.tracks.voice}
+                 clips={this.state.clips.voice}
+                 setClip={this.setClip.bind(this)}
+                 />
+             </div>
              <div className='shop-section'>
                <ShopSection
-                 items={this.state.items}
+                 items={this.state.shopItems}
                  />
              </div>
            </div>

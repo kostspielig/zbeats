@@ -9,12 +9,16 @@ import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme'
 import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import TextField from 'material-ui/lib/text-field'
+import FlatButton from 'material-ui/lib/flat-button'
+import Slider from 'material-ui/lib/slider'
 
 @ThemeDecorator(ThemeManager.getMuiTheme(LightRawTheme))
 class HeaderSection extends Component {
 
-    changeBpm(e) {
-        this.props.setBpm(e.target.value)
+    changeBpm(e, value) {
+        const {engine} = this.props
+        this.props.setBpm(value)
+        //this.setState(engine)
     }
 
     render() {
@@ -34,10 +38,16 @@ class HeaderSection extends Component {
                       </IconMenu>
                       }
                       iconElementRight={
-                              <TextField
-                                    hintText='BPM'
-                                    value={this.props.engine.bpm + ""}
-                                    onChange={this.changeBpm.bind(this)} />
+                          <div className='header-right'>
+                              <Slider name='bpm'
+                                          className='bpm-slider'
+                                          defaultValue={this.props.engine.bpm}
+                                          min={40} max={200} step={1}
+                                          style={{color: 'blue'}}
+                                          value={this.props.engine.bpm}
+                                          onChange={this.changeBpm.bind(this)}/>
+                                  <FlatButton label={this.props.engine.bpm + ' bpm'}/>
+                              </div>
                       }
             />
         )
