@@ -60,12 +60,12 @@ class Track {
     }
 
     toggle(clip) {
-        if (this.engine.startTime !== null)
-            this.engine.startTime = this.context.currentTime
-        const now = this.context.currentTime
-        const start = this.engine.startTime
+        const curr = this.context.currentTime + 1./60.
+        if (this.engine.startTime === null)
+            this.engine.startTime = curr
+        const now = curr - this.engine.startTime
         const bpm = this.engine.bpm
-        const next = Math.ceil(now / 60.0 * bpm / 4.0) * 60 * 4 / bpm
+        const next = this.engine.startTime + Math.ceil(now / 60.0 * bpm / 4.0) * 60 * 4 / bpm
         if (this.currentClip !== clip) {
             this.currentClip && this.currentClip.stop(next)
             clip.play(next)
@@ -90,10 +90,30 @@ class Engine {
         this.context = new (window.AudioContext || window.webkitAudioContext)()
         this.startTime = null
         this.bpm = 120
+        this.tracks = []
+    }
+
+    changeBpm(bpm) {
+        const old = this.bpm
+        const time = this.context.currentTime + 1./60.
+        this.bpm = bpm
+        if (this.startTime !== null) {
+            const bars = (time - this.startTime) / 60.0 * old / 4.0
+            this.startTime = time + (Math.ceil(bars) - bars) * 60 * 4 / bpm
+        }
+        this.tracks.forEach(track => {
+            const clip = track.currentClip
+            if (clip !== null) {
+                clip.source.playbackRate.setValueAtTime(
+                    bpm / clip.clipData.bpm, time)
+            }
+        })
     }
 
     addTrack() {
-        return new Track(this)
+        const track = new Track(this)
+        this.tracks.push(track)
+        return track
     }
 }
 

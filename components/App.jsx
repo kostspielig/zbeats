@@ -25,12 +25,23 @@ class App extends Component {
         clip.clip.track.toggle(clip.clip)
     }
 
+    setBpm(bpm) {
+        const engine = this.state.engine
+        const val = parseInt(bpm)
+        if (!isNaN(val) && val > 0) {
+            engine.changeBpm(bpm)
+            this.setState({engine})
+        }
+
+    }
+
     render() {
         return (
            <div className='app'>
              <div className='header-section'>
                <HeaderSection
-                 bpm={120}
+                 engine={this.state.engine}
+                 setBpm={this.setBpm.bind(this)}
                  />
              </div>
              <div className='music-section beat'>
