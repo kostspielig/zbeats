@@ -17,8 +17,9 @@ class Track extends Component {
             <div className='clip-list'>
               <div className='title'>{this.props.title}</div>
               <ClipList {...this.props} />
-              <Card>
+              <Card className='volume-card'>
                 <Slider name='vol'
+                        className='track-slider'
                         defaultValue={100}
                         min={0} max={100}
                         value={track.volume}

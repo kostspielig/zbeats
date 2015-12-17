@@ -5,7 +5,7 @@ class ClipList extends Component {
     render() {
         const {clips, setClip} = this.props
         return (
-            <ul>
+            <div>
               {
                   clips.map(clip => {
                       return <Clip
@@ -15,7 +15,7 @@ class ClipList extends Component {
                                    />
                   })
               }
-            </ul>
+            </div>
         )
     }
 }

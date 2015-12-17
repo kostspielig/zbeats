@@ -21,11 +21,14 @@ body {
 }
 
 .music-section {
-    padding: 20px 15px;
-    width: 21%;
+    padding: 20px 0px;
+    width: 25%;
     display: inline-block;
     .clip-list {
+        padding: 0 15px;
         .title { padding: 20px 0; }
+        .volume-card { margin-top: 20px; }
+        .track-slider { margin: 0px 20px -25px 20px; }
 
         .on  { background-color: $warning; }
         .off {}
@@ -33,6 +36,6 @@ body {
 }
 
 .shop-section {
-    .title { padding: 20px 0; }
+    .title { padding: 20px 15px; }
     .shop-item { width: 25%; float: left; }
 }
