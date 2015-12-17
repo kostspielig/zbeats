@@ -1,6 +1,8 @@
 # zBeats
 
-zBeats music maker
+zBeats music maker.
+
+Tool to build music, develped with ReactJS, material UI, Web Audio and Webpack.
 
 
 # Usage
@@ -17,4 +19,18 @@ Install the dependencies by running:
 Tool to automatically rebuild our bundle file when changes are made to files in the dependency grapth. Then it will serve it on port 8080, and with the right parameters it will hot load our page
 ```
     npm install webpack-dev-server -g
+```
+
+## Run
+
+To run the app run:
+
+```
+    npm start
+```
+
+For the zalando images to work please include a new host (/etc/hosts -> 127.0.0.1  zbeats.dev) and open in the browser
+
+```
+    http://zbeats.dev:8080/webpack-dev-server/index.html
 ```
