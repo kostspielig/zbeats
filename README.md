@@ -1,6 +1,6 @@
 # zBeats
 
-zBeats music maker.
+zBeats fashion music maker.
 
 Tool to build music, develped with ReactJS, material UI, Web Audio and Webpack.
 
@@ -16,9 +16,14 @@ Install the dependencies by running:
     npm install serve -g
 ```
 
-Tool to automatically rebuild our bundle file when changes are made to files in the dependency grapth. Then it will serve it on port 8080, and with the right parameters it will hot load our page
+Tool to automatically rebuild our bundle file when changes are made to files in the dependency grapth. Then it will serve it on port 8080, and with the right parameters it will hot load our page.
 ```
     npm install webpack-dev-server -g
+```
+
+Install the project dependencies by running:
+```
+    npm install
 ```
 
 ## Run
