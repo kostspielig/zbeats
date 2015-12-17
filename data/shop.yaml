@@ -42,7 +42,7 @@
   gender: women
 
 - src: https://secure-i2.ztat.net//detail/NE/35/2B/04/BC/11/NE352B04B-C11@9.jpg
-  tags: [ hip-hop ]
+  tags: [ hip-hop, casual ]
   url: https://www.zalando.de/new-era-cap-grey-ne352b04b-c11.html
   description: Batman cap
   brand: New era
@@ -55,7 +55,21 @@
   brand: Komono
   gender: all
 
-- src:  https://secure-i1.ztat.net//detail/RA/25/4E/00/BO/11/RA254E00B-O11@10.1.jpg
+- src: https://secure-i5.ztat.net//large/BH/62/2S/A0/5Q/11/BH622SA05-Q11@29.3.jpg
+  tags: [ sport, casual, hip-hop ]
+  url: https://www.zalando.de/brooklyn-s-own-by-rocawear-sweatshirt-black-bh622sa05-q11.html
+  description: Black sweatshirt
+  brand: Brooklyn’s Own by Rocawear
+  gender: all
+
+- src: https://secure-i1.ztat.net//detail/HA/38/10/00/AT/11/HA381000A-T11@4.jpg
+  tags: [ happy, casual ]
+  url: https://www.zalando.de/happy-socks-2-pack-socken-multi-coloured-ha381000a-t11.html
+  description: Multi color socks
+  brand: Happy socks
+  gender: all
+
+- src: https://secure-i1.ztat.net//detail/RA/25/4E/00/BO/11/RA254E00B-O11@10.1.jpg
   tags: [ casual, rock ]
   url: https://www.zalando.de/ray-ban-sonnenbrille-brown-ra254e00b-o11.html
   description: Brown sunglasses
@@ -75,7 +89,6 @@
   description: Madeline jumpsuit
   brand: American Apparel
   gender: women
-
 
 - src: https://secure-i5.ztat.net//large/AD/54/1E/0A/BQ/11/AD541E0AB-Q11@11.jpg
   tags: [ sport, rock, urban ]
@@ -104,3 +117,17 @@
   description: Black pumps
   brand: Miss Selfridge
   gender: women
+
+- src: https://secure-i1.ztat.net//detail/NS/42/2S/00/DC/11/NS422S00D-C11@13.jpg
+  tags: [ hip-hop ]
+  url: https://www.zalando.de/nike-sb-everett-jogginghose-dark-grey-heather-ns422s00d-c11.html
+  description: Grey Joggers
+  brand: Nike SB
+  gender: men
+
+- src: https://secure-i2.ztat.net//detail/GP/02/2Q/00/LK/11/GP022Q00L-K11@10.jpg
+  tags: [ hippie, reggae ]
+  url: https://www.zalando.de/gap-strickpullover-dark-blue-white-gp022q00l-k11.html
+  description: Colored sweater
+  brand: Gap
+  gender: men

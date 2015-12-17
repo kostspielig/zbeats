@@ -9,21 +9,17 @@ var items = require('json!yaml!../data/shop.yaml')
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
-import LightRawTheme from '../style/zbeats-theme'
+import zBeatsTheme from '../style/zbeats-theme'
 
-@ThemeDecorator(ThemeManager.getMuiTheme(LightRawTheme))
+@ThemeDecorator(ThemeManager.getMuiTheme(zBeatsTheme))
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {}
         this.state.clips = clips
-
-
         this.state.items = items
-
-
-
         this.state.shopItems = []
+        this.state.tags = []
         this.state.engine = new Engine()
         this.state.tracks = {}
         Object.keys(clips).forEach((key) => {
@@ -42,6 +38,14 @@ class App extends Component {
 
     updateShop(shopItems) {
         // Calculate
+        let tags = []
+        console.log(this.state.tracks)
+        Object.keys(this.state.tracks).forEach( track=> {
+            if (this.state.tracks[track].currentClip)
+                tags.push(this.state.tracks[track].currentClip.clipData.tags)
+        })
+        console.log(tags)
+
         shopItems = this.state.items.slice(2,6)
         this.setState({shopItems})
     }
@@ -53,7 +57,6 @@ class App extends Component {
             engine.changeBpm(bpm)
             this.setState({engine})
         }
-
     }
 
     render() {

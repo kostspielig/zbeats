@@ -16,7 +16,6 @@ class HeaderSection extends Component {
     changeBpm(e, value) {
         const {engine} = this.props
         this.props.setBpm(value)
-        //this.setState(engine)
     }
 
     render() {
