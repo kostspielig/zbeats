@@ -40,3 +40,10 @@ For the zalando images to work please include a new host (/etc/hosts -> 127.0.0.
 ```
     http://zbeats.dev:8080/webpack-dev-server/index.html
 ```
+
+
+# Credits
+
+Code made with love by Maria Carrasco with help from Juan Pedro Bolívar Puente.
+
+Loops selected from http://www.looperman.com/
