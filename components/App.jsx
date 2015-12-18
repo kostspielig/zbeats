@@ -24,6 +24,8 @@ class App extends Component {
         this.state.tracks = {}
         Object.keys(clips).forEach((key) => {
             this.state.tracks[key] = this.state.engine.addTrack()
+            this.shuffleArray(clips[key])
+            clips[key].splice(7)
             clips[key].forEach((clip) =>
                 clip.clip = this.state.tracks[key].load(clip)
             )
@@ -123,17 +125,25 @@ class App extends Component {
                  setClip={this.setClip.bind(this)}
                  />
              </div>
-             <div className='music-section leads'>
+             <div className='music-section instruments'>
                <Track
-                 title='Leads'
-                 track={this.state.tracks.leads}
-                 clips={this.state.clips.leads}
+                 title='Instruments'
+                 track={this.state.tracks.instrument}
+                 clips={this.state.clips.instrument}
+                 setClip={this.setClip.bind(this)}
+                 />
+             </div>
+             <div className='music-section instrument'>
+               <Track
+                 title='Synth'
+                 track={this.state.tracks.synth}
+                 clips={this.state.clips.synth}
                  setClip={this.setClip.bind(this)}
                  />
              </div>
              <div className='music-section voice'>
                <Track
-                 title='Voice'
+                 title='Vocal'
                  track={this.state.tracks.voice}
                  clips={this.state.clips.voice}
                  setClip={this.setClip.bind(this)}

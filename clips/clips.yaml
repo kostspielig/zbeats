@@ -1,94 +1,390 @@
 beat:
-  - sample: beat/looperman-l-1212605-0072974-gruzzle-deep-house-beat-120bpm.wav
-    tags: [ house ]
-    bpm: 120
-    name: deep-house
 
   - sample: beat/looperman-l-1319133-0091072-fanto8bc-power-beat-120bpm.wav
-    tags: [ power ]
+    tags: [ dubstep, power ]
     bpm: 120
-    name: power-beat
+    name: Stepz
 
   - sample: beat/looperman-l-1319133-0090836-fanto8bc-fto-break-beat-120bpm.wav
     tags: [ break ]
     bpm: 120
-    name: break-beat
+    name: Breaky
 
   - sample: beat/looperman-l-1319133-0090561-fanto8bc-amaryllis-house-beat-130bpm.wav
-    tags: [ house ]
+    tags: [ techno ]
     bpm: 130
-    name: house-beat
+    name: Tresor
+
+  - sample: beat/looperman-l-0526890-0050837-st3rl1ng-008-drum-and-bass-drums-174bpm.wav
+    tags: [ dnb ]
+    bpm: 174
+    name: Dumbass
+
+  - sample: beat/looperman-l-0632005-0090899-cfreemanjr-power-drums-90bpm.wav
+    tags: [ hip-hop ]
+    bpm: 90
+    name: Power
+
+  - sample: beat/looperman-l-0180667-0023533-butcha-dubstep-beat-140bpm.wav
+    tags: [ dubstep ]
+    bpm: 140
+    name: Butcha
+
+  - sample: beat/looperman-l-0243518-0034488-sterixx-disco-drums-01-120bpm.wav
+    tags: [ dubstep ]
+    bpm: 120
+    name: Disco!
+
+  - sample: beat/looperman-l-0043202-0000839-jobu420-jobubeat2-170bpm.wav
+    tags: [ dubstep ]
+    bpm: 170
+    name: Jobu
+
+  - sample: beat/looperman-l-0788612-0065119-inklewinkle2-liquid-drum-and-bass-break-175bpm.wav
+    tags: [ dubstep ]
+    bpm: 175
+    name: Liquid
+
+  - sample: beat/looperman-l-0105699-0008054-loopmix-afro-beat-reaktorized-128bpm.wav
+    tags: [ dubstep ]
+    bpm: 128
+    name: Ritual
+
+  - sample: beat/looperman-l-1018967-0073164-atlasblue-jingle-bells-trapbeat-part-2-90bpm.wav
+    tags: [ dubstep ]
+    bpm: 90
+    name: Jingle
+
+  - sample: beat/looperman-l-0749324-0053902-roseerin-hit-house-beat-124bpm.wav
+    tags: [ dubstep ]
+    bpm: 124
+    name: Kater
+
+  - sample: beat/looperman-l-0000013-0086769-djpuzzle-dj-puzzle-micro-house-beat-120bpm.wav
+    tags: [ house ]
+    bpm: 120
+    name: Hedonist
+
+  - sample: beat/looperman-l-0203623-0021323-mhyst-techno-beat-140bpm.wav
+    tags: [ techno ]
+    bpm: 140
+    name: Stajanov
+
+  - sample: beat/looperman-l-1319133-0090839-fanto8bc-indus-beat-110bpm.wav
+    tags: [ indie ]
+    bpm: 110
+    name: Indus
+
+  - sample: beat/looperman-l-1585211-0086838-xxxzephyrxxx-beat-tech-140bpm.wav
+    tags: [ techno ]
+    bpm: 140
+    name: Days
+
+  - sample: beat/looperman-l-0641278-0052000-skipyofficialmusic-skrillex-drum-loop-read-description-140bpm.wav
+    tags: [ dubstep ]
+    bpm: 140
+    name: Scream
+
+  - sample: beat/looperman-l-0433536-0056339-rwdkl-bodega-jamz-trap-drumz-130bpm.wav
+    tags: [ trap ]
+    bpm: 130
+    name: Trapper
+
+  - sample: beat/looperman-l-1153063-0091075-nocturnax-trap-beat-75bpm.wav
+    tags: [ trap ]
+    bpm: 75
+    name: Badass
 
 bass:
   - sample: bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav
     tags: [ chord, casual ]
     bpm: 120
-    name: chord-bass
+    name: Chordz
 
-  - sample: bass/looperman-l-0111346-0021947-planetjazzbass-capitalism-120bpm.wav
-    tags: [ jazz, capitalism ]
+  - sample: bass/looperman-l-0079105-0054678-centrist-hell-on-earth-bass-chorus-120bpm.wav
+    tags: [ metal, hell ]
     bpm: 120
-    name: jazzbass
-
-  - sample: bass/looperman-l-0111346-0035676-planetjazzbass-indian-winter-100bpm.wav
-    tags: [ jazz, casual, winter, indian ]
-    bpm: 100
-    name: indian-jazz-bass
+    name: Hell
 
   - sample: bass/looperman-l-0141594-0033805-fergal-tech-bass-2-140bpm.wav
     tags: [ techno, casual ]
     bpm: 140
-    name: tech-bass
+    name: Techz
+
+  - sample: bass/looperman-l-0226904-0060709-jfw-fusion-bass-loop-1a-115bpm.wav
+    tags: [ fusion ]
+    bpm: 94
+    name: Fuzion
+
+  - sample: bass/looperman-l-0125202-0015272-soulfull-s-bassive-145bpm.wav
+    tags: [ fusion ]
+    bpm: 145
+    name: Bassive
+
+  - sample: bass/looperman-l-0229350-0058912-killzoner-dubstep-wobbles-128bpm.wav
+    tags: [ fusion ]
+    bpm: 128
+    name: Wobblez
+
+  - sample: bass/looperman-l-0763690-0065554-loopslab-electro-house-drop-bass-128bpm.wav
+    tags: [ fusion ]
+    bpm: 128
+    name: Banger
+
+  - sample: bass/looperman-l-0071878-0006937-psychotropiccircle-double-bass-108-bbm.wav
+    tags: [ fusion ]
+    bpm: 108
+    name: Double
+
+  - sample: bass/looperman-l-0352007-0026273-basstrike-grass-bass-175bpm.wav
+    tags: [ fusion ]
+    bpm: 175
+    name: Strike
 
 pads:
+  - sample: bass/looperman-l-0111346-0035676-planetjazzbass-indian-winter-100bpm.wav
+    tags: [ jazz, casual, winter, indian ]
+    bpm: 100
+    name: Delhi
+
   - sample: pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav
     tags: [ casual ]
     bpm: 120
-    name: synchro-pad
+    name: Dreamz
 
   - sample: pads/looperman-l-0262259-0031167-califken-chormotion-120bpm.wav
     tags: [ choir ]
     bpm: 120
-    name: choir
-
-  - sample: pads/looperman-l-0207475-0031447-nightingale-tearing-100bpm.wav
-    tags: [ casual ]
-    bpm: 100
-    name: nightingale-tearing
+    name: Choirz
 
   - sample: pads/looperman-l-0626891-0076433-ebcott3-hip-hop-ambient-pad-140bpm.wav
     tags: [ casual, hip-hop ]
     bpm: 140
-    name: hip-hop-ambient
+    name: Mistery
 
-leads:
-  - sample: leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
+  - sample: pads/looperman-l-0000003-0000085-serialchiller-chilla-dream-pad-130bpm.wav
+    tags: [ casual, hip-hop ]
+    bpm: 130
+    name: Morfeo
+
+  - sample: pads/looperman-l-0000003-0000086-serialchiller-chilla-dream-pad-2-130bpm.wav
+    tags: [ casual, hip-hop ]
+    bpm: 130
+    name: Awake
+
+  - sample: pads/looperman-l-0102056-0011030-dj4real-railroad-elevated-140bpm.wav
+    tags: [ casual, hip-hop ]
+    bpm: 140
+    name: Elevated
+
+  - sample: pads/looperman-l-0016211-0000351-equinoxsoundscom-equinox-ethereal-melody-in-am-117bpm.wav
+    tags: [ casual, hip-hop ]
+    bpm: 117
+    name: Ethereal
+
+instrument:
+
+  - sample: instrument/looperman-l-0207475-0031447-nightingale-tearing-100bpm.wav
+    tags: [ casual ]
+    bpm: 100
+    name: Surf
+
+  - sample: instrument/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav
     tags: [ piano, melodramatic ]
     bpm: 120
-    name: piano
+    name: Drama
 
-  - sample: leads/looperman-l-0000003-0000084-serialchiller-chilla-dist-guitar-riff-3-120bpm.wav
-    tags: [ guitar, electronic ]
-    bpm: 120
-    name: guitar
-
-  - sample: leads/looperman-l-0159051-0029237-minor2go-seven-hearts-violins-100bpm.wav
+  - sample: instrument/looperman-l-0159051-0029237-minor2go-seven-hearts-violins-100bpm.wav
     tags: [ violin, hip-hop ]
     bpm: 100
-    name: violin
+    name: Sadnez
 
-  - sample: leads/JC_Guitar95C-01.wav
+  - sample: instrument/looperman-l-0085913-0014505-xarnor-fast-guitar-riff-175bpm.wav
     tags: [ guitar, jazz ]
-    bpm: 95
-    name: jazz-guitar
+    bpm: 175
+    name: Melenaz
+
+  - sample: instrument/looperman-l-0761156-0079815-asko-upbeat-piano-120bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 120
+    name: Upbeat
+
+  - sample: instrument/looperman-l-1032912-0068500-dazanosa-reggae-or-dub-guitar-stabs-120bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 120
+    name: Marley
+
+  - sample: instrument/looperman-l-0026789-0000414-omars-omar-phased-guitar-groove-120bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 120
+    name: Groovy
+
+  - sample: instrument/looperman-l-1352219-0078389-jensmuse-koto-melody-120bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 120
+    name: Koto
+
+  - sample: instrument/looperman-l-0901862-0065926-dirtballrecordz-trap-piano-140bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 140
+    name: Trapy
+
+  - sample: instrument/looperman-l-0158799-0039649-alividlife-anti-snow-ragga-guitar-70bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 140
+    name: Kiffy
+
+  - sample: instrument/looperman-l-0448131-0065295-megapaul-dont-metal-your-friends-85bpm-csharp-85bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 85
+    name: Friends
+
+  - sample: instrument/looperman-l-0159051-0061816-minor2go-guitars-unlimited-my-passion-120bpm.wav
+    tags: [ guitar, jazz ]
+    bpm: 120
+    name: Passion
+
+  - sample: instrument/looperman-l-0072432-0001988-anchor-hungarian-piano-01-100bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 100
+    name: Hunger
+
+  - sample: instrument/looperman-l-0025227-0000585-insanesmilie-insane-moonlight-piano-roll-120bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 120
+    name: Moonlight
+
+  - sample: instrument/looperman-l-0025227-0000584-insanesmilie-insane-trance-chords-120bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 120
+    name: Chords
+
+
+synth:
+
+  - sample: synth/looperman-l-0000013-0000392-djpuzzle-trance-synth-01-120bpm.wav
+    tags: [ casual ]
+    bpm: 120
+    name: Euro
+
+  - sample: synth/looperman-l-0000014-0000112-bentleyrhythmace-bra-rave-synth-loop-126bpm.wav
+    tags: [ casual ]
+    bpm: 126
+    name: Smooth
+
+  - sample: synth/looperman-l-0027963-0000482-loopinmadscientist-madscientist-goa-synth-150bpm.wav
+    tags: [ casual ]
+    bpm: 150
+    name: Goa
+
+  - sample: synth/looperman-l-0039735-0050928-ancoral-acp-next-gate-03-120bpm.wav
+    tags: [ bit, glitch ]
+    bpm: 120
+    name: Next
+
+  - sample: synth/looperman-l-0219480-0069866-cellocubano-some-rhodes-84bpm.wav
+    tags: [ casual ]
+    bpm: 84
+    name: Rhodes
+
+  - sample: synth/looperman-l-0749324-0053904-roseerin-hardstyle-screamer-150-d-120bpm.wav
+    tags: [ casual ]
+    bpm: 150
+    name: Raver
+
+  - sample: synth/looperman-l-0671112-0065553-danke-damned-120bpm.wav
+    tags: [ casual ]
+    bpm: 120
+    name: Damned
+
+  - sample: synth/looperman-l-0480098-0051507-jamievega-bouncy-offbeat-synth-with-delay-90bpm.wav
+    tags: [ casual ]
+    bpm: 90
+    name: Chao
+
+  - sample: synth/looperman-l-0562523-0059549-digitalskyy-epic-pad-and-pluck-buildup-140bpm.wav
+    tags: [ casual ]
+    bpm: 140
+    name: Epic
+
+  - sample: synth/looperman-l-0039735-0063220-ancoral-acp-huge-chord-seq-140bpm.wav
+    tags: [ casual ]
+    bpm: 140
+    name: Anthem
+
+  - sample: synth/looperman-l-0159051-0049740-minor2go-piano-romance-the-first-day-2-100bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 100
+    name: Romance
+
+  - sample: synth/looperman-l-0506728-0058639-krazyindian-beamer-benz-or-bentley-160bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 160
+    name: Bentley
+
+  - sample: synth/looperman-l-0420981-0051904-zatch-e-synth-128bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 128
+    name: Zatch
+
+  - sample: synth/looperman-l-0951439-0067317-evisma-recall-and-regret-120bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 120
+    name: Regret
+
+  - sample: synth/looperman-l-0882657-0075009-projectsynapsys-banger-squeal-pop-140bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 140
+    name: Squeal
+
+  - sample: synth/looperman-l-0754277-0052918-noizecollector-trap-lead-synth-bass-141bpm.wav
+    tags: [ piano, jazz ]
+    bpm: 141
+    name: Recall
 
 voice:
+
   - sample: voice/looperman-l-0000013-0010403-djpuzzle-carla-starla-take-control-120bpm.wav
     tags: [ house ]
     bpm: 120
-    name: Take-control
+    name: Control
 
   - sample: voice/looperman-l-0000013-0000395-djpuzzle-robot-voice-120bpm.wav
     tags: [ dance, house ]
     bpm: 120
-    name: Dance-with-me
+    name: Dance
+
+  - sample: voice/looperman-l-0795768-0060343-cyto-within-your-soul-chopped-and-sliced-140bpm.wav
+    tags: [ dance, house ]
+    bpm: 140
+    name: Choppy
+
+  - sample: voice/looperman-l-0265632-0045072-weazelbeats-weazel-vocal-loop-128bpm.wav
+    tags: [ dance, house ]
+    bpm: 128
+    name: Weazel
+
+  - sample: voice/looperman-l-1153063-0079478-nocturnax-edm-vocal-drop-128bpm.wav
+    tags: [ dance, house ]
+    bpm: 128
+    name: Drop
+
+  - sample: voice/looperman-l-1153063-0079485-nocturnax-edm-vocal-drop-2-128bpm.wav
+    tags: [ dance, house ]
+    bpm: 128
+    name: Edemy
+
+  - sample: voice/looperman-l-1059144-0068636-ebaby8119-trap-drumz-just-vocals-140bpm.wav
+    tags: [ dance, house ]
+    bpm: 140
+    name: Eh!
+
+  - sample: voice/looperman-l-0562523-0048319-digitalskyy-come-on-vox-loop-for-house-130bpm.wav
+    tags: [ dance, house ]
+    bpm: 130
+    name: Come on
+
+  - sample: voice/looperman-l-0562523-0064726-digitalskyy-daaayum-son-new-trap-vox-140bpm.wav
+    tags: [ dance, house ]
+    bpm: 140
+    name: Daayum
