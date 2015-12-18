@@ -10,6 +10,10 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import TextField from 'material-ui/lib/text-field'
 import FlatButton from 'material-ui/lib/flat-button'
 import Slider from 'material-ui/lib/slider'
+import Avatar from 'material-ui/lib/avatar'
+import Card from 'material-ui/lib/card/card'
+import CardActions from 'material-ui/lib/card/card-actions'
+import CardHeader from 'material-ui/lib/card/card-header'
 
 class HeaderSection extends Component {
 
@@ -35,16 +39,17 @@ class HeaderSection extends Component {
                       </IconMenu>
                       }
                       iconElementRight={
-                          <div className='header-right'>
-                              <Slider name='bpm'
-                                          className='bpm-slider'
-                                          defaultValue={this.props.engine.bpm}
-                                          min={40} max={200} step={1}
-                                          style={{color: 'blue'}}
-                                          value={this.props.engine.bpm}
-                                          onChange={this.changeBpm.bind(this)}/>
-                                  <FlatButton label={this.props.engine.bpm + ' bpm'}/>
-                              </div>
+                          <div className='bpm-header'>
+                          <FlatButton className='bpm-title'>{this.props.engine.bpm} BPM</FlatButton>
+                          <div className='bpm-card'>
+                          <Slider name='bpm'
+                                  className='bpm-slider'
+                                  defaultValue={this.props.engine.bpm}
+                                  min={40} max={200} step={1}
+                                  value={this.props.engine.bpm}
+                          onChange={this.changeBpm.bind(this)}/>
+                          </div>
+                          </div>
                       }
             />
         )

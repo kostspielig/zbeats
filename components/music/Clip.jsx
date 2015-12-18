@@ -23,9 +23,10 @@ class Clip extends Component {
         return (
             <Card>
               <CardHeader
+                className='clip-header'
                 title={clip.name}
                 subtitle={clip.bpm}
-                avatar={<IconButton iconClassName='material-icons'
+                avatar={<IconButton className='clip-icon' iconClassName='material-icons'
                         onClick={this.onClick.bind(this)}>{playIcon}</IconButton>}>
               </CardHeader>
             </Card>
