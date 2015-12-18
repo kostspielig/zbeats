@@ -38,16 +38,47 @@ class App extends Component {
 
     updateShop(shopItems) {
         // Calculate
-        let tags = []
-        console.log(this.state.tracks)
-        Object.keys(this.state.tracks).forEach( track=> {
-            if (this.state.tracks[track].currentClip)
-                tags.push(this.state.tracks[track].currentClip.clipData.tags)
-        })
-        console.log(tags)
+        let tags = {}
 
-        shopItems = this.state.items.slice(2,6)
+        Object.keys(this.state.tracks).forEach( track => {
+            if (this.state.tracks[track].currentClip) {
+                this.state.tracks[track].currentClip.clipData.tags.forEach( tag => {
+                    if (tags[tag])
+                        tags[tag] += 1
+                    else tags[tag] = 1
+                })
+            }
+        })
+
+        // Compute how many times the each item tag occurs in the
+        // playing clips
+        this.state.items.forEach(item => {
+            item.points = item.tags.reduce((points, tag) =>
+                points + (tags[tag] || 0)
+            , 0)
+        })
+
+        // Randomize and re-sort items by how many popular are its tags
+        this.shuffleArray(this.state.items)
+        this.state.items.sort((a, b) => b.points - a.points)
+
+        // Take the top 4 items
+        shopItems = this.state.items.slice(0, 4)
         this.setState({shopItems})
+    }
+
+    /**
+     * Randomize array element order in-place.
+     * Using Durstenfeld shuffle algorithm.
+     */
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1))
+            let temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+        }
+        return array
     }
 
     setBpm(bpm) {
