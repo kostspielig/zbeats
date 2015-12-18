@@ -23760,7 +23760,7 @@
 	  spacing: Spacing,
 	  fontFamily: 'Roboto, sans-serif',
 	  palette: {
-	    primary1Color: '#fb9521',
+	    primary1Color: Colors.cyan500,
 	    primary2Color: Colors.cyan700,
 	    primary3Color: Colors.grey400,
 	    accent1Color: Colors.pinkA200,
@@ -23773,7 +23773,6 @@
 	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
 	  }
 	};
-
 
 /***/ },
 /* 203 */
@@ -29043,7 +29042,6 @@
 	  }
 	};
 
-
 /***/ },
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
@@ -30101,8 +30099,7 @@
 			{
 				"sample": "beat/looperman-l-1319133-0091072-fanto8bc-power-beat-120bpm.wav",
 				"tags": [
-					"dubstep",
-					"power"
+					"dubstep"
 				],
 				"bpm": 120,
 				"name": "Stepz"
@@ -30110,6 +30107,7 @@
 			{
 				"sample": "beat/looperman-l-1319133-0090836-fanto8bc-fto-break-beat-120bpm.wav",
 				"tags": [
+					"break",
 					"break"
 				],
 				"bpm": 120,
@@ -30118,7 +30116,8 @@
 			{
 				"sample": "beat/looperman-l-1319133-0090561-fanto8bc-amaryllis-house-beat-130bpm.wav",
 				"tags": [
-					"techno"
+					"techno",
+					"black"
 				],
 				"bpm": 130,
 				"name": "Tresor"
@@ -30126,7 +30125,8 @@
 			{
 				"sample": "beat/looperman-l-0526890-0050837-st3rl1ng-008-drum-and-bass-drums-174bpm.wav",
 				"tags": [
-					"dnb"
+					"dnb",
+					"break"
 				],
 				"bpm": 174,
 				"name": "Dumbass"
@@ -30142,7 +30142,8 @@
 			{
 				"sample": "beat/looperman-l-0180667-0023533-butcha-dubstep-beat-140bpm.wav",
 				"tags": [
-					"dubstep"
+					"dubstep",
+					"break"
 				],
 				"bpm": 140,
 				"name": "Butcha"
@@ -30150,7 +30151,9 @@
 			{
 				"sample": "beat/looperman-l-0243518-0034488-sterixx-disco-drums-01-120bpm.wav",
 				"tags": [
-					"dubstep"
+					"disco",
+					"house",
+					"color"
 				],
 				"bpm": 120,
 				"name": "Disco!"
@@ -30158,7 +30161,8 @@
 			{
 				"sample": "beat/looperman-l-0043202-0000839-jobu420-jobubeat2-170bpm.wav",
 				"tags": [
-					"dubstep"
+					"jugnle",
+					"dnb"
 				],
 				"bpm": 170,
 				"name": "Jobu"
@@ -30166,7 +30170,8 @@
 			{
 				"sample": "beat/looperman-l-0788612-0065119-inklewinkle2-liquid-drum-and-bass-break-175bpm.wav",
 				"tags": [
-					"dubstep"
+					"liquid",
+					"dnb"
 				],
 				"bpm": 175,
 				"name": "Liquid"
@@ -30174,7 +30179,8 @@
 			{
 				"sample": "beat/looperman-l-0105699-0008054-loopmix-afro-beat-reaktorized-128bpm.wav",
 				"tags": [
-					"dubstep"
+					"afro",
+					"house"
 				],
 				"bpm": 128,
 				"name": "Ritual"
@@ -30190,7 +30196,8 @@
 			{
 				"sample": "beat/looperman-l-0749324-0053902-roseerin-hit-house-beat-124bpm.wav",
 				"tags": [
-					"dubstep"
+					"house",
+					"color"
 				],
 				"bpm": 124,
 				"name": "Kater"
@@ -30198,7 +30205,8 @@
 			{
 				"sample": "beat/looperman-l-0000013-0086769-djpuzzle-dj-puzzle-micro-house-beat-120bpm.wav",
 				"tags": [
-					"house"
+					"house",
+					"white"
 				],
 				"bpm": 120,
 				"name": "Hedonist"
@@ -30214,7 +30222,7 @@
 			{
 				"sample": "beat/looperman-l-1319133-0090839-fanto8bc-indus-beat-110bpm.wav",
 				"tags": [
-					"indie"
+					"pop"
 				],
 				"bpm": 110,
 				"name": "Indus"
@@ -30238,7 +30246,8 @@
 			{
 				"sample": "beat/looperman-l-0433536-0056339-rwdkl-bodega-jamz-trap-drumz-130bpm.wav",
 				"tags": [
-					"trap"
+					"trap",
+					"hip-hop"
 				],
 				"bpm": 130,
 				"name": "Trapper"
@@ -30246,7 +30255,8 @@
 			{
 				"sample": "beat/looperman-l-1153063-0091075-nocturnax-trap-beat-75bpm.wav",
 				"tags": [
-					"trap"
+					"trap",
+					"hip-hop"
 				],
 				"bpm": 75,
 				"name": "Badass"
@@ -30257,7 +30267,8 @@
 				"sample": "bass/looperman-l-1137331-0070359-herk13-chord-bass-120bpm.wav",
 				"tags": [
 					"chord",
-					"casual"
+					"party",
+					"color"
 				],
 				"bpm": 120,
 				"name": "Chordz"
@@ -30265,8 +30276,9 @@
 			{
 				"sample": "bass/looperman-l-0079105-0054678-centrist-hell-on-earth-bass-chorus-120bpm.wav",
 				"tags": [
-					"metal",
-					"hell"
+					"rock",
+					"guitar",
+					"black"
 				],
 				"bpm": 120,
 				"name": "Hell"
@@ -30275,7 +30287,7 @@
 				"sample": "bass/looperman-l-0141594-0033805-fergal-tech-bass-2-140bpm.wav",
 				"tags": [
 					"techno",
-					"casual"
+					"black"
 				],
 				"bpm": 140,
 				"name": "Techz"
@@ -30283,7 +30295,9 @@
 			{
 				"sample": "bass/looperman-l-0226904-0060709-jfw-fusion-bass-loop-1a-115bpm.wav",
 				"tags": [
-					"fusion"
+					"rock",
+					"classic",
+					"guitar"
 				],
 				"bpm": 94,
 				"name": "Fuzion"
@@ -30291,7 +30305,9 @@
 			{
 				"sample": "bass/looperman-l-0125202-0015272-soulfull-s-bassive-145bpm.wav",
 				"tags": [
-					"fusion"
+					"techno",
+					"dubstep",
+					"black"
 				],
 				"bpm": 145,
 				"name": "Bassive"
@@ -30299,7 +30315,9 @@
 			{
 				"sample": "bass/looperman-l-0229350-0058912-killzoner-dubstep-wobbles-128bpm.wav",
 				"tags": [
-					"fusion"
+					"dubstep",
+					"rave",
+					"color"
 				],
 				"bpm": 128,
 				"name": "Wobblez"
@@ -30307,7 +30325,7 @@
 			{
 				"sample": "bass/looperman-l-0763690-0065554-loopslab-electro-house-drop-bass-128bpm.wav",
 				"tags": [
-					"fusion"
+					"rave"
 				],
 				"bpm": 128,
 				"name": "Banger"
@@ -30315,7 +30333,7 @@
 			{
 				"sample": "bass/looperman-l-0071878-0006937-psychotropiccircle-double-bass-108-bbm.wav",
 				"tags": [
-					"fusion"
+					"classic"
 				],
 				"bpm": 108,
 				"name": "Double"
@@ -30323,7 +30341,8 @@
 			{
 				"sample": "bass/looperman-l-0352007-0026273-basstrike-grass-bass-175bpm.wav",
 				"tags": [
-					"fusion"
+					"rock",
+					"black"
 				],
 				"bpm": 175,
 				"name": "Strike"
@@ -30333,10 +30352,8 @@
 			{
 				"sample": "bass/looperman-l-0111346-0035676-planetjazzbass-indian-winter-100bpm.wav",
 				"tags": [
-					"jazz",
-					"casual",
-					"winter",
-					"indian"
+					"hippie",
+					"color"
 				],
 				"bpm": 100,
 				"name": "Delhi"
@@ -30344,7 +30361,7 @@
 			{
 				"sample": "pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav",
 				"tags": [
-					"casual"
+					"white"
 				],
 				"bpm": 120,
 				"name": "Dreamz"
@@ -30352,7 +30369,8 @@
 			{
 				"sample": "pads/looperman-l-0262259-0031167-califken-chormotion-120bpm.wav",
 				"tags": [
-					"choir"
+					"choir",
+					"black"
 				],
 				"bpm": 120,
 				"name": "Choirz"
@@ -30360,8 +30378,8 @@
 			{
 				"sample": "pads/looperman-l-0626891-0076433-ebcott3-hip-hop-ambient-pad-140bpm.wav",
 				"tags": [
-					"casual",
-					"hip-hop"
+					"hip-hop",
+					"black"
 				],
 				"bpm": 140,
 				"name": "Mistery"
@@ -30369,8 +30387,7 @@
 			{
 				"sample": "pads/looperman-l-0000003-0000085-serialchiller-chilla-dream-pad-130bpm.wav",
 				"tags": [
-					"casual",
-					"hip-hop"
+					"white"
 				],
 				"bpm": 130,
 				"name": "Morfeo"
@@ -30378,8 +30395,7 @@
 			{
 				"sample": "pads/looperman-l-0000003-0000086-serialchiller-chilla-dream-pad-2-130bpm.wav",
 				"tags": [
-					"casual",
-					"hip-hop"
+					"color"
 				],
 				"bpm": 130,
 				"name": "Awake"
@@ -30387,8 +30403,7 @@
 			{
 				"sample": "pads/looperman-l-0102056-0011030-dj4real-railroad-elevated-140bpm.wav",
 				"tags": [
-					"casual",
-					"hip-hop"
+					"chill"
 				],
 				"bpm": 140,
 				"name": "Elevated"
@@ -30396,8 +30411,7 @@
 			{
 				"sample": "pads/looperman-l-0016211-0000351-equinoxsoundscom-equinox-ethereal-melody-in-am-117bpm.wav",
 				"tags": [
-					"casual",
-					"hip-hop"
+					"white"
 				],
 				"bpm": 117,
 				"name": "Ethereal"
@@ -30415,8 +30429,7 @@
 			{
 				"sample": "instrument/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav",
 				"tags": [
-					"piano",
-					"melodramatic"
+					"pop"
 				],
 				"bpm": 120,
 				"name": "Drama"
@@ -30425,7 +30438,8 @@
 				"sample": "instrument/looperman-l-0159051-0029237-minor2go-seven-hearts-violins-100bpm.wav",
 				"tags": [
 					"violin",
-					"hip-hop"
+					"hip-hop",
+					"sad"
 				],
 				"bpm": 100,
 				"name": "Sadnez"
@@ -30433,8 +30447,8 @@
 			{
 				"sample": "instrument/looperman-l-0085913-0014505-xarnor-fast-guitar-riff-175bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"rock",
+					"black"
 				],
 				"bpm": 175,
 				"name": "Melenaz"
@@ -30442,8 +30456,8 @@
 			{
 				"sample": "instrument/looperman-l-0761156-0079815-asko-upbeat-piano-120bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"pop",
+					"white"
 				],
 				"bpm": 120,
 				"name": "Upbeat"
@@ -30451,8 +30465,8 @@
 			{
 				"sample": "instrument/looperman-l-1032912-0068500-dazanosa-reggae-or-dub-guitar-stabs-120bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"reggae",
+					"color"
 				],
 				"bpm": 120,
 				"name": "Marley"
@@ -30460,8 +30474,9 @@
 			{
 				"sample": "instrument/looperman-l-0026789-0000414-omars-omar-phased-guitar-groove-120bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"disco",
+					"color",
+					"groove"
 				],
 				"bpm": 120,
 				"name": "Groovy"
@@ -30469,8 +30484,7 @@
 			{
 				"sample": "instrument/looperman-l-1352219-0078389-jensmuse-koto-melody-120bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"japan"
 				],
 				"bpm": 120,
 				"name": "Koto"
@@ -30478,8 +30492,7 @@
 			{
 				"sample": "instrument/looperman-l-0901862-0065926-dirtballrecordz-trap-piano-140bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"hip-hop"
 				],
 				"bpm": 140,
 				"name": "Trapy"
@@ -30487,8 +30500,8 @@
 			{
 				"sample": "instrument/looperman-l-0158799-0039649-alividlife-anti-snow-ragga-guitar-70bpm.wav",
 				"tags": [
-					"guitar",
-					"jazz"
+					"hippie",
+					"color"
 				],
 				"bpm": 140,
 				"name": "Kiffy"
@@ -30506,7 +30519,8 @@
 				"sample": "instrument/looperman-l-0159051-0061816-minor2go-guitars-unlimited-my-passion-120bpm.wav",
 				"tags": [
 					"guitar",
-					"jazz"
+					"classic",
+					"sad"
 				],
 				"bpm": 120,
 				"name": "Passion"
@@ -30514,8 +30528,7 @@
 			{
 				"sample": "instrument/looperman-l-0072432-0001988-anchor-hungarian-piano-01-100bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"hip-hop"
 				],
 				"bpm": 100,
 				"name": "Hunger"
@@ -30532,18 +30545,18 @@
 			{
 				"sample": "instrument/looperman-l-0025227-0000584-insanesmilie-insane-trance-chords-120bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"pop"
 				],
 				"bpm": 120,
-				"name": "Chords"
+				"name": "Smile"
 			}
 		],
 		"synth": [
 			{
 				"sample": "synth/looperman-l-0000013-0000392-djpuzzle-trance-synth-01-120bpm.wav",
 				"tags": [
-					"casual"
+					"rave",
+					"white"
 				],
 				"bpm": 120,
 				"name": "Euro"
@@ -30551,7 +30564,8 @@
 			{
 				"sample": "synth/looperman-l-0000014-0000112-bentleyrhythmace-bra-rave-synth-loop-126bpm.wav",
 				"tags": [
-					"casual"
+					"smooth",
+					"white"
 				],
 				"bpm": 126,
 				"name": "Smooth"
@@ -30559,7 +30573,9 @@
 			{
 				"sample": "synth/looperman-l-0027963-0000482-loopinmadscientist-madscientist-goa-synth-150bpm.wav",
 				"tags": [
-					"casual"
+					"hippie",
+					"color",
+					"rave"
 				],
 				"bpm": 150,
 				"name": "Goa"
@@ -30576,7 +30592,8 @@
 			{
 				"sample": "synth/looperman-l-0219480-0069866-cellocubano-some-rhodes-84bpm.wav",
 				"tags": [
-					"casual"
+					"classic",
+					"color"
 				],
 				"bpm": 84,
 				"name": "Rhodes"
@@ -30584,7 +30601,8 @@
 			{
 				"sample": "synth/looperman-l-0749324-0053904-roseerin-hardstyle-screamer-150-d-120bpm.wav",
 				"tags": [
-					"casual"
+					"rave",
+					"black"
 				],
 				"bpm": 150,
 				"name": "Raver"
@@ -30600,7 +30618,8 @@
 			{
 				"sample": "synth/looperman-l-0480098-0051507-jamievega-bouncy-offbeat-synth-with-delay-90bpm.wav",
 				"tags": [
-					"casual"
+					"hippie",
+					"reggae"
 				],
 				"bpm": 90,
 				"name": "Chao"
@@ -30608,7 +30627,7 @@
 			{
 				"sample": "synth/looperman-l-0562523-0059549-digitalskyy-epic-pad-and-pluck-buildup-140bpm.wav",
 				"tags": [
-					"casual"
+					"white"
 				],
 				"bpm": 140,
 				"name": "Epic"
@@ -30616,7 +30635,7 @@
 			{
 				"sample": "synth/looperman-l-0039735-0063220-ancoral-acp-huge-chord-seq-140bpm.wav",
 				"tags": [
-					"casual"
+					"rave"
 				],
 				"bpm": 140,
 				"name": "Anthem"
@@ -30624,8 +30643,8 @@
 			{
 				"sample": "synth/looperman-l-0159051-0049740-minor2go-piano-romance-the-first-day-2-100bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"pop",
+					"sad"
 				],
 				"bpm": 100,
 				"name": "Romance"
@@ -30642,8 +30661,8 @@
 			{
 				"sample": "synth/looperman-l-0420981-0051904-zatch-e-synth-128bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"rave",
+					"white"
 				],
 				"bpm": 128,
 				"name": "Zatch"
@@ -30651,8 +30670,8 @@
 			{
 				"sample": "synth/looperman-l-0951439-0067317-evisma-recall-and-regret-120bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"guitar",
+					"sad"
 				],
 				"bpm": 120,
 				"name": "Regret"
@@ -30660,8 +30679,8 @@
 			{
 				"sample": "synth/looperman-l-0882657-0075009-projectsynapsys-banger-squeal-pop-140bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"rave",
+					"hip-hop"
 				],
 				"bpm": 140,
 				"name": "Squeal"
@@ -30669,8 +30688,7 @@
 			{
 				"sample": "synth/looperman-l-0754277-0052918-noizecollector-trap-lead-synth-bass-141bpm.wav",
 				"tags": [
-					"piano",
-					"jazz"
+					"sad"
 				],
 				"bpm": 141,
 				"name": "Recall"
@@ -30680,6 +30698,7 @@
 			{
 				"sample": "voice/looperman-l-0000013-0010403-djpuzzle-carla-starla-take-control-120bpm.wav",
 				"tags": [
+					"control",
 					"house"
 				],
 				"bpm": 120,
@@ -30688,8 +30707,8 @@
 			{
 				"sample": "voice/looperman-l-0000013-0000395-djpuzzle-robot-voice-120bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"house",
+					"robot"
 				],
 				"bpm": 120,
 				"name": "Dance"
@@ -30697,8 +30716,8 @@
 			{
 				"sample": "voice/looperman-l-0795768-0060343-cyto-within-your-soul-chopped-and-sliced-140bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"choppy",
+					"woman"
 				],
 				"bpm": 140,
 				"name": "Choppy"
@@ -30706,8 +30725,8 @@
 			{
 				"sample": "voice/looperman-l-0265632-0045072-weazelbeats-weazel-vocal-loop-128bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"house",
+					"color"
 				],
 				"bpm": 128,
 				"name": "Weazel"
@@ -30724,8 +30743,7 @@
 			{
 				"sample": "voice/looperman-l-1153063-0079485-nocturnax-edm-vocal-drop-2-128bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"rave"
 				],
 				"bpm": 128,
 				"name": "Edemy"
@@ -30733,8 +30751,7 @@
 			{
 				"sample": "voice/looperman-l-1059144-0068636-ebaby8119-trap-drumz-just-vocals-140bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"hip-hip"
 				],
 				"bpm": 140,
 				"name": "Eh!"
@@ -30751,8 +30768,8 @@
 			{
 				"sample": "voice/looperman-l-0562523-0064726-digitalskyy-daaayum-son-new-trap-vox-140bpm.wav",
 				"tags": [
-					"dance",
-					"house"
+					"trap",
+					"hip-hop"
 				],
 				"bpm": 140,
 				"name": "Daayum"
@@ -30768,8 +30785,8 @@
 		{
 			"src": "https://secure-i4.ztat.net//detail/JE/02/2N/00/1K/11/JE022N001-K11@15.1.jpg",
 			"tags": [
-				"rock",
-				"punk"
+				"classic",
+				"black"
 			],
 			"url": "https://www.zalando.de/joseph-wollmantel-klassischer-mantel-navy-je022n001-k11.html",
 			"description": "Classic wool coat",
@@ -30779,8 +30796,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/ZI/11/2D/02/JQ/11/ZI112D02J-Q11@110.jpg",
 			"tags": [
-				"dmb",
-				"punk"
+				"rock",
+				"black"
 			],
 			"url": "https://www.zalando.de/zign-schnuerstiefelette-preto-zi112d02j-q11.html",
 			"description": "Black leather boots",
@@ -30790,8 +30807,8 @@
 		{
 			"src": "https://secure-i2.ztat.net//large/S3/72/2H/00/YQ/11/S3722H00Y-Q11@3.jpg",
 			"tags": [
-				"rock",
-				"punk"
+				"rave",
+				"black"
 			],
 			"url": "https://www.zalando.de/schott-nyc-lederjacke-black-s3722h00y-q11.html",
 			"description": "Black lederjacke",
@@ -30802,7 +30819,7 @@
 			"src": "https://secure-i5.ztat.net//detail/WA/22/1B/01/7B/11/WA221B017-B11@13.jpg",
 			"tags": [
 				"rock",
-				"punk"
+				"black"
 			],
 			"url": "https://www.zalando.de/warehouse-maxirock-neutral-wa221b017-b11.html",
 			"description": "Neutral maxi skirt",
@@ -30812,7 +30829,8 @@
 		{
 			"src": "https://secure-i5.ztat.net//large/TP/72/1I/05/6K/11/TP721I056-K11@15.jpg",
 			"tags": [
-				"ambient"
+				"pop",
+				"color"
 			],
 			"url": "https://www.zalando.de/topshop-strickpullover-lightblue-tp721i056-k11.html",
 			"description": "Lightblue Strickpullover",
@@ -30822,8 +30840,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/GU/12/1C/05/7Q/11/GU121C057-Q11@15.jpg",
 			"tags": [
-				"dance",
-				"techno"
+				"rave",
+				"black"
 			],
 			"url": "https://www.zalando.de/guess-terry-freizeitkleid-noir-gu121c057-q11.html",
 			"description": "Balck terry dress",
@@ -30834,7 +30852,7 @@
 			"src": "https://secure-i2.ztat.net//detail/NE/35/2B/04/BC/11/NE352B04B-C11@9.jpg",
 			"tags": [
 				"hip-hop",
-				"casual"
+				"color"
 			],
 			"url": "https://www.zalando.de/new-era-cap-grey-ne352b04b-c11.html",
 			"description": "Batman cap",
@@ -30844,8 +30862,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/K0/05/2E/01/0Q/11/K0052E010-Q11@6.jpg",
 			"tags": [
-				"dark",
-				"casual"
+				"classic",
+				"black"
 			],
 			"url": "https://www.zalando.de/komono-uhr-duotone-black-k0052e010-q11.html",
 			"description": "Winston Heritage clock",
@@ -30855,9 +30873,8 @@
 		{
 			"src": "https://secure-i5.ztat.net//large/BH/62/2S/A0/5Q/11/BH622SA05-Q11@29.3.jpg",
 			"tags": [
-				"sport",
-				"casual",
-				"hip-hop"
+				"hip-hop",
+				"black"
 			],
 			"url": "https://www.zalando.de/brooklyn-s-own-by-rocawear-sweatshirt-black-bh622sa05-q11.html",
 			"description": "Black sweatshirt",
@@ -30867,8 +30884,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/HA/38/10/00/AT/11/HA381000A-T11@4.jpg",
 			"tags": [
-				"happy",
-				"casual"
+				"disco",
+				"color"
 			],
 			"url": "https://www.zalando.de/happy-socks-2-pack-socken-multi-coloured-ha381000a-t11.html",
 			"description": "Multi color socks",
@@ -30878,8 +30895,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/RA/25/4E/00/BO/11/RA254E00B-O11@10.1.jpg",
 			"tags": [
-				"casual",
-				"rock"
+				"classic",
+				"hip-hop"
 			],
 			"url": "https://www.zalando.de/ray-ban-sonnenbrille-brown-ra254e00b-o11.html",
 			"description": "Brown sunglasses",
@@ -30889,8 +30906,8 @@
 		{
 			"src": "https://secure-i4.ztat.net//detail/M9/12/1I/0D/XQ/11/M9121I0DX-Q11@9.jpg",
 			"tags": [
-				"dark",
-				"rock"
+				"black",
+				"techno"
 			],
 			"url": "https://www.zalando.de/mango-canvas-strickjacke-black-m9121i0dx-q11.html",
 			"description": "Black cardigan",
@@ -30900,10 +30917,8 @@
 		{
 			"src": "https://secure-i5.ztat.net//detail/AA/22/1A/00/EB/11/AA221A00E-B11@13.jpg",
 			"tags": [
-				"light",
-				"casual",
-				"ambient",
-				"urban"
+				"house",
+				"sad"
 			],
 			"url": "https://www.zalando.de/american-apparel-madeline-jumpsuit-aa221a00e-b11.html",
 			"description": "Madeline jumpsuit",
@@ -30913,9 +30928,8 @@
 		{
 			"src": "https://secure-i5.ztat.net//large/AD/54/1E/0A/BQ/11/AD541E0AB-Q11@11.jpg",
 			"tags": [
-				"sport",
-				"rock",
-				"urban"
+				"color",
+				"rave"
 			],
 			"url": "https://www.zalando.de/adidas-performance-tights-black-black-ad541e0ab-q11.html",
 			"description": "Performance tights",
@@ -30925,8 +30939,8 @@
 		{
 			"src": "https://secure-i4.ztat.net//detail/RM/64/1E/00/7D/11/RM641E007-D11@9.2.jpg",
 			"tags": [
-				"dark",
-				"rock"
+				"black",
+				"party"
 			],
 			"url": "https://www.zalando.de/rebecca-minkoff-cameron-shorts-silver-coloured-rm641e007-d11.html",
 			"description": "Silver shorts",
@@ -30936,9 +30950,8 @@
 		{
 			"src": "https://secure-i4.ztat.net//detail/SE/52/1B/02/JQ/11/SE521B02J-Q11@10.jpg",
 			"tags": [
-				"dark",
-				"rock",
-				"punk"
+				"sad",
+				"black"
 			],
 			"url": "https://www.zalando.de/selected-femme-sfassie-faltenrock-black-se521b02j-q11.html",
 			"description": "Pleaded skirt",
@@ -30948,9 +30961,8 @@
 		{
 			"src": "https://secure-i3.ztat.net//detail/MF/91/1A/00/1Q/11/MF911A001-Q11@11.jpg",
 			"tags": [
-				"dark",
-				"rock",
-				"punk"
+				"classic",
+				"black"
 			],
 			"url": "https://www.zalando.de/miss-selfridge-grace-high-heel-pumps-black-mf911a001-q11.html",
 			"description": "Black pumps",
@@ -30960,7 +30972,8 @@
 		{
 			"src": "https://secure-i1.ztat.net//detail/NS/42/2S/00/DC/11/NS422S00D-C11@13.jpg",
 			"tags": [
-				"hip-hop"
+				"rave",
+				"white"
 			],
 			"url": "https://www.zalando.de/nike-sb-everett-jogginghose-dark-grey-heather-ns422s00d-c11.html",
 			"description": "Grey Joggers",
@@ -30970,13 +30983,69 @@
 		{
 			"src": "https://secure-i2.ztat.net//detail/GP/02/2Q/00/LK/11/GP022Q00L-K11@10.jpg",
 			"tags": [
-				"hippie",
-				"reggae"
+				"disco",
+				"color"
 			],
 			"url": "https://www.zalando.de/gap-strickpullover-dark-blue-white-gp022q00l-k11.html",
 			"description": "Colored sweater",
 			"brand": "Gap",
 			"gender": "men"
+		},
+		{
+			"src": "https://secure-i5.ztat.net//large/CS/65/2H/00/PQ/11/CS652H00P-Q11@8.jpg",
+			"tags": [
+				"hippie",
+				"reggae",
+				"color"
+			],
+			"url": "https://www.zalando.de/cayler-sons-sweet-sensi-rucksack-black-rasta-cs652h00p-q11.html",
+			"description": "Backpack",
+			"brand": "Cayler & Sons",
+			"gender": "men"
+		},
+		{
+			"src": "https://secure-i4.ztat.net//large/DE/12/1C/0C/MQ/11/DE121C0CM-Q11@12.jpg",
+			"tags": [
+				"hippie",
+				"color"
+			],
+			"url": "https://www.zalando.de/cayler-sons-sweet-sensi-rucksack-black-rasta-cs652h00p-q11.html",
+			"description": "Galactic dress",
+			"brand": "Desigual",
+			"gender": "Woman"
+		},
+		{
+			"src": "https://secure-i4.ztat.net//large/ML/12/1A/00/6T/11/ML121A006-T11@12.jpg",
+			"tags": [
+				"disco",
+				"house"
+			],
+			"url": "https://www.zalando.de/oh-my-love-disco-inferno-stoffhose-petrol-ml121a006-t11.html",
+			"description": "Disco inferno pants",
+			"brand": "Oh My Love",
+			"gender": "Woman"
+		},
+		{
+			"src": "https://secure-i3.ztat.net//large/GL/92/1K/00/BQ/11/GL921K00B-Q11@11.jpg",
+			"tags": [
+				"japan",
+				"black"
+			],
+			"url": "https://www.zalando.de/glamorous-tunika-black-white-gl921k00b-q11.html",
+			"description": "Kimono",
+			"brand": "Glamorous",
+			"gender": "Woman"
+		},
+		{
+			"src": "https://secure-i6.ztat.net//large/NL/02/1K/01/8A/11/NL021K018-A11@12.jpg",
+			"tags": [
+				"japan",
+				"white"
+			],
+			"url": "https://www.zalando.de/new-look-lottie-tunika-white-nl021k018-a11.html",
+			"description": "Lottie Kimono",
+			"brand": "New Look",
+			"gender": "Woman"
 		}
 	];
 
