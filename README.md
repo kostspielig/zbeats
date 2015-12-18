@@ -6,6 +6,8 @@ Tool to build music, develped with ReactJS, material UI, Web Audio and Webpack.
 
 For a demo of the project go to: http://kostspielig.github.io/zbeats/
 
+![ScreenShot](https://raw.github.com/kostspielig/zbeats/master/style/zbeats.png)
+
 # Usage
 
 ## Install
