@@ -30,11 +30,14 @@ class Clip {
     }
 
     play(startTime) {
+        const duration = this.buffer.length / this.buffer.sampleRate
+        const bpm = this.clipData.bpm
         this.source = this.context.createBufferSource() // creates a sound source
         this.source.buffer = this.buffer // tell the source which sound to play
         this.source.connect(this.track.gainNode)
         this.source.loop = true
-        this.source.playbackRate.value = this.track.engine.bpm / this.clipData.bpm
+        this.source.loopEnd = Math.round(duration / 60.0 * bpm / 4.0) * 60 * 4 / bpm
+        this.source.playbackRate.value = this.track.engine.bpm / bpm
         this.source.start(startTime)
         this.playing = true
     }
