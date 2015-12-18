@@ -63,7 +63,7 @@ class App extends Component {
         this.state.items.sort((a, b) => b.points - a.points)
 
         // Take the top 4 items
-        shopItems = this.state.items.slice(0, 4)
+        shopItems = this.state.items.slice(0, 5)
         this.setState({shopItems})
     }
 
