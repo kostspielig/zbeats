@@ -19685,11 +19685,11 @@
 
 	var _headerHeaderSectionJsx2 = _interopRequireDefault(_headerHeaderSectionJsx);
 
-	var _shopShopSectionJsx = __webpack_require__(233);
+	var _shopShopSectionJsx = __webpack_require__(242);
 
 	var _shopShopSectionJsx2 = _interopRequireDefault(_shopShopSectionJsx);
 
-	var _musicTrackJsx = __webpack_require__(244);
+	var _musicTrackJsx = __webpack_require__(247);
 
 	var _musicTrackJsx2 = _interopRequireDefault(_musicTrackJsx);
 
@@ -19730,6 +19730,8 @@
 	        this.state.tracks = {};
 	        Object.keys(clips).forEach(function (key) {
 	            _this.state.tracks[key] = _this.state.engine.addTrack();
+	            _this.shuffleArray(clips[key]);
+	            clips[key].splice(7);
 	            clips[key].forEach(function (clip) {
 	                return clip.clip = _this.state.tracks[key].load(clip);
 	            });
@@ -19774,7 +19776,7 @@
 	            });
 
 	            // Take the top 4 items
-	            shopItems = this.state.items.slice(0, 4);
+	            shopItems = this.state.items.slice(0, 5);
 	            this.setState({ shopItems: shopItems });
 	        }
 
@@ -19849,11 +19851,21 @@
 	                ),
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'music-section leads' },
+	                    { className: 'music-section instruments' },
 	                    _react2['default'].createElement(_musicTrackJsx2['default'], {
-	                        title: 'Leads',
-	                        track: this.state.tracks.leads,
-	                        clips: this.state.clips.leads,
+	                        title: 'Instruments',
+	                        track: this.state.tracks.instrument,
+	                        clips: this.state.clips.instrument,
+	                        setClip: this.setClip.bind(this)
+	                    })
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'music-section instrument' },
+	                    _react2['default'].createElement(_musicTrackJsx2['default'], {
+	                        title: 'Synth',
+	                        track: this.state.tracks.synth,
+	                        clips: this.state.clips.synth,
 	                        setClip: this.setClip.bind(this)
 	                    })
 	                ),
@@ -19861,7 +19873,7 @@
 	                    'div',
 	                    { className: 'music-section voice' },
 	                    _react2['default'].createElement(_musicTrackJsx2['default'], {
-	                        title: 'Voice',
+	                        title: 'Vocal',
 	                        track: this.state.tracks.voice,
 	                        clips: this.state.clips.voice,
 	                        setClip: this.setClip.bind(this)
@@ -19946,6 +19958,22 @@
 
 	var _materialUiLibSlider2 = _interopRequireDefault(_materialUiLibSlider);
 
+	var _materialUiLibAvatar = __webpack_require__(233);
+
+	var _materialUiLibAvatar2 = _interopRequireDefault(_materialUiLibAvatar);
+
+	var _materialUiLibCardCard = __webpack_require__(234);
+
+	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
+
+	var _materialUiLibCardCardActions = __webpack_require__(238);
+
+	var _materialUiLibCardCardActions2 = _interopRequireDefault(_materialUiLibCardCardActions);
+
+	var _materialUiLibCardCardHeader = __webpack_require__(239);
+
+	var _materialUiLibCardCardHeader2 = _interopRequireDefault(_materialUiLibCardCardHeader);
+
 	var HeaderSection = (function (_Component) {
 	    _inherits(HeaderSection, _Component);
 
@@ -19986,15 +20014,23 @@
 	                ),
 	                iconElementRight: _react2['default'].createElement(
 	                    'div',
-	                    { className: 'header-right' },
-	                    _react2['default'].createElement(_materialUiLibSlider2['default'], { name: 'bpm',
-	                        className: 'bpm-slider',
-	                        defaultValue: this.props.engine.bpm,
-	                        min: 40, max: 200, step: 1,
-	                        style: { color: 'blue' },
-	                        value: this.props.engine.bpm,
-	                        onChange: this.changeBpm.bind(this) }),
-	                    _react2['default'].createElement(_materialUiLibFlatButton2['default'], { label: this.props.engine.bpm + ' bpm' })
+	                    { className: 'bpm-header' },
+	                    _react2['default'].createElement(
+	                        _materialUiLibFlatButton2['default'],
+	                        { className: 'bpm-title' },
+	                        this.props.engine.bpm,
+	                        ' BPM'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'bpm-card' },
+	                        _react2['default'].createElement(_materialUiLibSlider2['default'], { name: 'bpm',
+	                            className: 'bpm-slider',
+	                            defaultValue: this.props.engine.bpm,
+	                            min: 40, max: 200, step: 1,
+	                            value: this.props.engine.bpm,
+	                            onChange: this.changeBpm.bind(this) })
+	                    )
 	                )
 	            });
 	        }
@@ -23724,7 +23760,7 @@
 	  spacing: Spacing,
 	  fontFamily: 'Roboto, sans-serif',
 	  palette: {
-	    primary1Color: '#fb9521',
+	    primary1Color: Colors.cyan500,
 	    primary2Color: Colors.cyan700,
 	    primary3Color: Colors.grey400,
 	    accent1Color: Colors.pinkA200,
@@ -23737,7 +23773,6 @@
 	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
 	  }
 	};
-
 
 /***/ },
 /* 203 */
@@ -28365,246 +28400,131 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	var React = __webpack_require__(1);
+	var StylePropable = __webpack_require__(162);
+	var Colors = __webpack_require__(181);
+	var DefaultRawTheme = __webpack_require__(202);
+	var ThemeManager = __webpack_require__(205);
+
+	var Avatar = React.createClass({
+	  displayName: 'Avatar',
+
+	  mixins: [StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  propTypes: {
+	    backgroundColor: React.PropTypes.string,
+	    color: React.PropTypes.string,
+	    icon: React.PropTypes.element,
+	    size: React.PropTypes.number,
+	    src: React.PropTypes.string,
+	    style: React.PropTypes.object
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      backgroundColor: Colors.grey400,
+	      color: Colors.white,
+	      size: 40
+	    };
+	  },
+
+	  render: function render() {
+	    var _props = this.props;
+	    var backgroundColor = _props.backgroundColor;
+	    var color = _props.color;
+	    var icon = _props.icon;
+	    var size = _props.size;
+	    var src = _props.src;
+	    var style = _props.style;
+
+	    var other = _objectWithoutProperties(_props, ['backgroundColor', 'color', 'icon', 'size', 'src', 'style']);
+
+	    var styles = {
+	      root: {
+	        height: size,
+	        width: size,
+	        userSelect: 'none',
+	        borderRadius: '50%',
+	        display: 'inline-block'
+	      }
+	    };
+
+	    if (src) {
+	      var borderColor = this.state.muiTheme.avatar.borderColor;
+
+	      if (borderColor) {
+	        styles.root = this.mergeStyles(styles.root, {
+	          height: size - 2,
+	          width: size - 2,
+	          border: 'solid 1px ' + borderColor
+	        });
+	      }
+
+	      return React.createElement('img', _extends({}, other, { src: src, style: this.prepareStyles(styles.root, style) }));
+	    } else {
+	      styles.root = this.mergeStyles(styles.root, {
+	        backgroundColor: backgroundColor,
+	        textAlign: 'center',
+	        lineHeight: size + 'px',
+	        fontSize: size / 2 + 4,
+	        color: color
+	      });
+
+	      var styleIcon = {
+	        margin: 8
+	      };
+
+	      var iconElement = icon ? React.cloneElement(icon, {
+	        color: color,
+	        style: this.mergeStyles(styleIcon, icon.props.style)
+	      }) : null;
+
+	      return React.createElement(
+	        'div',
+	        _extends({}, other, { style: this.prepareStyles(styles.root, style) }),
+	        iconElement,
+	        this.props.children
+	      );
+	    }
+	  }
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ItemListJsx = __webpack_require__(234);
-
-	var _ItemListJsx2 = _interopRequireDefault(_ItemListJsx);
-
-	var _materialUiLibIconButton = __webpack_require__(182);
-
-	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
-
-	var _materialUiLibStylesThemeManager = __webpack_require__(205);
-
-	var _materialUiLibStylesThemeManager2 = _interopRequireDefault(_materialUiLibStylesThemeManager);
-
-	var _materialUiLibStylesThemeDecorator = __webpack_require__(215);
-
-	var _materialUiLibStylesThemeDecorator2 = _interopRequireDefault(_materialUiLibStylesThemeDecorator);
-
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(202);
-
-	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
-
-	var _materialUiLibMenusIconMenu = __webpack_require__(216);
-
-	var _materialUiLibMenusIconMenu2 = _interopRequireDefault(_materialUiLibMenusIconMenu);
-
-	var _materialUiLibMenusMenuItem = __webpack_require__(221);
-
-	var _materialUiLibMenusMenuItem2 = _interopRequireDefault(_materialUiLibMenusMenuItem);
-
-	var ShopSection = (function (_Component) {
-	    _inherits(ShopSection, _Component);
-
-	    function ShopSection() {
-	        _classCallCheck(this, _ShopSection);
-
-	        _get(Object.getPrototypeOf(_ShopSection.prototype), 'constructor', this).apply(this, arguments);
-	    }
-
-	    _createClass(ShopSection, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2['default'].createElement(
-	                'div',
-	                null,
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'title' },
-	                    'Recommended products'
-	                ),
-	                _react2['default'].createElement(_ItemListJsx2['default'], this.props)
-	            );
-	        }
-	    }]);
-
-	    var _ShopSection = ShopSection;
-	    ShopSection = (0, _materialUiLibStylesThemeDecorator2['default'])(_materialUiLibStylesThemeManager2['default'].getMuiTheme(_materialUiLibStylesRawThemesLightRawTheme2['default']))(ShopSection) || ShopSection;
-	    return ShopSection;
-	})(_react.Component);
-
-	ShopSection.propTypes = {
-	    items: _react2['default'].PropTypes.array.isRequired
-	};
-
-	exports['default'] = ShopSection;
-	module.exports = exports['default'];
+	module.exports = Avatar;
 
 /***/ },
 /* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ItemJsx = __webpack_require__(235);
-
-	var _ItemJsx2 = _interopRequireDefault(_ItemJsx);
-
-	var ItemList = (function (_Component) {
-	    _inherits(ItemList, _Component);
-
-	    function ItemList() {
-	        _classCallCheck(this, ItemList);
-
-	        _get(Object.getPrototypeOf(ItemList.prototype), 'constructor', this).apply(this, arguments);
-	    }
-
-	    _createClass(ItemList, [{
-	        key: 'render',
-	        value: function render() {
-	            var items = this.props.items;
-
-	            return _react2['default'].createElement(
-	                'div',
-	                { className: 'shop-item-list' },
-	                items.map(function (item) {
-	                    return _react2['default'].createElement(_ItemJsx2['default'], {
-	                        item: item,
-	                        key: item.brand
-	                    });
-	                })
-	            );
-	        }
-	    }]);
-
-	    return ItemList;
-	})(_react.Component);
-
-	ItemList.propTypes = {
-	    items: _react2['default'].PropTypes.array.isRequired
-	};
-
-	exports['default'] = ItemList;
-	module.exports = exports['default'];
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _materialUiLibCardCard = __webpack_require__(236);
-
-	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
-
-	var _materialUiLibCardCardMedia = __webpack_require__(240);
-
-	var _materialUiLibCardCardMedia2 = _interopRequireDefault(_materialUiLibCardCardMedia);
-
-	var _materialUiLibFlatButton = __webpack_require__(230);
-
-	var _materialUiLibFlatButton2 = _interopRequireDefault(_materialUiLibFlatButton);
-
-	var _materialUiLibIconButton = __webpack_require__(182);
-
-	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
-
-	var _materialUiLibCardCardTitle = __webpack_require__(243);
-
-	var _materialUiLibCardCardTitle2 = _interopRequireDefault(_materialUiLibCardCardTitle);
-
-	var Item = (function (_Component) {
-	    _inherits(Item, _Component);
-
-	    function Item() {
-	        _classCallCheck(this, Item);
-
-	        _get(Object.getPrototypeOf(Item.prototype), 'constructor', this).apply(this, arguments);
-	    }
-
-	    _createClass(Item, [{
-	        key: 'onClick',
-	        value: function onClick(e) {
-	            e.preventDefault();
-	            var _props = this.props;
-	            var setItem = _props.setItem;
-	            var item = _props.item;
-
-	            window.open(item.url, '_blank');
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var item = this.props.item;
-
-	            return _react2['default'].createElement(
-	                _materialUiLibCardCard2['default'],
-	                { className: 'shop-item', onClick: this.onClick.bind(this) },
-	                _react2['default'].createElement(
-	                    _materialUiLibCardCardMedia2['default'],
-	                    { overlay: _react2['default'].createElement(_materialUiLibCardCardTitle2['default'], { title: item.description, subtitle: item.brand }) },
-	                    _react2['default'].createElement('img', { src: item.src })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Item;
-	})(_react.Component);
-
-	Item.propTypes = {
-	    item: _react2['default'].PropTypes.object.isRequired
-	};
-
-	exports['default'] = Item;
-	module.exports = exports['default'];
-
-/***/ },
-/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28616,7 +28536,7 @@
 	var React = __webpack_require__(1);
 	var Paper = __webpack_require__(214);
 	var StylePropable = __webpack_require__(162);
-	var CardExpandable = __webpack_require__(237);
+	var CardExpandable = __webpack_require__(235);
 
 	var Card = React.createClass({
 	  displayName: 'Card',
@@ -28698,15 +28618,15 @@
 	module.exports = Card;
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var Extend = __webpack_require__(206);
-	var OpenIcon = __webpack_require__(238);
-	var CloseIcon = __webpack_require__(239);
+	var OpenIcon = __webpack_require__(236);
+	var CloseIcon = __webpack_require__(237);
 	var IconButton = __webpack_require__(182);
 	var StylePropable = __webpack_require__(162);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -28805,7 +28725,7 @@
 	module.exports = CardExpandable;
 
 /***/ },
-/* 238 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28832,7 +28752,7 @@
 	module.exports = HardwareKeyboardArrowUp;
 
 /***/ },
-/* 239 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28859,7 +28779,7 @@
 	module.exports = HardwareKeyboardArrowDown;
 
 /***/ },
-/* 240 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28867,7 +28787,515 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(241);
+	var StylePropable = __webpack_require__(162);
+	var ThemeManager = __webpack_require__(205);
+	var DefaultRawTheme = __webpack_require__(202);
+
+	var CardActions = React.createClass({
+	  displayName: 'CardActions',
+
+	  mixins: [StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
+
+	  getStyles: function getStyles() {
+	    return {
+	      root: {
+	        padding: 8,
+	        position: 'relative'
+	      }
+	    };
+	  },
+
+	  propTypes: {
+	    expandable: React.PropTypes.bool,
+	    actAsExpander: React.PropTypes.bool,
+	    showExpandableButton: React.PropTypes.bool,
+	    style: React.PropTypes.object
+	  },
+
+	  render: function render() {
+	    var styles = this.getStyles();
+
+	    var children = React.Children.map(this.props.children, function (child) {
+	      return React.cloneElement(child, {
+	        style: { marginRight: 8 }
+	      });
+	    });
+
+	    return React.createElement(
+	      'div',
+	      _extends({}, this.props, { style: this.prepareStyles(styles.root, this.props.style) }),
+	      children
+	    );
+	  }
+	});
+
+	module.exports = CardActions;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var React = __webpack_require__(1);
+	var Styles = __webpack_require__(240);
+	var Avatar = __webpack_require__(233);
+	var StylePropable = __webpack_require__(162);
+	var ThemeManager = __webpack_require__(205);
+	var DefaultRawTheme = __webpack_require__(202);
+
+	var CardHeader = React.createClass({
+	  displayName: 'CardHeader',
+
+	  mixins: [StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
+
+	  propTypes: {
+	    title: React.PropTypes.node,
+	    titleColor: React.PropTypes.string,
+	    titleStyle: React.PropTypes.object,
+	    style: React.PropTypes.object,
+	    subtitle: React.PropTypes.node,
+	    subtitleColor: React.PropTypes.string,
+	    subtitleStyle: React.PropTypes.object,
+	    textStyle: React.PropTypes.object,
+	    expandable: React.PropTypes.bool,
+	    actAsExpander: React.PropTypes.bool,
+	    showExpandableButton: React.PropTypes.bool,
+	    avatar: React.PropTypes.node
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      titleColor: Styles.Colors.darkBlack,
+	      subtitleColor: Styles.Colors.lightBlack
+	    };
+	  },
+
+	  getStyles: function getStyles() {
+	    return {
+	      root: {
+	        height: 72,
+	        padding: 16,
+	        fontWeight: Styles.Typography.fontWeightMedium,
+	        boxSizing: 'border-box',
+	        position: 'relative'
+	      },
+	      text: {
+	        display: 'inline-block',
+	        verticalAlign: 'top'
+	      },
+	      avatar: {
+	        marginRight: 16
+	      },
+	      title: {
+	        color: this.props.titleColor,
+	        display: 'block',
+	        fontSize: 15
+	      },
+	      subtitle: {
+	        color: this.props.subtitleColor,
+	        display: 'block',
+	        fontSize: 14
+	      }
+	    };
+	  },
+
+	  render: function render() {
+	    var styles = this.getStyles();
+	    var rootStyle = this.prepareStyles(styles.root, this.props.style);
+	    var textStyle = this.prepareStyles(styles.text, this.props.textStyle);
+	    var titleStyle = this.prepareStyles(styles.title, this.props.titleStyle);
+	    var subtitleStyle = this.prepareStyles(styles.subtitle, this.props.subtitleStyle);
+
+	    var avatar = this.props.avatar;
+	    if (React.isValidElement(this.props.avatar)) {
+	      var avatarMergedStyle = this.mergeStyles(styles.avatar, avatar.props.style);
+	      avatar = React.cloneElement(avatar, { style: avatarMergedStyle });
+	    } else avatar = React.createElement(Avatar, { src: this.props.avatar, style: styles.avatar });
+
+	    return React.createElement(
+	      'div',
+	      _extends({}, this.props, { style: rootStyle }),
+	      avatar,
+	      React.createElement(
+	        'div',
+	        { style: textStyle },
+	        React.createElement(
+	          'span',
+	          { style: titleStyle },
+	          this.props.title
+	        ),
+	        React.createElement(
+	          'span',
+	          { style: subtitleStyle },
+	          this.props.subtitle
+	        )
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
+
+	module.exports = CardHeader;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  AutoPrefix: __webpack_require__(167),
+	  Colors: __webpack_require__(181),
+	  Spacing: __webpack_require__(204),
+	  ThemeManager: __webpack_require__(205),
+	  Transitions: __webpack_require__(185),
+	  Typography: __webpack_require__(180),
+	  LightRawTheme: __webpack_require__(202),
+	  DarkRawTheme: __webpack_require__(241),
+	  ThemeDecorator: __webpack_require__(215)
+	};
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Colors = __webpack_require__(181);
+	var ColorManipulator = __webpack_require__(203);
+	var Spacing = __webpack_require__(204);
+
+	module.exports = {
+	  spacing: Spacing,
+	  fontFamily: 'Roboto, sans-serif',
+	  palette: {
+	    primary1Color: Colors.cyan700,
+	    primary2Color: Colors.cyan700,
+	    primary3Color: Colors.grey600,
+	    accent1Color: Colors.pinkA200,
+	    accent2Color: Colors.pinkA400,
+	    accent3Color: Colors.pinkA100,
+	    textColor: Colors.fullWhite,
+	    alternateTextColor: '#303030',
+	    canvasColor: '#303030',
+	    borderColor: ColorManipulator.fade(Colors.fullWhite, 0.3),
+	    disabledColor: ColorManipulator.fade(Colors.fullWhite, 0.3)
+	  }
+	};
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ItemListJsx = __webpack_require__(243);
+
+	var _ItemListJsx2 = _interopRequireDefault(_ItemListJsx);
+
+	var _materialUiLibIconButton = __webpack_require__(182);
+
+	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
+
+	var _materialUiLibStylesThemeManager = __webpack_require__(205);
+
+	var _materialUiLibStylesThemeManager2 = _interopRequireDefault(_materialUiLibStylesThemeManager);
+
+	var _materialUiLibStylesThemeDecorator = __webpack_require__(215);
+
+	var _materialUiLibStylesThemeDecorator2 = _interopRequireDefault(_materialUiLibStylesThemeDecorator);
+
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(202);
+
+	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
+
+	var _materialUiLibMenusIconMenu = __webpack_require__(216);
+
+	var _materialUiLibMenusIconMenu2 = _interopRequireDefault(_materialUiLibMenusIconMenu);
+
+	var _materialUiLibMenusMenuItem = __webpack_require__(221);
+
+	var _materialUiLibMenusMenuItem2 = _interopRequireDefault(_materialUiLibMenusMenuItem);
+
+	var ShopSection = (function (_Component) {
+	    _inherits(ShopSection, _Component);
+
+	    function ShopSection() {
+	        _classCallCheck(this, _ShopSection);
+
+	        _get(Object.getPrototypeOf(_ShopSection.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(ShopSection, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    'Recommended products'
+	                ),
+	                _react2['default'].createElement(_ItemListJsx2['default'], this.props)
+	            );
+	        }
+	    }]);
+
+	    var _ShopSection = ShopSection;
+	    ShopSection = (0, _materialUiLibStylesThemeDecorator2['default'])(_materialUiLibStylesThemeManager2['default'].getMuiTheme(_materialUiLibStylesRawThemesLightRawTheme2['default']))(ShopSection) || ShopSection;
+	    return ShopSection;
+	})(_react.Component);
+
+	ShopSection.propTypes = {
+	    items: _react2['default'].PropTypes.array.isRequired
+	};
+
+	exports['default'] = ShopSection;
+	module.exports = exports['default'];
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ItemJsx = __webpack_require__(244);
+
+	var _ItemJsx2 = _interopRequireDefault(_ItemJsx);
+
+	var ItemList = (function (_Component) {
+	    _inherits(ItemList, _Component);
+
+	    function ItemList() {
+	        _classCallCheck(this, ItemList);
+
+	        _get(Object.getPrototypeOf(ItemList.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(ItemList, [{
+	        key: 'render',
+	        value: function render() {
+	            var items = this.props.items;
+
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'shop-item-list' },
+	                items.map(function (item) {
+	                    return _react2['default'].createElement(_ItemJsx2['default'], {
+	                        item: item,
+	                        key: item.brand
+	                    });
+	                })
+	            );
+	        }
+	    }]);
+
+	    return ItemList;
+	})(_react.Component);
+
+	ItemList.propTypes = {
+	    items: _react2['default'].PropTypes.array.isRequired
+	};
+
+	exports['default'] = ItemList;
+	module.exports = exports['default'];
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _materialUiLibCardCard = __webpack_require__(234);
+
+	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
+
+	var _materialUiLibCardCardMedia = __webpack_require__(245);
+
+	var _materialUiLibCardCardMedia2 = _interopRequireDefault(_materialUiLibCardCardMedia);
+
+	var _materialUiLibFlatButton = __webpack_require__(230);
+
+	var _materialUiLibFlatButton2 = _interopRequireDefault(_materialUiLibFlatButton);
+
+	var _materialUiLibIconButton = __webpack_require__(182);
+
+	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
+
+	var _materialUiLibCardCardTitle = __webpack_require__(246);
+
+	var _materialUiLibCardCardTitle2 = _interopRequireDefault(_materialUiLibCardCardTitle);
+
+	var Item = (function (_Component) {
+	    _inherits(Item, _Component);
+
+	    function Item() {
+	        _classCallCheck(this, Item);
+
+	        _get(Object.getPrototypeOf(Item.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Item, [{
+	        key: 'onClick',
+	        value: function onClick(e) {
+	            e.preventDefault();
+	            var _props = this.props;
+	            var setItem = _props.setItem;
+	            var item = _props.item;
+
+	            window.open(item.url, '_blank');
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var item = this.props.item;
+
+	            return _react2['default'].createElement(
+	                _materialUiLibCardCard2['default'],
+	                { className: 'shop-item', onClick: this.onClick.bind(this) },
+	                _react2['default'].createElement(
+	                    _materialUiLibCardCardMedia2['default'],
+	                    { overlay: _react2['default'].createElement(_materialUiLibCardCardTitle2['default'], { title: item.description, subtitle: item.brand }) },
+	                    _react2['default'].createElement('img', { src: item.src })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Item;
+	})(_react.Component);
+
+	Item.propTypes = {
+	    item: _react2['default'].PropTypes.object.isRequired
+	};
+
+	exports['default'] = Item;
+	module.exports = exports['default'];
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var React = __webpack_require__(1);
+	var Styles = __webpack_require__(240);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29007,54 +29435,7 @@
 	module.exports = CardMedia;
 
 /***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	  AutoPrefix: __webpack_require__(167),
-	  Colors: __webpack_require__(181),
-	  Spacing: __webpack_require__(204),
-	  ThemeManager: __webpack_require__(205),
-	  Transitions: __webpack_require__(185),
-	  Typography: __webpack_require__(180),
-	  LightRawTheme: __webpack_require__(202),
-	  DarkRawTheme: __webpack_require__(242),
-	  ThemeDecorator: __webpack_require__(215)
-	};
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var Colors = __webpack_require__(181);
-	var ColorManipulator = __webpack_require__(203);
-	var Spacing = __webpack_require__(204);
-
-	module.exports = {
-	  spacing: Spacing,
-	  fontFamily: 'Roboto, sans-serif',
-	  palette: {
-	    primary1Color: Colors.cyan700,
-	    primary2Color: Colors.cyan700,
-	    primary3Color: Colors.grey600,
-	    accent1Color: Colors.pinkA200,
-	    accent2Color: Colors.pinkA400,
-	    accent3Color: Colors.pinkA100,
-	    textColor: Colors.fullWhite,
-	    alternateTextColor: '#303030',
-	    canvasColor: '#303030',
-	    borderColor: ColorManipulator.fade(Colors.fullWhite, 0.3),
-	    disabledColor: ColorManipulator.fade(Colors.fullWhite, 0.3)
-	  }
-	};
-
-
-/***/ },
-/* 243 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29062,7 +29443,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(241);
+	var Styles = __webpack_require__(240);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29167,7 +29548,7 @@
 	module.exports = CardTitle;
 
 /***/ },
-/* 244 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29190,11 +29571,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ClipListJsx = __webpack_require__(245);
+	var _ClipListJsx = __webpack_require__(248);
 
 	var _ClipListJsx2 = _interopRequireDefault(_ClipListJsx);
 
-	var _materialUiLibCardCard = __webpack_require__(236);
+	var _materialUiLibCardCard = __webpack_require__(234);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
@@ -29261,7 +29642,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 245 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29284,7 +29665,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ClipJsx = __webpack_require__(246);
+	var _ClipJsx = __webpack_require__(249);
 
 	var _ClipJsx2 = _interopRequireDefault(_ClipJsx);
 
@@ -29330,7 +29711,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 246 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29353,19 +29734,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibCardCard = __webpack_require__(236);
+	var _materialUiLibCardCard = __webpack_require__(234);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
-	var _materialUiLibCardCardActions = __webpack_require__(247);
+	var _materialUiLibCardCardActions = __webpack_require__(238);
 
 	var _materialUiLibCardCardActions2 = _interopRequireDefault(_materialUiLibCardCardActions);
 
-	var _materialUiLibCardCardExpandable = __webpack_require__(237);
+	var _materialUiLibCardCardExpandable = __webpack_require__(235);
 
 	var _materialUiLibCardCardExpandable2 = _interopRequireDefault(_materialUiLibCardCardExpandable);
 
-	var _materialUiLibCardCardHeader = __webpack_require__(248);
+	var _materialUiLibCardCardHeader = __webpack_require__(239);
 
 	var _materialUiLibCardCardHeader2 = _interopRequireDefault(_materialUiLibCardCardHeader);
 
@@ -29411,11 +29792,12 @@
 	                _materialUiLibCardCard2['default'],
 	                null,
 	                _react2['default'].createElement(_materialUiLibCardCardHeader2['default'], {
+	                    className: 'clip-header',
 	                    title: clip.name,
 	                    subtitle: clip.bpm,
 	                    avatar: _react2['default'].createElement(
 	                        _materialUiLibIconButton2['default'],
-	                        { iconClassName: 'material-icons',
+	                        { className: 'clip-icon', iconClassName: 'material-icons',
 	                            onClick: this.onClick.bind(this) },
 	                        playIcon
 	                    ) })
@@ -29435,353 +29817,6 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var React = __webpack_require__(1);
-	var StylePropable = __webpack_require__(162);
-	var ThemeManager = __webpack_require__(205);
-	var DefaultRawTheme = __webpack_require__(202);
-
-	var CardActions = React.createClass({
-	  displayName: 'CardActions',
-
-	  mixins: [StylePropable],
-
-	  contextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  //for passing default theme context to children
-	  childContextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  getChildContext: function getChildContext() {
-	    return {
-	      muiTheme: this.state.muiTheme
-	    };
-	  },
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
-	    };
-	  },
-
-	  //to update theme inside state whenever a new theme is passed down
-	  //from the parent / owner using context
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({ muiTheme: newMuiTheme });
-	  },
-
-	  getStyles: function getStyles() {
-	    return {
-	      root: {
-	        padding: 8,
-	        position: 'relative'
-	      }
-	    };
-	  },
-
-	  propTypes: {
-	    expandable: React.PropTypes.bool,
-	    actAsExpander: React.PropTypes.bool,
-	    showExpandableButton: React.PropTypes.bool,
-	    style: React.PropTypes.object
-	  },
-
-	  render: function render() {
-	    var styles = this.getStyles();
-
-	    var children = React.Children.map(this.props.children, function (child) {
-	      return React.cloneElement(child, {
-	        style: { marginRight: 8 }
-	      });
-	    });
-
-	    return React.createElement(
-	      'div',
-	      _extends({}, this.props, { style: this.prepareStyles(styles.root, this.props.style) }),
-	      children
-	    );
-	  }
-	});
-
-	module.exports = CardActions;
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(241);
-	var Avatar = __webpack_require__(249);
-	var StylePropable = __webpack_require__(162);
-	var ThemeManager = __webpack_require__(205);
-	var DefaultRawTheme = __webpack_require__(202);
-
-	var CardHeader = React.createClass({
-	  displayName: 'CardHeader',
-
-	  mixins: [StylePropable],
-
-	  contextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  //for passing default theme context to children
-	  childContextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  getChildContext: function getChildContext() {
-	    return {
-	      muiTheme: this.state.muiTheme
-	    };
-	  },
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
-	    };
-	  },
-
-	  //to update theme inside state whenever a new theme is passed down
-	  //from the parent / owner using context
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({ muiTheme: newMuiTheme });
-	  },
-
-	  propTypes: {
-	    title: React.PropTypes.node,
-	    titleColor: React.PropTypes.string,
-	    titleStyle: React.PropTypes.object,
-	    style: React.PropTypes.object,
-	    subtitle: React.PropTypes.node,
-	    subtitleColor: React.PropTypes.string,
-	    subtitleStyle: React.PropTypes.object,
-	    textStyle: React.PropTypes.object,
-	    expandable: React.PropTypes.bool,
-	    actAsExpander: React.PropTypes.bool,
-	    showExpandableButton: React.PropTypes.bool,
-	    avatar: React.PropTypes.node
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      titleColor: Styles.Colors.darkBlack,
-	      subtitleColor: Styles.Colors.lightBlack
-	    };
-	  },
-
-	  getStyles: function getStyles() {
-	    return {
-	      root: {
-	        height: 72,
-	        padding: 16,
-	        fontWeight: Styles.Typography.fontWeightMedium,
-	        boxSizing: 'border-box',
-	        position: 'relative'
-	      },
-	      text: {
-	        display: 'inline-block',
-	        verticalAlign: 'top'
-	      },
-	      avatar: {
-	        marginRight: 16
-	      },
-	      title: {
-	        color: this.props.titleColor,
-	        display: 'block',
-	        fontSize: 15
-	      },
-	      subtitle: {
-	        color: this.props.subtitleColor,
-	        display: 'block',
-	        fontSize: 14
-	      }
-	    };
-	  },
-
-	  render: function render() {
-	    var styles = this.getStyles();
-	    var rootStyle = this.prepareStyles(styles.root, this.props.style);
-	    var textStyle = this.prepareStyles(styles.text, this.props.textStyle);
-	    var titleStyle = this.prepareStyles(styles.title, this.props.titleStyle);
-	    var subtitleStyle = this.prepareStyles(styles.subtitle, this.props.subtitleStyle);
-
-	    var avatar = this.props.avatar;
-	    if (React.isValidElement(this.props.avatar)) {
-	      var avatarMergedStyle = this.mergeStyles(styles.avatar, avatar.props.style);
-	      avatar = React.cloneElement(avatar, { style: avatarMergedStyle });
-	    } else avatar = React.createElement(Avatar, { src: this.props.avatar, style: styles.avatar });
-
-	    return React.createElement(
-	      'div',
-	      _extends({}, this.props, { style: rootStyle }),
-	      avatar,
-	      React.createElement(
-	        'div',
-	        { style: textStyle },
-	        React.createElement(
-	          'span',
-	          { style: titleStyle },
-	          this.props.title
-	        ),
-	        React.createElement(
-	          'span',
-	          { style: subtitleStyle },
-	          this.props.subtitle
-	        )
-	      ),
-	      this.props.children
-	    );
-	  }
-	});
-
-	module.exports = CardHeader;
-
-/***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var React = __webpack_require__(1);
-	var StylePropable = __webpack_require__(162);
-	var Colors = __webpack_require__(181);
-	var DefaultRawTheme = __webpack_require__(202);
-	var ThemeManager = __webpack_require__(205);
-
-	var Avatar = React.createClass({
-	  displayName: 'Avatar',
-
-	  mixins: [StylePropable],
-
-	  contextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  //for passing default theme context to children
-	  childContextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  getChildContext: function getChildContext() {
-	    return {
-	      muiTheme: this.state.muiTheme
-	    };
-	  },
-
-	  propTypes: {
-	    backgroundColor: React.PropTypes.string,
-	    color: React.PropTypes.string,
-	    icon: React.PropTypes.element,
-	    size: React.PropTypes.number,
-	    src: React.PropTypes.string,
-	    style: React.PropTypes.object
-	  },
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
-	    };
-	  },
-
-	  //to update theme inside state whenever a new theme is passed down
-	  //from the parent / owner using context
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({ muiTheme: newMuiTheme });
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      backgroundColor: Colors.grey400,
-	      color: Colors.white,
-	      size: 40
-	    };
-	  },
-
-	  render: function render() {
-	    var _props = this.props;
-	    var backgroundColor = _props.backgroundColor;
-	    var color = _props.color;
-	    var icon = _props.icon;
-	    var size = _props.size;
-	    var src = _props.src;
-	    var style = _props.style;
-
-	    var other = _objectWithoutProperties(_props, ['backgroundColor', 'color', 'icon', 'size', 'src', 'style']);
-
-	    var styles = {
-	      root: {
-	        height: size,
-	        width: size,
-	        userSelect: 'none',
-	        borderRadius: '50%',
-	        display: 'inline-block'
-	      }
-	    };
-
-	    if (src) {
-	      var borderColor = this.state.muiTheme.avatar.borderColor;
-
-	      if (borderColor) {
-	        styles.root = this.mergeStyles(styles.root, {
-	          height: size - 2,
-	          width: size - 2,
-	          border: 'solid 1px ' + borderColor
-	        });
-	      }
-
-	      return React.createElement('img', _extends({}, other, { src: src, style: this.prepareStyles(styles.root, style) }));
-	    } else {
-	      styles.root = this.mergeStyles(styles.root, {
-	        backgroundColor: backgroundColor,
-	        textAlign: 'center',
-	        lineHeight: size + 'px',
-	        fontSize: size / 2 + 4,
-	        color: color
-	      });
-
-	      var styleIcon = {
-	        margin: 8
-	      };
-
-	      var iconElement = icon ? React.cloneElement(icon, {
-	        color: color,
-	        style: this.mergeStyles(styleIcon, icon.props.style)
-	      }) : null;
-
-	      return React.createElement(
-	        'div',
-	        _extends({}, other, { style: this.prepareStyles(styles.root, style) }),
-	        iconElement,
-	        this.props.children
-	      );
-	    }
-	  }
-	});
-
-	module.exports = Avatar;
-
-/***/ },
 /* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -29790,7 +29825,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(241);
+	var Styles = __webpack_require__(240);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29909,11 +29944,14 @@
 	    _createClass(Clip, [{
 	        key: "play",
 	        value: function play(startTime) {
+	            var duration = this.buffer.length / this.buffer.sampleRate;
+	            var bpm = this.clipData.bpm;
 	            this.source = this.context.createBufferSource(); // creates a sound source
 	            this.source.buffer = this.buffer; // tell the source which sound to play
 	            this.source.connect(this.track.gainNode);
 	            this.source.loop = true;
-	            this.source.playbackRate.value = this.track.engine.bpm / this.clipData.bpm;
+	            this.source.loopEnd = Math.round(duration / 60.0 * bpm / 4.0) * 60 * 4 / bpm;
+	            this.source.playbackRate.value = this.track.engine.bpm / bpm;
 	            this.source.start(startTime);
 	            this.playing = true;
 	        }
@@ -30059,20 +30097,13 @@
 	module.exports = {
 		"beat": [
 			{
-				"sample": "beat/looperman-l-1212605-0072974-gruzzle-deep-house-beat-120bpm.wav",
-				"tags": [
-					"house"
-				],
-				"bpm": 120,
-				"name": "deep-house"
-			},
-			{
 				"sample": "beat/looperman-l-1319133-0091072-fanto8bc-power-beat-120bpm.wav",
 				"tags": [
+					"dubstep",
 					"power"
 				],
 				"bpm": 120,
-				"name": "power-beat"
+				"name": "Stepz"
 			},
 			{
 				"sample": "beat/looperman-l-1319133-0090836-fanto8bc-fto-break-beat-120bpm.wav",
@@ -30080,15 +30111,143 @@
 					"break"
 				],
 				"bpm": 120,
-				"name": "break-beat"
+				"name": "Breaky"
 			},
 			{
 				"sample": "beat/looperman-l-1319133-0090561-fanto8bc-amaryllis-house-beat-130bpm.wav",
 				"tags": [
-					"house"
+					"techno"
 				],
 				"bpm": 130,
-				"name": "house-beat"
+				"name": "Tresor"
+			},
+			{
+				"sample": "beat/looperman-l-0526890-0050837-st3rl1ng-008-drum-and-bass-drums-174bpm.wav",
+				"tags": [
+					"dnb"
+				],
+				"bpm": 174,
+				"name": "Dumbass"
+			},
+			{
+				"sample": "beat/looperman-l-0632005-0090899-cfreemanjr-power-drums-90bpm.wav",
+				"tags": [
+					"hip-hop"
+				],
+				"bpm": 90,
+				"name": "Power"
+			},
+			{
+				"sample": "beat/looperman-l-0180667-0023533-butcha-dubstep-beat-140bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 140,
+				"name": "Butcha"
+			},
+			{
+				"sample": "beat/looperman-l-0243518-0034488-sterixx-disco-drums-01-120bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 120,
+				"name": "Disco!"
+			},
+			{
+				"sample": "beat/looperman-l-0043202-0000839-jobu420-jobubeat2-170bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 170,
+				"name": "Jobu"
+			},
+			{
+				"sample": "beat/looperman-l-0788612-0065119-inklewinkle2-liquid-drum-and-bass-break-175bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 175,
+				"name": "Liquid"
+			},
+			{
+				"sample": "beat/looperman-l-0105699-0008054-loopmix-afro-beat-reaktorized-128bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 128,
+				"name": "Ritual"
+			},
+			{
+				"sample": "beat/looperman-l-1018967-0073164-atlasblue-jingle-bells-trapbeat-part-2-90bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 90,
+				"name": "Jingle"
+			},
+			{
+				"sample": "beat/looperman-l-0749324-0053902-roseerin-hit-house-beat-124bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 124,
+				"name": "Kater"
+			},
+			{
+				"sample": "beat/looperman-l-0000013-0086769-djpuzzle-dj-puzzle-micro-house-beat-120bpm.wav",
+				"tags": [
+					"house"
+				],
+				"bpm": 120,
+				"name": "Hedonist"
+			},
+			{
+				"sample": "beat/looperman-l-0203623-0021323-mhyst-techno-beat-140bpm.wav",
+				"tags": [
+					"techno"
+				],
+				"bpm": 140,
+				"name": "Stajanov"
+			},
+			{
+				"sample": "beat/looperman-l-1319133-0090839-fanto8bc-indus-beat-110bpm.wav",
+				"tags": [
+					"indie"
+				],
+				"bpm": 110,
+				"name": "Indus"
+			},
+			{
+				"sample": "beat/looperman-l-1585211-0086838-xxxzephyrxxx-beat-tech-140bpm.wav",
+				"tags": [
+					"techno"
+				],
+				"bpm": 140,
+				"name": "Days"
+			},
+			{
+				"sample": "beat/looperman-l-0641278-0052000-skipyofficialmusic-skrillex-drum-loop-read-description-140bpm.wav",
+				"tags": [
+					"dubstep"
+				],
+				"bpm": 140,
+				"name": "Scream"
+			},
+			{
+				"sample": "beat/looperman-l-0433536-0056339-rwdkl-bodega-jamz-trap-drumz-130bpm.wav",
+				"tags": [
+					"trap"
+				],
+				"bpm": 130,
+				"name": "Trapper"
+			},
+			{
+				"sample": "beat/looperman-l-1153063-0091075-nocturnax-trap-beat-75bpm.wav",
+				"tags": [
+					"trap"
+				],
+				"bpm": 75,
+				"name": "Badass"
 			}
 		],
 		"bass": [
@@ -30099,17 +30258,76 @@
 					"casual"
 				],
 				"bpm": 120,
-				"name": "chord-bass"
+				"name": "Chordz"
 			},
 			{
-				"sample": "bass/looperman-l-0111346-0021947-planetjazzbass-capitalism-120bpm.wav",
+				"sample": "bass/looperman-l-0079105-0054678-centrist-hell-on-earth-bass-chorus-120bpm.wav",
 				"tags": [
-					"jazz",
-					"capitalism"
+					"metal",
+					"hell"
 				],
 				"bpm": 120,
-				"name": "jazzbass"
+				"name": "Hell"
 			},
+			{
+				"sample": "bass/looperman-l-0141594-0033805-fergal-tech-bass-2-140bpm.wav",
+				"tags": [
+					"techno",
+					"casual"
+				],
+				"bpm": 140,
+				"name": "Techz"
+			},
+			{
+				"sample": "bass/looperman-l-0226904-0060709-jfw-fusion-bass-loop-1a-115bpm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 94,
+				"name": "Fuzion"
+			},
+			{
+				"sample": "bass/looperman-l-0125202-0015272-soulfull-s-bassive-145bpm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 145,
+				"name": "Bassive"
+			},
+			{
+				"sample": "bass/looperman-l-0229350-0058912-killzoner-dubstep-wobbles-128bpm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 128,
+				"name": "Wobblez"
+			},
+			{
+				"sample": "bass/looperman-l-0763690-0065554-loopslab-electro-house-drop-bass-128bpm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 128,
+				"name": "Banger"
+			},
+			{
+				"sample": "bass/looperman-l-0071878-0006937-psychotropiccircle-double-bass-108-bbm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 108,
+				"name": "Double"
+			},
+			{
+				"sample": "bass/looperman-l-0352007-0026273-basstrike-grass-bass-175bpm.wav",
+				"tags": [
+					"fusion"
+				],
+				"bpm": 175,
+				"name": "Strike"
+			}
+		],
+		"pads": [
 			{
 				"sample": "bass/looperman-l-0111346-0035676-planetjazzbass-indian-winter-100bpm.wav",
 				"tags": [
@@ -30119,26 +30337,15 @@
 					"indian"
 				],
 				"bpm": 100,
-				"name": "indian-jazz-bass"
+				"name": "Delhi"
 			},
-			{
-				"sample": "bass/looperman-l-0141594-0033805-fergal-tech-bass-2-140bpm.wav",
-				"tags": [
-					"techno",
-					"casual"
-				],
-				"bpm": 140,
-				"name": "tech-bass"
-			}
-		],
-		"pads": [
 			{
 				"sample": "pads/looperman-l-0067564-0001414-bug-synchro-pad-120bpm.wav",
 				"tags": [
 					"casual"
 				],
 				"bpm": 120,
-				"name": "synchro-pad"
+				"name": "Dreamz"
 			},
 			{
 				"sample": "pads/looperman-l-0262259-0031167-califken-chormotion-120bpm.wav",
@@ -30146,15 +30353,7 @@
 					"choir"
 				],
 				"bpm": 120,
-				"name": "choir"
-			},
-			{
-				"sample": "pads/looperman-l-0207475-0031447-nightingale-tearing-100bpm.wav",
-				"tags": [
-					"casual"
-				],
-				"bpm": 100,
-				"name": "nightingale-tearing"
+				"name": "Choirz"
 			},
 			{
 				"sample": "pads/looperman-l-0626891-0076433-ebcott3-hip-hop-ambient-pad-140bpm.wav",
@@ -30163,45 +30362,316 @@
 					"hip-hop"
 				],
 				"bpm": 140,
-				"name": "hip-hop-ambient"
+				"name": "Mistery"
+			},
+			{
+				"sample": "pads/looperman-l-0000003-0000085-serialchiller-chilla-dream-pad-130bpm.wav",
+				"tags": [
+					"casual",
+					"hip-hop"
+				],
+				"bpm": 130,
+				"name": "Morfeo"
+			},
+			{
+				"sample": "pads/looperman-l-0000003-0000086-serialchiller-chilla-dream-pad-2-130bpm.wav",
+				"tags": [
+					"casual",
+					"hip-hop"
+				],
+				"bpm": 130,
+				"name": "Awake"
+			},
+			{
+				"sample": "pads/looperman-l-0102056-0011030-dj4real-railroad-elevated-140bpm.wav",
+				"tags": [
+					"casual",
+					"hip-hop"
+				],
+				"bpm": 140,
+				"name": "Elevated"
+			},
+			{
+				"sample": "pads/looperman-l-0016211-0000351-equinoxsoundscom-equinox-ethereal-melody-in-am-117bpm.wav",
+				"tags": [
+					"casual",
+					"hip-hop"
+				],
+				"bpm": 117,
+				"name": "Ethereal"
 			}
 		],
-		"leads": [
+		"instrument": [
 			{
-				"sample": "leads/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav",
+				"sample": "instrument/looperman-l-0207475-0031447-nightingale-tearing-100bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 100,
+				"name": "Surf"
+			},
+			{
+				"sample": "instrument/looperman-l-0633575-0067848-lodderup-melodramatic-piano-120bpm.wav",
 				"tags": [
 					"piano",
 					"melodramatic"
 				],
 				"bpm": 120,
-				"name": "piano"
+				"name": "Drama"
 			},
 			{
-				"sample": "leads/looperman-l-0000003-0000084-serialchiller-chilla-dist-guitar-riff-3-120bpm.wav",
-				"tags": [
-					"guitar",
-					"electronic"
-				],
-				"bpm": 120,
-				"name": "guitar"
-			},
-			{
-				"sample": "leads/looperman-l-0159051-0029237-minor2go-seven-hearts-violins-100bpm.wav",
+				"sample": "instrument/looperman-l-0159051-0029237-minor2go-seven-hearts-violins-100bpm.wav",
 				"tags": [
 					"violin",
 					"hip-hop"
 				],
 				"bpm": 100,
-				"name": "violin"
+				"name": "Sadnez"
 			},
 			{
-				"sample": "leads/JC_Guitar95C-01.wav",
+				"sample": "instrument/looperman-l-0085913-0014505-xarnor-fast-guitar-riff-175bpm.wav",
 				"tags": [
 					"guitar",
 					"jazz"
 				],
-				"bpm": 95,
-				"name": "jazz-guitar"
+				"bpm": 175,
+				"name": "Melenaz"
+			},
+			{
+				"sample": "instrument/looperman-l-0761156-0079815-asko-upbeat-piano-120bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Upbeat"
+			},
+			{
+				"sample": "instrument/looperman-l-1032912-0068500-dazanosa-reggae-or-dub-guitar-stabs-120bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Marley"
+			},
+			{
+				"sample": "instrument/looperman-l-0026789-0000414-omars-omar-phased-guitar-groove-120bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Groovy"
+			},
+			{
+				"sample": "instrument/looperman-l-1352219-0078389-jensmuse-koto-melody-120bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Koto"
+			},
+			{
+				"sample": "instrument/looperman-l-0901862-0065926-dirtballrecordz-trap-piano-140bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 140,
+				"name": "Trapy"
+			},
+			{
+				"sample": "instrument/looperman-l-0158799-0039649-alividlife-anti-snow-ragga-guitar-70bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 140,
+				"name": "Kiffy"
+			},
+			{
+				"sample": "instrument/looperman-l-0448131-0065295-megapaul-dont-metal-your-friends-85bpm-csharp-85bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 85,
+				"name": "Friends"
+			},
+			{
+				"sample": "instrument/looperman-l-0159051-0061816-minor2go-guitars-unlimited-my-passion-120bpm.wav",
+				"tags": [
+					"guitar",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Passion"
+			},
+			{
+				"sample": "instrument/looperman-l-0072432-0001988-anchor-hungarian-piano-01-100bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 100,
+				"name": "Hunger"
+			},
+			{
+				"sample": "instrument/looperman-l-0025227-0000585-insanesmilie-insane-moonlight-piano-roll-120bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Moonlight"
+			},
+			{
+				"sample": "instrument/looperman-l-0025227-0000584-insanesmilie-insane-trance-chords-120bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Chords"
+			}
+		],
+		"synth": [
+			{
+				"sample": "synth/looperman-l-0000013-0000392-djpuzzle-trance-synth-01-120bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 120,
+				"name": "Euro"
+			},
+			{
+				"sample": "synth/looperman-l-0000014-0000112-bentleyrhythmace-bra-rave-synth-loop-126bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 126,
+				"name": "Smooth"
+			},
+			{
+				"sample": "synth/looperman-l-0027963-0000482-loopinmadscientist-madscientist-goa-synth-150bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 150,
+				"name": "Goa"
+			},
+			{
+				"sample": "synth/looperman-l-0039735-0050928-ancoral-acp-next-gate-03-120bpm.wav",
+				"tags": [
+					"bit",
+					"glitch"
+				],
+				"bpm": 120,
+				"name": "Next"
+			},
+			{
+				"sample": "synth/looperman-l-0219480-0069866-cellocubano-some-rhodes-84bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 84,
+				"name": "Rhodes"
+			},
+			{
+				"sample": "synth/looperman-l-0749324-0053904-roseerin-hardstyle-screamer-150-d-120bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 150,
+				"name": "Raver"
+			},
+			{
+				"sample": "synth/looperman-l-0671112-0065553-danke-damned-120bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 120,
+				"name": "Damned"
+			},
+			{
+				"sample": "synth/looperman-l-0480098-0051507-jamievega-bouncy-offbeat-synth-with-delay-90bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 90,
+				"name": "Chao"
+			},
+			{
+				"sample": "synth/looperman-l-0562523-0059549-digitalskyy-epic-pad-and-pluck-buildup-140bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 140,
+				"name": "Epic"
+			},
+			{
+				"sample": "synth/looperman-l-0039735-0063220-ancoral-acp-huge-chord-seq-140bpm.wav",
+				"tags": [
+					"casual"
+				],
+				"bpm": 140,
+				"name": "Anthem"
+			},
+			{
+				"sample": "synth/looperman-l-0159051-0049740-minor2go-piano-romance-the-first-day-2-100bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 100,
+				"name": "Romance"
+			},
+			{
+				"sample": "synth/looperman-l-0506728-0058639-krazyindian-beamer-benz-or-bentley-160bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 160,
+				"name": "Bentley"
+			},
+			{
+				"sample": "synth/looperman-l-0420981-0051904-zatch-e-synth-128bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 128,
+				"name": "Zatch"
+			},
+			{
+				"sample": "synth/looperman-l-0951439-0067317-evisma-recall-and-regret-120bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 120,
+				"name": "Regret"
+			},
+			{
+				"sample": "synth/looperman-l-0882657-0075009-projectsynapsys-banger-squeal-pop-140bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 140,
+				"name": "Squeal"
+			},
+			{
+				"sample": "synth/looperman-l-0754277-0052918-noizecollector-trap-lead-synth-bass-141bpm.wav",
+				"tags": [
+					"piano",
+					"jazz"
+				],
+				"bpm": 141,
+				"name": "Recall"
 			}
 		],
 		"voice": [
@@ -30211,7 +30681,7 @@
 					"house"
 				],
 				"bpm": 120,
-				"name": "Take-control"
+				"name": "Control"
 			},
 			{
 				"sample": "voice/looperman-l-0000013-0000395-djpuzzle-robot-voice-120bpm.wav",
@@ -30220,7 +30690,70 @@
 					"house"
 				],
 				"bpm": 120,
-				"name": "Dance-with-me"
+				"name": "Dance"
+			},
+			{
+				"sample": "voice/looperman-l-0795768-0060343-cyto-within-your-soul-chopped-and-sliced-140bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 140,
+				"name": "Choppy"
+			},
+			{
+				"sample": "voice/looperman-l-0265632-0045072-weazelbeats-weazel-vocal-loop-128bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 128,
+				"name": "Weazel"
+			},
+			{
+				"sample": "voice/looperman-l-1153063-0079478-nocturnax-edm-vocal-drop-128bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 128,
+				"name": "Drop"
+			},
+			{
+				"sample": "voice/looperman-l-1153063-0079485-nocturnax-edm-vocal-drop-2-128bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 128,
+				"name": "Edemy"
+			},
+			{
+				"sample": "voice/looperman-l-1059144-0068636-ebaby8119-trap-drumz-just-vocals-140bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 140,
+				"name": "Eh!"
+			},
+			{
+				"sample": "voice/looperman-l-0562523-0048319-digitalskyy-come-on-vox-loop-for-house-130bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 130,
+				"name": "Come on"
+			},
+			{
+				"sample": "voice/looperman-l-0562523-0064726-digitalskyy-daaayum-son-new-trap-vox-140bpm.wav",
+				"tags": [
+					"dance",
+					"house"
+				],
+				"bpm": 140,
+				"name": "Daayum"
 			}
 		]
 	};
@@ -30237,7 +30770,7 @@
 				"punk"
 			],
 			"url": "https://www.zalando.de/joseph-wollmantel-klassischer-mantel-navy-je022n001-k11.html",
-			"description": "Navy classic wool coat",
+			"description": "Classic wool coat",
 			"brand": "Joseph",
 			"gender": "men"
 		},
@@ -30754,7 +31287,7 @@
 	exports.i(__webpack_require__(262), "");
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 20%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 20px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px; }\n    .music-section .clip-list .track-slider {\n      margin: 0px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n\n.shop-section .title {\n  padding: 20px 15px; }\n\n.shop-section .shop-item {\n  width: 25%;\n  float: left; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 20px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n\n.shop-section .title {\n  padding: 20px 15px; }\n\n.shop-section .shop-item {\n  width: 20%;\n  float: left; }\n", ""]);
 
 	// exports
 
