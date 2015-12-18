@@ -1,133 +1,168 @@
 
 - src: https://secure-i4.ztat.net//detail/JE/02/2N/00/1K/11/JE022N001-K11@15.1.jpg
-  tags: [ rock, punk ]
+  tags: [ classic, black ]
   url: https://www.zalando.de/joseph-wollmantel-klassischer-mantel-navy-je022n001-k11.html
   description: Classic wool coat
   brand: Joseph
   gender: men
 
 - src: https://secure-i1.ztat.net//detail/ZI/11/2D/02/JQ/11/ZI112D02J-Q11@110.jpg
-  tags: [ dmb, punk ]
+  tags: [ rock, black ]
   url: https://www.zalando.de/zign-schnuerstiefelette-preto-zi112d02j-q11.html
   description: Black leather boots
   brand: Zing
   gender: men
 
 - src: https://secure-i2.ztat.net//large/S3/72/2H/00/YQ/11/S3722H00Y-Q11@3.jpg
-  tags: [ rock, punk ]
+  tags: [ rave, black ]
   url: https://www.zalando.de/schott-nyc-lederjacke-black-s3722h00y-q11.html
   description: Black lederjacke
   brand: Schott NYC
   gender: men
 
 - src: https://secure-i5.ztat.net//detail/WA/22/1B/01/7B/11/WA221B017-B11@13.jpg
-  tags: [ rock, punk ]
+  tags: [ rock, black ]
   url: https://www.zalando.de/warehouse-maxirock-neutral-wa221b017-b11.html
   description: Neutral maxi skirt
   brand: Warehouse
   gender: women
 
 - src: https://secure-i5.ztat.net//large/TP/72/1I/05/6K/11/TP721I056-K11@15.jpg
-  tags: [ ambient ]
+  tags: [ pop, color ]
   url: https://www.zalando.de/topshop-strickpullover-lightblue-tp721i056-k11.html
   description: Lightblue Strickpullover
   brand: Topshop
   gender: women
 
 - src: https://secure-i1.ztat.net//detail/GU/12/1C/05/7Q/11/GU121C057-Q11@15.jpg
-  tags: [ dance, techno ]
+  tags: [ rave, black ]
   url: https://www.zalando.de/guess-terry-freizeitkleid-noir-gu121c057-q11.html
   description: Balck terry dress
   brand: Guess
   gender: women
 
 - src: https://secure-i2.ztat.net//detail/NE/35/2B/04/BC/11/NE352B04B-C11@9.jpg
-  tags: [ hip-hop, casual ]
+  tags: [ hip-hop, color ]
   url: https://www.zalando.de/new-era-cap-grey-ne352b04b-c11.html
   description: Batman cap
   brand: New era
   gender: men
 
 - src: https://secure-i1.ztat.net//detail/K0/05/2E/01/0Q/11/K0052E010-Q11@6.jpg
-  tags: [ dark, casual ]
+  tags: [ classic, black ]
   url: https://www.zalando.de/komono-uhr-duotone-black-k0052e010-q11.html
   description: Winston Heritage clock
   brand: Komono
   gender: all
 
 - src: https://secure-i5.ztat.net//large/BH/62/2S/A0/5Q/11/BH622SA05-Q11@29.3.jpg
-  tags: [ sport, casual, hip-hop ]
+  tags: [ hip-hop, black ]
   url: https://www.zalando.de/brooklyn-s-own-by-rocawear-sweatshirt-black-bh622sa05-q11.html
   description: Black sweatshirt
   brand: Brooklyn’s Own by Rocawear
   gender: all
 
 - src: https://secure-i1.ztat.net//detail/HA/38/10/00/AT/11/HA381000A-T11@4.jpg
-  tags: [ happy, casual ]
+  tags: [ disco, color ]
   url: https://www.zalando.de/happy-socks-2-pack-socken-multi-coloured-ha381000a-t11.html
   description: Multi color socks
   brand: Happy socks
   gender: all
 
 - src: https://secure-i1.ztat.net//detail/RA/25/4E/00/BO/11/RA254E00B-O11@10.1.jpg
-  tags: [ casual, rock ]
+  tags: [ classic, hip-hop ]
   url: https://www.zalando.de/ray-ban-sonnenbrille-brown-ra254e00b-o11.html
   description: Brown sunglasses
   brand: Ray-ban
   gender: all
 
 - src: https://secure-i4.ztat.net//detail/M9/12/1I/0D/XQ/11/M9121I0DX-Q11@9.jpg
-  tags: [ dark, rock ]
+  tags: [ black, techno ]
   url: https://www.zalando.de/mango-canvas-strickjacke-black-m9121i0dx-q11.html
   description: Black cardigan
   brand: Mango
   gender: women
 
 - src: https://secure-i5.ztat.net//detail/AA/22/1A/00/EB/11/AA221A00E-B11@13.jpg
-  tags: [ light, casual, ambient, urban ]
+  tags: [ house, sad ]
   url: https://www.zalando.de/american-apparel-madeline-jumpsuit-aa221a00e-b11.html
   description: Madeline jumpsuit
   brand: American Apparel
   gender: women
 
 - src: https://secure-i5.ztat.net//large/AD/54/1E/0A/BQ/11/AD541E0AB-Q11@11.jpg
-  tags: [ sport, rock, urban ]
+  tags: [ color, rave ]
   url: https://www.zalando.de/adidas-performance-tights-black-black-ad541e0ab-q11.html
   description: Performance tights
   brand: Adidas
   gender: women
 
 - src: https://secure-i4.ztat.net//detail/RM/64/1E/00/7D/11/RM641E007-D11@9.2.jpg
-  tags: [ dark, rock ]
+  tags: [ black, party ]
   url: https://www.zalando.de/rebecca-minkoff-cameron-shorts-silver-coloured-rm641e007-d11.html
   description: Silver shorts
   brand: Rebecca Minkoff
   gender: women
 
 - src: https://secure-i4.ztat.net//detail/SE/52/1B/02/JQ/11/SE521B02J-Q11@10.jpg
-  tags: [ dark, rock, punk ]
+  tags: [ sad, black ]
   url: https://www.zalando.de/selected-femme-sfassie-faltenrock-black-se521b02j-q11.html
   description: Pleaded skirt
   brand: Selected femme
   gender: women
 
 - src: https://secure-i3.ztat.net//detail/MF/91/1A/00/1Q/11/MF911A001-Q11@11.jpg
-  tags: [ dark, rock, punk ]
+  tags: [ classic, black ]
   url: https://www.zalando.de/miss-selfridge-grace-high-heel-pumps-black-mf911a001-q11.html
   description: Black pumps
   brand: Miss Selfridge
   gender: women
 
 - src: https://secure-i1.ztat.net//detail/NS/42/2S/00/DC/11/NS422S00D-C11@13.jpg
-  tags: [ hip-hop ]
+  tags: [ rave, white ]
   url: https://www.zalando.de/nike-sb-everett-jogginghose-dark-grey-heather-ns422s00d-c11.html
   description: Grey Joggers
   brand: Nike SB
   gender: men
 
 - src: https://secure-i2.ztat.net//detail/GP/02/2Q/00/LK/11/GP022Q00L-K11@10.jpg
-  tags: [ hippie, reggae ]
+  tags: [ disco, color ]
   url: https://www.zalando.de/gap-strickpullover-dark-blue-white-gp022q00l-k11.html
   description: Colored sweater
   brand: Gap
   gender: men
+
+- src: https://secure-i5.ztat.net//large/CS/65/2H/00/PQ/11/CS652H00P-Q11@8.jpg
+  tags: [ hippie, reggae, color ]
+  url: https://www.zalando.de/cayler-sons-sweet-sensi-rucksack-black-rasta-cs652h00p-q11.html
+  description: Backpack
+  brand: Cayler & Sons
+  gender: men
+
+- src: https://secure-i4.ztat.net//large/DE/12/1C/0C/MQ/11/DE121C0CM-Q11@12.jpg
+  tags: [ hippie, color ]
+  url: https://www.zalando.de/cayler-sons-sweet-sensi-rucksack-black-rasta-cs652h00p-q11.html
+  description: Galactic dress
+  brand: Desigual
+  gender: Woman
+
+- src: https://secure-i4.ztat.net//large/ML/12/1A/00/6T/11/ML121A006-T11@12.jpg
+  tags: [ disco, house ]
+  url: https://www.zalando.de/oh-my-love-disco-inferno-stoffhose-petrol-ml121a006-t11.html
+  description: Disco inferno pants
+  brand: Oh My Love
+  gender: Woman
+
+- src: https://secure-i3.ztat.net//large/GL/92/1K/00/BQ/11/GL921K00B-Q11@11.jpg
+  tags: [ japan, black ]
+  url: https://www.zalando.de/glamorous-tunika-black-white-gl921k00b-q11.html
+  description: Kimono
+  brand: Glamorous
+  gender: Woman
+
+- src: https://secure-i6.ztat.net//large/NL/02/1K/01/8A/11/NL021K018-A11@12.jpg
+  tags: [ japan, white ]
+  url: https://www.zalando.de/new-look-lottie-tunika-white-nl021k018-a11.html
+  description: Lottie Kimono
+  brand: New Look
+  gender: Woman
