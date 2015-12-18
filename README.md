@@ -4,6 +4,7 @@ zBeats fashion music maker.
 
 Tool to build music, develped with ReactJS, material UI, Web Audio and Webpack.
 
+For a demo of the project go to: http://kostspielig.github.io/zbeats/
 
 # Usage
 
