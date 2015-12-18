@@ -19776,7 +19776,7 @@
 	            });
 
 	            // Take the top 4 items
-	            shopItems = this.state.items.slice(0, 5);
+	            shopItems = this.state.items.slice(0, 6);
 	            this.setState({ shopItems: shopItems });
 	        }
 
@@ -23760,7 +23760,7 @@
 	  spacing: Spacing,
 	  fontFamily: 'Roboto, sans-serif',
 	  palette: {
-	    primary1Color: Colors.cyan500,
+	    primary1Color: '#fb9521',
 	    primary2Color: Colors.cyan700,
 	    primary3Color: Colors.grey400,
 	    accent1Color: Colors.pinkA200,
@@ -23773,6 +23773,7 @@
 	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
 	  }
 	};
+
 
 /***/ },
 /* 203 */
@@ -29042,6 +29043,7 @@
 	  }
 	};
 
+
 /***/ },
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
@@ -31287,7 +31289,7 @@
 	exports.i(__webpack_require__(262), "");
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 20px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n\n.shop-section .title {\n  padding: 20px 15px; }\n\n.shop-section .shop-item {\n  width: 20%;\n  float: left; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
 
 	// exports
 
