@@ -29883,7 +29883,7 @@
 	        this.track = track;
 	        this.context = track.context;
 	        this.clipData = clipData;
-	        var url = '../clips/' + clipData.sample;
+	        var url = 'clips/' + clipData.sample;
 	        var request = new XMLHttpRequest();
 	        request.open("GET", url, true);
 	        request.responseType = "arraybuffer";
