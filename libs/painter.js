@@ -2,21 +2,33 @@ const color_inactive = 'rgba(226, 226, 226, 0.4)'
 const color_active = 'rgba(251, 149, 33, 0.40)'
 
 class Painter {
-    constructor() {}
+    constructor() {
+        this.lastPosition = null
+        this.bins = null
+    }
 
     drawBuffer(width, height, ctx, data, sound) {
-        if (!this.bins || width !== this.bins.length)
+        if (!this.bins || width !== this.bins.length) {
             this._recomputeBins(width, ctx, data, sound)
+        }
 
         let step = Math.ceil(data.length / width)
         let amp = height / 2
-        ctx.clearRect(0,0,width,height)
+        let firstPosition = 0
+        let nextPosition = width
+        let newPosition = Math.round(sound.currentTime / sound.duration * width)
+        if (this.lastPosition != null && this.lastPosition <= newPosition) {
+            firstPosition = this.lastPosition
+            nextPosition = newPosition
+        }
+        this.lastPosition = newPosition
 
-        this.bins.forEach(({max, min}, i) => {
-            ctx.fillStyle = i < sound.currentTime / sound.duration * width
+        ctx.clearRect(firstPosition, 0, nextPosition - firstPosition, height)
+        this.bins.slice(firstPosition, nextPosition).forEach(({max, min}, i) => {
+            ctx.fillStyle = firstPosition + i < newPosition
                 ? color_active
                 : color_inactive
-            ctx.fillRect(i, (1 + min) * amp,
+            ctx.fillRect(firstPosition + i, (1 + min) * amp,
                          1, Math.max(1, (max - min) * amp))
         })
     }
@@ -37,6 +49,7 @@ class Painter {
             bins[i] = { min: min, max: max }
         }
         this.bins = bins
+        this.lastPosition = null
     }
 }
 
