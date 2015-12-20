@@ -8,7 +8,7 @@ class Painter {
         if (!this.bins || width !== this.bins.length)
             this._recomputeBins(width, ctx, data, sound)
 
-        let step = Math.ceil( data.length / width )
+        let step = Math.ceil(data.length / width)
         let amp = height / 2
         ctx.clearRect(0,0,width,height)
 
@@ -22,7 +22,7 @@ class Painter {
     }
 
     _recomputeBins(width, ctx, data, sound) {
-        let step = Math.ceil( data.length / width )
+        let step = Math.ceil(data.length / width)
         let bins = new Array(width)
         for (let i = 0; i < width; i++) {
             let min = 1.0
