@@ -1,3 +1,4 @@
+import drawBuffer from './audiodisplay'
 
 class Clip {
     constructor(track, clipData) {
@@ -18,6 +19,16 @@ class Clip {
                         return
                     }
                     this.buffer = buffer
+
+                    this.data =  this.buffer.getChannelData(1)
+                    this.canvas = document.getElementById(this.clipData.name)
+                    this.canvasCtx = this.canvas.getContext('2d')
+                    drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                               {
+                                   duration: 0,
+                                   currentTime: 0
+                               })
+
                 },
                 (error) => {
                     console.error('decodeAudioData error', error)
@@ -32,19 +43,48 @@ class Clip {
     play(startTime) {
         const duration = this.buffer.length / this.buffer.sampleRate
         const bpm = this.clipData.bpm
+
         this.source = this.context.createBufferSource() // creates a sound source
         this.source.buffer = this.buffer // tell the source which sound to play
         this.source.connect(this.track.gainNode)
+
         this.source.loop = true
         this.source.loopEnd = Math.round(duration / 60.0 * bpm / 4.0) * 60 * 4 / bpm
         this.source.playbackRate.value = this.track.engine.bpm / bpm
         this.source.start(startTime)
         this.playing = true
+
+        this.lastCurrentTime = 0
+        this.lastChangeTime = startTime
+        let draw = () => {
+            drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                       {
+                           duration: this.buffer.duration,
+                           currentTime: (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration
+                       })
+            this.drawframe = requestAnimationFrame (draw)
+        }
+
+        draw()
     }
 
     stop(stopTime) {
+        window.cancelAnimationFrame(this.drawframe)
         this.source.stop(stopTime)
         this.playing = false
+
+        drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                   {
+                       duration: 0,
+                       currentTime: 0
+                   })
+    }
+
+    changeGlobalBpm(bpm, time) {
+        this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration
+        this.lastChangeTime = time
+        this.source.playbackRate.setValueAtTime(
+            bpm / this.clipData.bpm, time)
     }
 }
 
@@ -107,8 +147,7 @@ class Engine {
         this.tracks.forEach(track => {
             const clip = track.currentClip
             if (clip !== null) {
-                clip.source.playbackRate.setValueAtTime(
-                    bpm / clip.clipData.bpm, time)
+                clip.changeGlobalBpm(bpm, time)
             }
         })
     }

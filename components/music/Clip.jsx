@@ -21,7 +21,8 @@ class Clip extends Component {
         let clipState = clip.clip.playing ? 'on' : 'off'
         let playIcon = !clip.clip.playing ? 'play_arrow' : 'stop'
         return (
-            <Card>
+            <Card className='clip-card'>
+              <canvas id={clip.name} className='waveform' width='100%' height='100'></canvas>
               <CardHeader
                 className='clip-header'
                 title={clip.name}

@@ -57,6 +57,13 @@ body {
         .track-slider { margin: -2px 20px -25px 20px; }
         .on  { background-color: $warning; }
         .off {}
+
+        .clip-card > div {
+            position: relative;
+
+            .waveform { width: 100% !important; height: 60px; position: absolute; }
+        }
+
     }
 }
 
