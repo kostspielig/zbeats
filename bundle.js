@@ -60,11 +60,11 @@
 
 	var _componentsAppJsx2 = _interopRequireDefault(_componentsAppJsx);
 
-	var _reactTapEventPlugin = __webpack_require__(255);
+	var _reactTapEventPlugin = __webpack_require__(256);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
-	__webpack_require__(259);
+	__webpack_require__(260);
 
 	(0, _reactTapEventPlugin2['default'])();
 
@@ -19705,12 +19705,12 @@
 
 	var _materialUiLibStylesThemeDecorator2 = _interopRequireDefault(_materialUiLibStylesThemeDecorator);
 
-	var _styleZbeatsTheme = __webpack_require__(252);
+	var _styleZbeatsTheme = __webpack_require__(253);
 
 	var _styleZbeatsTheme2 = _interopRequireDefault(_styleZbeatsTheme);
 
-	var clips = __webpack_require__(253);
-	var items = __webpack_require__(254);
+	var clips = __webpack_require__(254);
+	var items = __webpack_require__(255);
 
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
@@ -23760,7 +23760,7 @@
 	  spacing: Spacing,
 	  fontFamily: 'Roboto, sans-serif',
 	  palette: {
-	    primary1Color: Colors.cyan500,
+	    primary1Color: '#fb9521',
 	    primary2Color: Colors.cyan700,
 	    primary3Color: Colors.grey400,
 	    accent1Color: Colors.pinkA200,
@@ -23773,6 +23773,7 @@
 	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
 	  }
 	};
+
 
 /***/ },
 /* 203 */
@@ -29042,6 +29043,7 @@
 	  }
 	};
 
+
 /***/ },
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
@@ -29790,7 +29792,8 @@
 	            var playIcon = !clip.clip.playing ? 'play_arrow' : 'stop';
 	            return _react2['default'].createElement(
 	                _materialUiLibCardCard2['default'],
-	                null,
+	                { className: 'clip-card' },
+	                _react2['default'].createElement('canvas', { id: clip.name, className: 'waveform', width: '100%', height: '100' }),
 	                _react2['default'].createElement(_materialUiLibCardCardHeader2['default'], {
 	                    className: 'clip-header',
 	                    title: clip.name,
@@ -29897,17 +29900,23 @@
 
 /***/ },
 /* 251 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _audiodisplay = __webpack_require__(252);
+
+	var _audiodisplay2 = _interopRequireDefault(_audiodisplay);
 
 	var Clip = (function () {
 	    function Clip(track, clipData) {
@@ -29930,6 +29939,14 @@
 	                    return;
 	                }
 	                _this.buffer = buffer;
+
+	                _this.data = _this.buffer.getChannelData(1);
+	                _this.canvas = document.getElementById(_this.clipData.name);
+	                _this.canvasCtx = _this.canvas.getContext('2d');
+	                (0, _audiodisplay2['default'])(_this.canvas.width, _this.canvas.height, _this.canvasCtx, _this.data, {
+	                    duration: 0,
+	                    currentTime: 0
+	                });
 	            }, function (error) {
 	                console.error('decodeAudioData error', error);
 	            });
@@ -29942,24 +29959,53 @@
 	    }
 
 	    _createClass(Clip, [{
-	        key: "play",
+	        key: 'play',
 	        value: function play(startTime) {
+	            var _this2 = this;
+
 	            var duration = this.buffer.length / this.buffer.sampleRate;
 	            var bpm = this.clipData.bpm;
+
 	            this.source = this.context.createBufferSource(); // creates a sound source
 	            this.source.buffer = this.buffer; // tell the source which sound to play
 	            this.source.connect(this.track.gainNode);
+
 	            this.source.loop = true;
 	            this.source.loopEnd = Math.round(duration / 60.0 * bpm / 4.0) * 60 * 4 / bpm;
 	            this.source.playbackRate.value = this.track.engine.bpm / bpm;
 	            this.source.start(startTime);
 	            this.playing = true;
+
+	            this.lastCurrentTime = 0;
+	            this.lastChangeTime = startTime;
+	            var draw = function draw() {
+	                (0, _audiodisplay2['default'])(_this2.canvas.width, _this2.canvas.height, _this2.canvasCtx, _this2.data, {
+	                    duration: _this2.buffer.duration,
+	                    currentTime: (_this2.lastCurrentTime + (_this2.context.currentTime - _this2.lastChangeTime) * _this2.source.playbackRate.value) % _this2.buffer.duration
+	                });
+	                _this2.drawframe = requestAnimationFrame(draw);
+	            };
+
+	            draw();
 	        }
 	    }, {
-	        key: "stop",
+	        key: 'stop',
 	        value: function stop(stopTime) {
+	            window.cancelAnimationFrame(this.drawframe);
 	            this.source.stop(stopTime);
 	            this.playing = false;
+
+	            (0, _audiodisplay2['default'])(this.canvas.width, this.canvas.height, this.canvasCtx, this.data, {
+	                duration: 0,
+	                currentTime: 0
+	            });
+	        }
+	    }, {
+	        key: 'changeGlobalBpm',
+	        value: function changeGlobalBpm(bpm, time) {
+	            this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration;
+	            this.lastChangeTime = time;
+	            this.source.playbackRate.setValueAtTime(bpm / this.clipData.bpm, time);
 	        }
 	    }]);
 
@@ -29979,12 +30025,12 @@
 	    }
 
 	    _createClass(Track, [{
-	        key: "load",
+	        key: 'load',
 	        value: function load(clipData) {
 	            return new Clip(this, clipData);
 	        }
 	    }, {
-	        key: "toggle",
+	        key: 'toggle',
 	        value: function toggle(clip) {
 	            var curr = this.context.currentTime + 1. / 60.;
 	            if (this.engine.startTime === null) this.engine.startTime = curr;
@@ -30001,7 +30047,7 @@
 	            }
 	        }
 	    }, {
-	        key: "changeVolume",
+	        key: 'changeVolume',
 	        value: function changeVolume(value) {
 	            var max = arguments.length <= 1 || arguments[1] === undefined ? 100 : arguments[1];
 
@@ -30027,7 +30073,7 @@
 	    }
 
 	    _createClass(Engine, [{
-	        key: "changeBpm",
+	        key: 'changeBpm',
 	        value: function changeBpm(bpm) {
 	            var old = this.bpm;
 	            var time = this.context.currentTime + 1. / 60.;
@@ -30039,12 +30085,12 @@
 	            this.tracks.forEach(function (track) {
 	                var clip = track.currentClip;
 	                if (clip !== null) {
-	                    clip.source.playbackRate.setValueAtTime(bpm / clip.clipData.bpm, time);
+	                    clip.changeGlobalBpm(bpm, time);
 	                }
 	            });
 	        }
 	    }, {
-	        key: "addTrack",
+	        key: 'addTrack',
 	        value: function addTrack() {
 	            var track = new Track(this);
 	            this.tracks.push(track);
@@ -30055,11 +30101,42 @@
 	    return Engine;
 	})();
 
-	exports["default"] = Engine;
-	module.exports = exports["default"];
+	exports['default'] = Engine;
+	module.exports = exports['default'];
 
 /***/ },
 /* 252 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	function drawBuffer(width, height, ctx, data, sound) {
+	    var step = Math.ceil(data.length / width);
+	    var amp = height / 2;
+	    ctx.fillStyle = 'rgba(226, 226, 226, 0.4)';
+	    ctx.clearRect(0, 0, width, height);
+	    for (var i = 0; i < width; i++) {
+	        var min = 1.0;
+	        var max = -1.0;
+	        for (var j = 0; j < step; j++) {
+	            var datum = data[i * step + j];
+	            if (datum < min) min = datum;
+	            if (datum > max) max = datum;
+	        }
+
+	        ctx.fillStyle = i < sound.currentTime / sound.duration * width ? 'rgba(251, 149, 33, 0.40)' : 'rgba(226, 226, 226, 0.4)';
+	        ctx.fillRect(i, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+	    }
+	}
+
+	exports['default'] = drawBuffer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30091,7 +30168,7 @@
 	};
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -30778,7 +30855,7 @@
 	};
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -31050,18 +31127,18 @@
 	];
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function injectTapEventPlugin () {
 	  __webpack_require__(31).injection.injectEventPluginsByName({
-	    "TapEventPlugin":       __webpack_require__(256)
+	    "TapEventPlugin":       __webpack_require__(257)
 	  });
 	};
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31089,10 +31166,10 @@
 	var EventPluginUtils = __webpack_require__(33);
 	var EventPropagators = __webpack_require__(73);
 	var SyntheticUIEvent = __webpack_require__(87);
-	var TouchEventUtils = __webpack_require__(257);
+	var TouchEventUtils = __webpack_require__(258);
 	var ViewportMetrics = __webpack_require__(38);
 
-	var keyOf = __webpack_require__(258);
+	var keyOf = __webpack_require__(259);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -31236,7 +31313,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports) {
 
 	/**
@@ -31284,7 +31361,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports) {
 
 	/**
@@ -31324,16 +31401,16 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(260);
+	var content = __webpack_require__(261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(263)(content, {});
+	var update = __webpack_require__(264)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -31350,21 +31427,21 @@
 	}
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(261)();
+	exports = module.exports = __webpack_require__(262)();
 	// imports
-	exports.i(__webpack_require__(262), "");
+	exports.i(__webpack_require__(263), "");
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n    .music-section .clip-list .clip-card > div {\n      position: relative; }\n      .music-section .clip-list .clip-card > div .waveform {\n        width: 100% !important;\n        height: 60px;\n        position: absolute; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports) {
 
 	/*
@@ -31420,10 +31497,10 @@
 
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(261)();
+	exports = module.exports = __webpack_require__(262)();
 	// imports
 
 
@@ -31434,7 +31511,7 @@
 
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
