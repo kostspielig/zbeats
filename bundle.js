@@ -19693,9 +19693,9 @@
 
 	var _musicTrackJsx2 = _interopRequireDefault(_musicTrackJsx);
 
-	var _libsAudioJs = __webpack_require__(251);
+	var _libsEngineJs = __webpack_require__(251);
 
-	var _libsAudioJs2 = _interopRequireDefault(_libsAudioJs);
+	var _libsEngineJs2 = _interopRequireDefault(_libsEngineJs);
 
 	var _materialUiLibStylesThemeManager = __webpack_require__(205);
 
@@ -19726,7 +19726,7 @@
 	        this.state.items = items;
 	        this.state.shopItems = [];
 	        this.state.tags = [];
-	        this.state.engine = new _libsAudioJs2['default']();
+	        this.state.engine = new _libsEngineJs2['default']();
 	        this.state.tracks = {};
 	        Object.keys(clips).forEach(function (key) {
 	            _this.state.tracks[key] = _this.state.engine.addTrack();
@@ -29914,9 +29914,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _audiodisplay = __webpack_require__(252);
+	var _painter = __webpack_require__(252);
 
-	var _audiodisplay2 = _interopRequireDefault(_audiodisplay);
+	var _painter2 = _interopRequireDefault(_painter);
 
 	var Clip = (function () {
 	    function Clip(track, clipData) {
@@ -29927,6 +29927,8 @@
 	        this.track = track;
 	        this.context = track.context;
 	        this.clipData = clipData;
+	        this.painter = new _painter2['default']();
+
 	        var url = 'clips/' + clipData.sample;
 	        var request = new XMLHttpRequest();
 	        request.open("GET", url, true);
@@ -29943,8 +29945,10 @@
 	                _this.data = _this.buffer.getChannelData(1);
 	                _this.canvas = document.getElementById(_this.clipData.name);
 	                _this.canvasCtx = _this.canvas.getContext('2d');
-	                (0, _audiodisplay2['default'])(_this.canvas.width, _this.canvas.height, _this.canvasCtx, _this.data, {
-	                    duration: 0,
+	                _this.actualDuration = Math.round(buffer.duration / 60.0 * _this.clipData.bpm / 4.0) * 60 * 4 / _this.clipData.bpm;
+	                _this.data = _this.data.slice(0, _this.actualDuration * buffer.sampleRate);
+	                _this.painter.drawBuffer(_this.canvas.width, _this.canvas.height, _this.canvasCtx, _this.data, {
+	                    duration: _this.actualDuration,
 	                    currentTime: 0
 	                });
 	            }, function (error) {
@@ -29963,25 +29967,22 @@
 	        value: function play(startTime) {
 	            var _this2 = this;
 
-	            var duration = this.buffer.length / this.buffer.sampleRate;
-	            var bpm = this.clipData.bpm;
-
 	            this.source = this.context.createBufferSource(); // creates a sound source
 	            this.source.buffer = this.buffer; // tell the source which sound to play
 	            this.source.connect(this.track.gainNode);
 
 	            this.source.loop = true;
-	            this.source.loopEnd = Math.round(duration / 60.0 * bpm / 4.0) * 60 * 4 / bpm;
-	            this.source.playbackRate.value = this.track.engine.bpm / bpm;
+	            this.source.loopEnd = this.actualDuration;
+	            this.source.playbackRate.value = this.track.engine.bpm / this.clipData.bpm;
 	            this.source.start(startTime);
 	            this.playing = true;
 
 	            this.lastCurrentTime = 0;
 	            this.lastChangeTime = startTime;
 	            var draw = function draw() {
-	                (0, _audiodisplay2['default'])(_this2.canvas.width, _this2.canvas.height, _this2.canvasCtx, _this2.data, {
-	                    duration: _this2.buffer.duration,
-	                    currentTime: (_this2.lastCurrentTime + (_this2.context.currentTime - _this2.lastChangeTime) * _this2.source.playbackRate.value) % _this2.buffer.duration
+	                _this2.painter.drawBuffer(_this2.canvas.width, _this2.canvas.height, _this2.canvasCtx, _this2.data, {
+	                    duration: _this2.actualDuration,
+	                    currentTime: (_this2.lastCurrentTime + (_this2.context.currentTime - _this2.lastChangeTime) * _this2.source.playbackRate.value) % _this2.actualDuration
 	                });
 	                _this2.drawframe = requestAnimationFrame(draw);
 	            };
@@ -29994,16 +29995,15 @@
 	            window.cancelAnimationFrame(this.drawframe);
 	            this.source.stop(stopTime);
 	            this.playing = false;
-
-	            (0, _audiodisplay2['default'])(this.canvas.width, this.canvas.height, this.canvasCtx, this.data, {
-	                duration: 0,
+	            this.painter.drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data, {
+	                duration: this.actualDuration,
 	                currentTime: 0
 	            });
 	        }
 	    }, {
 	        key: 'changeGlobalBpm',
 	        value: function changeGlobalBpm(bpm, time) {
-	            this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration;
+	            this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.actualDuration;
 	            this.lastChangeTime = time;
 	            this.source.playbackRate.setValueAtTime(bpm / this.clipData.bpm, time);
 	        }
@@ -30113,26 +30113,73 @@
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-	function drawBuffer(width, height, ctx, data, sound) {
-	    var step = Math.ceil(data.length / width);
-	    var amp = height / 2;
-	    ctx.fillStyle = 'rgba(226, 226, 226, 0.4)';
-	    ctx.clearRect(0, 0, width, height);
-	    for (var i = 0; i < width; i++) {
-	        var min = 1.0;
-	        var max = -1.0;
-	        for (var j = 0; j < step; j++) {
-	            var datum = data[i * step + j];
-	            if (datum < min) min = datum;
-	            if (datum > max) max = datum;
-	        }
 
-	        ctx.fillStyle = i < sound.currentTime / sound.duration * width ? 'rgba(251, 149, 33, 0.40)' : 'rgba(226, 226, 226, 0.4)';
-	        ctx.fillRect(i, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var color_inactive = 'rgba(226, 226, 226, 0.4)';
+	var color_active = 'rgba(251, 149, 33, 0.40)';
+
+	var Painter = (function () {
+	    function Painter() {
+	        _classCallCheck(this, Painter);
+
+	        this.lastPosition = null;
+	        this.bins = null;
 	    }
-	}
 
-	exports['default'] = drawBuffer;
+	    _createClass(Painter, [{
+	        key: 'drawBuffer',
+	        value: function drawBuffer(width, height, ctx, data, sound) {
+	            if (!this.bins || width !== this.bins.length) {
+	                this._recomputeBins(width, ctx, data, sound);
+	            }
+
+	            var step = Math.ceil(data.length / width);
+	            var amp = height / 2;
+	            var firstPosition = 0;
+	            var nextPosition = width;
+	            var newPosition = Math.round(sound.currentTime / sound.duration * width);
+	            if (this.lastPosition != null && this.lastPosition <= newPosition) {
+	                firstPosition = this.lastPosition;
+	                nextPosition = newPosition;
+	            }
+	            this.lastPosition = newPosition;
+
+	            ctx.clearRect(firstPosition, 0, nextPosition - firstPosition, height);
+	            this.bins.slice(firstPosition, nextPosition).forEach(function (_ref, i) {
+	                var max = _ref.max;
+	                var min = _ref.min;
+
+	                ctx.fillStyle = firstPosition + i < newPosition ? color_active : color_inactive;
+	                ctx.fillRect(firstPosition + i, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+	            });
+	        }
+	    }, {
+	        key: '_recomputeBins',
+	        value: function _recomputeBins(width, ctx, data, sound) {
+	            var step = Math.ceil(data.length / width);
+	            var bins = new Array(width);
+	            for (var i = 0; i < width; i++) {
+	                var min = 1.0;
+	                var max = -1.0;
+	                for (var j = 0; j < step; j++) {
+	                    var datum = data[i * step + j];
+	                    if (datum < min) min = datum;
+	                    if (datum > max) max = datum;
+	                }
+	                bins[i] = { min: min, max: max };
+	            }
+	            this.bins = bins;
+	            this.lastPosition = null;
+	        }
+	    }]);
+
+	    return Painter;
+	})();
+
+	exports['default'] = Painter;
 	module.exports = exports['default'];
 
 /***/ },
