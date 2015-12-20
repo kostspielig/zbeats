@@ -20,16 +20,15 @@ body {
 }
 
 .bpm-header {
-    -webkit-filter: invert(100%);
+    margin-right: 10px;
 }
-.bpm-card {
-    filter: invert(100%);
-}
+
 .bpm-slider {
     width: 140px;
     margin-bottom: -35px;
     margin-top: -30px;
 }
+
 .bpm-title {
     margin-left: -16px !important;
     margin-top: -5px !important;
@@ -41,6 +40,7 @@ body {
     height: 60px !important;
     margin-left: -10px !important;
 }
+
 .clip-icon {
     margin-top: -10px !important;
 }

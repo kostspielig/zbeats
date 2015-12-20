@@ -4,6 +4,7 @@ import AppBar from 'material-ui/lib/app-bar'
 import IconButton from 'material-ui/lib/icon-button'
 import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
+import headerTheme from '../../style/header-theme'
 
 import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MenuItem from 'material-ui/lib/menus/menu-item'
@@ -15,6 +16,7 @@ import Card from 'material-ui/lib/card/card'
 import CardActions from 'material-ui/lib/card/card-actions'
 import CardHeader from 'material-ui/lib/card/card-header'
 
+@ThemeDecorator(ThemeManager.getMuiTheme(headerTheme))
 class HeaderSection extends Component {
 
     changeBpm(e, value) {
@@ -25,32 +27,27 @@ class HeaderSection extends Component {
     render() {
         return (
             <AppBar
+              style={{background: '#fb9521'}}
               title={<span>zBeats</span>}
               iconElementLeft={
-                      <IconMenu
-                            openDirection='bottom-right'
-                            iconButtonElement={
-                                    <IconButton iconClassName='material-icons'>
-                                          album
-                                    </IconButton>}>
-                            <MenuItem primaryText="Refresh" />
-                            <MenuItem primaryText="Help" />
-                            <MenuItem primaryText="Sign out" />
-                      </IconMenu>
-                      }
-                      iconElementRight={
-                          <div className='bpm-header'>
-                          <FlatButton className='bpm-title'>{this.props.engine.bpm} BPM</FlatButton>
-                          <div className='bpm-card'>
-                          <Slider name='bpm'
+                      <IconButton iconStyle={{color: 'white'}} iconClassName='material-icons'>
+                            album
+                      </IconButton>
+              }
+              iconElementRight={
+                  <div className='bpm-header'>
+                        <FlatButton className='bpm-title' style={{color: 'white'}}>{this.props.engine.bpm} BPM</FlatButton>
+                        <div className='bpm-card'>
+                              <Slider name='bpm'
+                                  style= {{color: 'white'}}
                                   className='bpm-slider'
                                   defaultValue={this.props.engine.bpm}
                                   min={40} max={200} step={1}
                                   value={this.props.engine.bpm}
-                          onChange={this.changeBpm.bind(this)}/>
-                          </div>
-                          </div>
-                      }
+                                  onChange={this.changeBpm.bind(this)}/>
+                        </div>
+                  </div>
+              }
             />
         )
     }
