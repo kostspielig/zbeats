@@ -1,10 +1,12 @@
-import drawBuffer from './audiodisplay'
+import Painter from './painter'
 
 class Clip {
     constructor(track, clipData) {
         this.track = track
         this.context = track.context
         this.clipData = clipData
+        this.painter = new Painter()
+
         var url = 'clips/' + clipData.sample
         var request = new XMLHttpRequest()
         request.open("GET", url, true)
@@ -23,11 +25,11 @@ class Clip {
                     this.data =  this.buffer.getChannelData(1)
                     this.canvas = document.getElementById(this.clipData.name)
                     this.canvasCtx = this.canvas.getContext('2d')
-                    drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
-                               {
-                                   duration: 0,
-                                   currentTime: 0
-                               })
+                    this.painter.drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                                            {
+                                                duration: 0,
+                                                currentTime: 0
+                                            })
 
                 },
                 (error) => {
@@ -57,11 +59,11 @@ class Clip {
         this.lastCurrentTime = 0
         this.lastChangeTime = startTime
         let draw = () => {
-            drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
-                       {
-                           duration: this.buffer.duration,
-                           currentTime: (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration
-                       })
+            this.painter.drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                                    {
+                                        duration: this.buffer.duration,
+                                        currentTime: (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.buffer.duration
+                                    })
             this.drawframe = requestAnimationFrame (draw)
         }
 
@@ -73,11 +75,11 @@ class Clip {
         this.source.stop(stopTime)
         this.playing = false
 
-        drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
-                   {
-                       duration: 0,
-                       currentTime: 0
-                   })
+        this.painter.drawBuffer(this.canvas.width, this.canvas.height, this.canvasCtx, this.data,
+                                {
+                                    duration: 0,
+                                    currentTime: 0
+                                })
     }
 
     changeGlobalBpm(bpm, time) {

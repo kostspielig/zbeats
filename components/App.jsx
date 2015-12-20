@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import HeaderSection from './header/HeaderSection.jsx'
 import ShopSection from './shop/ShopSection.jsx'
 import Track from './music/Track.jsx'
-import Engine from '../libs/audio.js'
+import Engine from '../libs/engine.js'
 
 var clips = require('json!yaml!../clips/clips.yaml')
 var items = require('json!yaml!../data/shop.yaml')
