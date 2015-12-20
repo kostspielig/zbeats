@@ -60,11 +60,11 @@
 
 	var _componentsAppJsx2 = _interopRequireDefault(_componentsAppJsx);
 
-	var _reactTapEventPlugin = __webpack_require__(256);
+	var _reactTapEventPlugin = __webpack_require__(257);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
-	__webpack_require__(260);
+	__webpack_require__(261);
 
 	(0, _reactTapEventPlugin2['default'])();
 
@@ -19685,15 +19685,15 @@
 
 	var _headerHeaderSectionJsx2 = _interopRequireDefault(_headerHeaderSectionJsx);
 
-	var _shopShopSectionJsx = __webpack_require__(242);
+	var _shopShopSectionJsx = __webpack_require__(243);
 
 	var _shopShopSectionJsx2 = _interopRequireDefault(_shopShopSectionJsx);
 
-	var _musicTrackJsx = __webpack_require__(247);
+	var _musicTrackJsx = __webpack_require__(248);
 
 	var _musicTrackJsx2 = _interopRequireDefault(_musicTrackJsx);
 
-	var _libsEngineJs = __webpack_require__(251);
+	var _libsEngineJs = __webpack_require__(252);
 
 	var _libsEngineJs2 = _interopRequireDefault(_libsEngineJs);
 
@@ -19705,12 +19705,12 @@
 
 	var _materialUiLibStylesThemeDecorator2 = _interopRequireDefault(_materialUiLibStylesThemeDecorator);
 
-	var _styleZbeatsTheme = __webpack_require__(253);
+	var _styleZbeatsTheme = __webpack_require__(254);
 
 	var _styleZbeatsTheme2 = _interopRequireDefault(_styleZbeatsTheme);
 
-	var clips = __webpack_require__(254);
-	var items = __webpack_require__(255);
+	var clips = __webpack_require__(255);
+	var items = __webpack_require__(256);
 
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
@@ -19938,39 +19938,43 @@
 
 	var _materialUiLibStylesThemeDecorator2 = _interopRequireDefault(_materialUiLibStylesThemeDecorator);
 
-	var _materialUiLibMenusIconMenu = __webpack_require__(216);
+	var _styleHeaderTheme = __webpack_require__(216);
+
+	var _styleHeaderTheme2 = _interopRequireDefault(_styleHeaderTheme);
+
+	var _materialUiLibMenusIconMenu = __webpack_require__(217);
 
 	var _materialUiLibMenusIconMenu2 = _interopRequireDefault(_materialUiLibMenusIconMenu);
 
-	var _materialUiLibMenusMenuItem = __webpack_require__(221);
+	var _materialUiLibMenusMenuItem = __webpack_require__(222);
 
 	var _materialUiLibMenusMenuItem2 = _interopRequireDefault(_materialUiLibMenusMenuItem);
 
-	var _materialUiLibTextField = __webpack_require__(227);
+	var _materialUiLibTextField = __webpack_require__(228);
 
 	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 
-	var _materialUiLibFlatButton = __webpack_require__(230);
+	var _materialUiLibFlatButton = __webpack_require__(231);
 
 	var _materialUiLibFlatButton2 = _interopRequireDefault(_materialUiLibFlatButton);
 
-	var _materialUiLibSlider = __webpack_require__(232);
+	var _materialUiLibSlider = __webpack_require__(233);
 
 	var _materialUiLibSlider2 = _interopRequireDefault(_materialUiLibSlider);
 
-	var _materialUiLibAvatar = __webpack_require__(233);
+	var _materialUiLibAvatar = __webpack_require__(234);
 
 	var _materialUiLibAvatar2 = _interopRequireDefault(_materialUiLibAvatar);
 
-	var _materialUiLibCardCard = __webpack_require__(234);
+	var _materialUiLibCardCard = __webpack_require__(235);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
-	var _materialUiLibCardCardActions = __webpack_require__(238);
+	var _materialUiLibCardCardActions = __webpack_require__(239);
 
 	var _materialUiLibCardCardActions2 = _interopRequireDefault(_materialUiLibCardCardActions);
 
-	var _materialUiLibCardCardHeader = __webpack_require__(239);
+	var _materialUiLibCardCardHeader = __webpack_require__(240);
 
 	var _materialUiLibCardCardHeader2 = _interopRequireDefault(_materialUiLibCardCardHeader);
 
@@ -19978,9 +19982,9 @@
 	    _inherits(HeaderSection, _Component);
 
 	    function HeaderSection() {
-	        _classCallCheck(this, HeaderSection);
+	        _classCallCheck(this, _HeaderSection);
 
-	        _get(Object.getPrototypeOf(HeaderSection.prototype), 'constructor', this).apply(this, arguments);
+	        _get(Object.getPrototypeOf(_HeaderSection.prototype), 'constructor', this).apply(this, arguments);
 	    }
 
 	    _createClass(HeaderSection, [{
@@ -19994,30 +19998,23 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2['default'].createElement(_materialUiLibAppBar2['default'], {
+	                style: { background: '#fb9521' },
 	                title: _react2['default'].createElement(
 	                    'span',
 	                    null,
 	                    'zBeats'
 	                ),
 	                iconElementLeft: _react2['default'].createElement(
-	                    _materialUiLibMenusIconMenu2['default'],
-	                    {
-	                        openDirection: 'bottom-right',
-	                        iconButtonElement: _react2['default'].createElement(
-	                            _materialUiLibIconButton2['default'],
-	                            { iconClassName: 'material-icons' },
-	                            'album'
-	                        ) },
-	                    _react2['default'].createElement(_materialUiLibMenusMenuItem2['default'], { primaryText: 'Refresh' }),
-	                    _react2['default'].createElement(_materialUiLibMenusMenuItem2['default'], { primaryText: 'Help' }),
-	                    _react2['default'].createElement(_materialUiLibMenusMenuItem2['default'], { primaryText: 'Sign out' })
+	                    _materialUiLibIconButton2['default'],
+	                    { iconStyle: { color: 'white' }, iconClassName: 'material-icons' },
+	                    'album'
 	                ),
 	                iconElementRight: _react2['default'].createElement(
 	                    'div',
 	                    { className: 'bpm-header' },
 	                    _react2['default'].createElement(
 	                        _materialUiLibFlatButton2['default'],
-	                        { className: 'bpm-title' },
+	                        { className: 'bpm-title', style: { color: 'white' } },
 	                        this.props.engine.bpm,
 	                        ' BPM'
 	                    ),
@@ -20025,6 +20022,7 @@
 	                        'div',
 	                        { className: 'bpm-card' },
 	                        _react2['default'].createElement(_materialUiLibSlider2['default'], { name: 'bpm',
+	                            style: { color: 'white' },
 	                            className: 'bpm-slider',
 	                            defaultValue: this.props.engine.bpm,
 	                            min: 40, max: 200, step: 1,
@@ -20036,6 +20034,8 @@
 	        }
 	    }]);
 
+	    var _HeaderSection = HeaderSection;
+	    HeaderSection = (0, _materialUiLibStylesThemeDecorator2['default'])(_materialUiLibStylesThemeManager2['default'].getMuiTheme(_styleHeaderTheme2['default']))(HeaderSection) || HeaderSection;
 	    return HeaderSection;
 	})(_react.Component);
 
@@ -25215,6 +25215,38 @@
 
 	'use strict';
 
+	var Colors = __webpack_require__(181);
+	var ColorManipulator = __webpack_require__(203);
+	var Spacing = __webpack_require__(204);
+
+	/*
+	 *  Custom theme based on Light Theme
+	 */
+
+	module.exports = {
+	  spacing: Spacing,
+	  fontFamily: 'Roboto, sans-serif',
+	  palette: {
+	    primary1Color: 'white',
+	    primary2Color: Colors.cyan700,
+	    primary3Color: Colors.grey700,
+	    accent1Color: Colors.pinkA200,
+	    accent2Color: Colors.grey100,
+	    accent3Color: Colors.grey800,
+	    textColor: Colors.darkBlack,
+	    alternateTextColor: Colors.white,
+	    canvasColor: Colors.white,
+	    borderColor: Colors.grey300,
+	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.7)
+	  }
+	};
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -25222,11 +25254,11 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var ReactTransitionGroup = __webpack_require__(198);
-	var ClickAwayable = __webpack_require__(217);
+	var ClickAwayable = __webpack_require__(218);
 	var StylePropable = __webpack_require__(162);
 	var Events = __webpack_require__(194);
 	var PropTypes = __webpack_require__(186);
-	var Menu = __webpack_require__(218);
+	var Menu = __webpack_require__(219);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
 
@@ -25442,7 +25474,7 @@
 	module.exports = IconMenu;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25489,7 +25521,7 @@
 	};
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25501,13 +25533,13 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var update = __webpack_require__(164);
-	var Controllable = __webpack_require__(219);
+	var Controllable = __webpack_require__(220);
 	var StylePropable = __webpack_require__(162);
 	var AutoPrefix = __webpack_require__(167);
 	var Transitions = __webpack_require__(185);
 	var KeyCode = __webpack_require__(195);
 	var PropTypes = __webpack_require__(186);
-	var List = __webpack_require__(220);
+	var List = __webpack_require__(221);
 	var Paper = __webpack_require__(214);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
@@ -25968,7 +26000,7 @@
 	module.exports = Menu;
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26002,7 +26034,7 @@
 	};
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26118,7 +26150,7 @@
 	module.exports = List;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26131,8 +26163,8 @@
 	var PureRenderMixin = __webpack_require__(188);
 	var StylePropable = __webpack_require__(162);
 	var Colors = __webpack_require__(181);
-	var CheckIcon = __webpack_require__(222);
-	var ListItem = __webpack_require__(223);
+	var CheckIcon = __webpack_require__(223);
+	var ListItem = __webpack_require__(224);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
 
@@ -26305,7 +26337,7 @@
 	module.exports = MenuItem;
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26332,7 +26364,7 @@
 	module.exports = NavigationCheck;
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26351,9 +26383,9 @@
 	var Typography = __webpack_require__(180);
 	var EnhancedButton = __webpack_require__(187);
 	var IconButton = __webpack_require__(182);
-	var OpenIcon = __webpack_require__(224);
-	var CloseIcon = __webpack_require__(225);
-	var NestedList = __webpack_require__(226);
+	var OpenIcon = __webpack_require__(225);
+	var CloseIcon = __webpack_require__(226);
+	var NestedList = __webpack_require__(227);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
 
@@ -26818,7 +26850,7 @@
 	module.exports = ListItem;
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26845,7 +26877,7 @@
 	module.exports = NavigationArrowDropUp;
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26872,14 +26904,14 @@
 	module.exports = NavigationArrowDropDown;
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var ImmutabilityHelper = __webpack_require__(163);
-	var List = __webpack_require__(220);
+	var List = __webpack_require__(221);
 
 	var NestedList = React.createClass({
 	  displayName: 'NestedList',
@@ -26926,7 +26958,7 @@
 	module.exports = NestedList;
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -26940,8 +26972,8 @@
 	var ColorManipulator = __webpack_require__(203);
 	var StylePropable = __webpack_require__(162);
 	var Transitions = __webpack_require__(185);
-	var UniqueId = __webpack_require__(228);
-	var EnhancedTextarea = __webpack_require__(229);
+	var UniqueId = __webpack_require__(229);
+	var EnhancedTextarea = __webpack_require__(230);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
 	var ContextPure = __webpack_require__(183);
@@ -27382,7 +27414,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -27396,7 +27428,7 @@
 	};
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27585,7 +27617,7 @@
 	module.exports = EnhancedTextarea;
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27602,7 +27634,7 @@
 	var ImmutabilityHelper = __webpack_require__(163);
 	var Typography = __webpack_require__(180);
 	var EnhancedButton = __webpack_require__(187);
-	var FlatButtonLabel = __webpack_require__(231);
+	var FlatButtonLabel = __webpack_require__(232);
 	var DefaultRawTheme = __webpack_require__(202);
 	var ThemeManager = __webpack_require__(205);
 
@@ -27804,7 +27836,7 @@
 	module.exports = FlatButton;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27886,7 +27918,7 @@
 	module.exports = FlatButtonLabel;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28396,7 +28428,7 @@
 	module.exports = Slider;
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28525,7 +28557,7 @@
 	module.exports = Avatar;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28537,7 +28569,7 @@
 	var React = __webpack_require__(1);
 	var Paper = __webpack_require__(214);
 	var StylePropable = __webpack_require__(162);
-	var CardExpandable = __webpack_require__(235);
+	var CardExpandable = __webpack_require__(236);
 
 	var Card = React.createClass({
 	  displayName: 'Card',
@@ -28619,15 +28651,15 @@
 	module.exports = Card;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var Extend = __webpack_require__(206);
-	var OpenIcon = __webpack_require__(236);
-	var CloseIcon = __webpack_require__(237);
+	var OpenIcon = __webpack_require__(237);
+	var CloseIcon = __webpack_require__(238);
 	var IconButton = __webpack_require__(182);
 	var StylePropable = __webpack_require__(162);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -28726,7 +28758,7 @@
 	module.exports = CardExpandable;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28753,7 +28785,7 @@
 	module.exports = HardwareKeyboardArrowUp;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28780,7 +28812,7 @@
 	module.exports = HardwareKeyboardArrowDown;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28861,7 +28893,7 @@
 	module.exports = CardActions;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28869,8 +28901,8 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(240);
-	var Avatar = __webpack_require__(233);
+	var Styles = __webpack_require__(241);
+	var Avatar = __webpack_require__(234);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -28998,7 +29030,7 @@
 	module.exports = CardHeader;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29011,12 +29043,12 @@
 	  Transitions: __webpack_require__(185),
 	  Typography: __webpack_require__(180),
 	  LightRawTheme: __webpack_require__(202),
-	  DarkRawTheme: __webpack_require__(241),
+	  DarkRawTheme: __webpack_require__(242),
 	  ThemeDecorator: __webpack_require__(215)
 	};
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29045,7 +29077,7 @@
 
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29068,7 +29100,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemListJsx = __webpack_require__(243);
+	var _ItemListJsx = __webpack_require__(244);
 
 	var _ItemListJsx2 = _interopRequireDefault(_ItemListJsx);
 
@@ -29088,11 +29120,11 @@
 
 	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
 
-	var _materialUiLibMenusIconMenu = __webpack_require__(216);
+	var _materialUiLibMenusIconMenu = __webpack_require__(217);
 
 	var _materialUiLibMenusIconMenu2 = _interopRequireDefault(_materialUiLibMenusIconMenu);
 
-	var _materialUiLibMenusMenuItem = __webpack_require__(221);
+	var _materialUiLibMenusMenuItem = __webpack_require__(222);
 
 	var _materialUiLibMenusMenuItem2 = _interopRequireDefault(_materialUiLibMenusMenuItem);
 
@@ -29134,7 +29166,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29157,7 +29189,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemJsx = __webpack_require__(244);
+	var _ItemJsx = __webpack_require__(245);
 
 	var _ItemJsx2 = _interopRequireDefault(_ItemJsx);
 
@@ -29199,7 +29231,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29222,15 +29254,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibCardCard = __webpack_require__(234);
+	var _materialUiLibCardCard = __webpack_require__(235);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
-	var _materialUiLibCardCardMedia = __webpack_require__(245);
+	var _materialUiLibCardCardMedia = __webpack_require__(246);
 
 	var _materialUiLibCardCardMedia2 = _interopRequireDefault(_materialUiLibCardCardMedia);
 
-	var _materialUiLibFlatButton = __webpack_require__(230);
+	var _materialUiLibFlatButton = __webpack_require__(231);
 
 	var _materialUiLibFlatButton2 = _interopRequireDefault(_materialUiLibFlatButton);
 
@@ -29238,7 +29270,7 @@
 
 	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
 
-	var _materialUiLibCardCardTitle = __webpack_require__(246);
+	var _materialUiLibCardCardTitle = __webpack_require__(247);
 
 	var _materialUiLibCardCardTitle2 = _interopRequireDefault(_materialUiLibCardCardTitle);
 
@@ -29289,7 +29321,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29297,7 +29329,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(240);
+	var Styles = __webpack_require__(241);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29437,7 +29469,7 @@
 	module.exports = CardMedia;
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29445,7 +29477,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(240);
+	var Styles = __webpack_require__(241);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29550,7 +29582,7 @@
 	module.exports = CardTitle;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29573,15 +29605,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ClipListJsx = __webpack_require__(248);
+	var _ClipListJsx = __webpack_require__(249);
 
 	var _ClipListJsx2 = _interopRequireDefault(_ClipListJsx);
 
-	var _materialUiLibCardCard = __webpack_require__(234);
+	var _materialUiLibCardCard = __webpack_require__(235);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
-	var _materialUiLibSlider = __webpack_require__(232);
+	var _materialUiLibSlider = __webpack_require__(233);
 
 	var _materialUiLibSlider2 = _interopRequireDefault(_materialUiLibSlider);
 
@@ -29644,7 +29676,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29667,7 +29699,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ClipJsx = __webpack_require__(249);
+	var _ClipJsx = __webpack_require__(250);
 
 	var _ClipJsx2 = _interopRequireDefault(_ClipJsx);
 
@@ -29713,7 +29745,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29736,23 +29768,23 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibCardCard = __webpack_require__(234);
+	var _materialUiLibCardCard = __webpack_require__(235);
 
 	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
 
-	var _materialUiLibCardCardActions = __webpack_require__(238);
+	var _materialUiLibCardCardActions = __webpack_require__(239);
 
 	var _materialUiLibCardCardActions2 = _interopRequireDefault(_materialUiLibCardCardActions);
 
-	var _materialUiLibCardCardExpandable = __webpack_require__(235);
+	var _materialUiLibCardCardExpandable = __webpack_require__(236);
 
 	var _materialUiLibCardCardExpandable2 = _interopRequireDefault(_materialUiLibCardCardExpandable);
 
-	var _materialUiLibCardCardHeader = __webpack_require__(239);
+	var _materialUiLibCardCardHeader = __webpack_require__(240);
 
 	var _materialUiLibCardCardHeader2 = _interopRequireDefault(_materialUiLibCardCardHeader);
 
-	var _materialUiLibFlatButton = __webpack_require__(230);
+	var _materialUiLibFlatButton = __webpack_require__(231);
 
 	var _materialUiLibFlatButton2 = _interopRequireDefault(_materialUiLibFlatButton);
 
@@ -29760,7 +29792,7 @@
 
 	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
 
-	var _materialUiLibCardCardText = __webpack_require__(250);
+	var _materialUiLibCardCardText = __webpack_require__(251);
 
 	var _materialUiLibCardCardText2 = _interopRequireDefault(_materialUiLibCardCardText);
 
@@ -29820,7 +29852,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29828,7 +29860,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Styles = __webpack_require__(240);
+	var Styles = __webpack_require__(241);
 	var StylePropable = __webpack_require__(162);
 	var ThemeManager = __webpack_require__(205);
 	var DefaultRawTheme = __webpack_require__(202);
@@ -29899,7 +29931,7 @@
 	module.exports = CardText;
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29914,7 +29946,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _painter = __webpack_require__(252);
+	var _painter = __webpack_require__(253);
 
 	var _painter2 = _interopRequireDefault(_painter);
 
@@ -30105,7 +30137,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30183,7 +30215,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30215,7 +30247,7 @@
 	};
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -30902,7 +30934,7 @@
 	};
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -31174,18 +31206,18 @@
 	];
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function injectTapEventPlugin () {
 	  __webpack_require__(31).injection.injectEventPluginsByName({
-	    "TapEventPlugin":       __webpack_require__(257)
+	    "TapEventPlugin":       __webpack_require__(258)
 	  });
 	};
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31213,10 +31245,10 @@
 	var EventPluginUtils = __webpack_require__(33);
 	var EventPropagators = __webpack_require__(73);
 	var SyntheticUIEvent = __webpack_require__(87);
-	var TouchEventUtils = __webpack_require__(258);
+	var TouchEventUtils = __webpack_require__(259);
 	var ViewportMetrics = __webpack_require__(38);
 
-	var keyOf = __webpack_require__(259);
+	var keyOf = __webpack_require__(260);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -31360,7 +31392,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports) {
 
 	/**
@@ -31408,7 +31440,7 @@
 
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports) {
 
 	/**
@@ -31448,16 +31480,16 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(261);
+	var content = __webpack_require__(262);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(264)(content, {});
+	var update = __webpack_require__(265)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -31474,21 +31506,21 @@
 	}
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(262)();
+	exports = module.exports = __webpack_require__(263)();
 	// imports
-	exports.i(__webpack_require__(263), "");
+	exports.i(__webpack_require__(264), "");
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  -webkit-filter: invert(100%); }\n\n.bpm-card {\n  filter: invert(100%); }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n    .music-section .clip-list .clip-card > div {\n      position: relative; }\n      .music-section .clip-list .clip-card > div .waveform {\n        width: 100% !important;\n        height: 60px;\n        position: absolute; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  margin-right: 10px; }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n    .music-section .clip-list .clip-card > div {\n      position: relative; }\n      .music-section .clip-list .clip-card > div .waveform {\n        width: 100% !important;\n        height: 60px;\n        position: absolute; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports) {
 
 	/*
@@ -31544,10 +31576,10 @@
 
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(262)();
+	exports = module.exports = __webpack_require__(263)();
 	// imports
 
 
@@ -31558,7 +31590,7 @@
 
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
