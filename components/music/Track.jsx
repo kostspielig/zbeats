@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import ClipList from './ClipList.jsx'
-import Card from 'material-ui/lib/card/card'
 import Slider from 'material-ui/lib/slider'
+import FontIcon from 'material-ui/lib/font-icon'
+
 
 class Track extends Component {
 
@@ -17,14 +18,15 @@ class Track extends Component {
             <div className='clip-list'>
               <div className='title'>{this.props.title}</div>
               <ClipList {...this.props} />
-              <Card className='volume-card'>
+              <div className='volume-card'>
+                <FontIcon className="material-icons volume">volume_up</FontIcon>
                 <Slider name='vol'
                         className='track-slider'
                         defaultValue={100}
                         min={0} max={100}
                         value={track.volume}
                         onChange={this.changeVolume.bind(this)}/>
-              </Card>
+              </div>
             </div>
         )
     }

@@ -52,9 +52,17 @@ body {
 
     .clip-list {
         padding: 0 15px;
+
         .title { padding: 10px 0; }
-        .volume-card { margin-top: 20px; height: 60px !important; }
-        .track-slider { margin: -2px 20px -25px 20px; }
+        .volume-card {
+            margin-top: 20px;
+            height: 25px;
+            position: relative;
+
+            .volume { position: absolute !important; margin-top: -2px; }
+            .track-slider { margin: 0px 10px -25px 38px; }
+        }
+
         .on  { background-color: $warning; }
         .off {}
 
