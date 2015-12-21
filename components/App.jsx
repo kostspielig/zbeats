@@ -64,7 +64,7 @@ class App extends Component {
         this.shuffleArray(this.state.items)
         this.state.items.sort((a, b) => b.points - a.points)
 
-        // Take the top 4 items
+        // Take the top 6 items
         shopItems = this.state.items.slice(0, 6)
         this.setState({shopItems})
     }
@@ -133,7 +133,7 @@ class App extends Component {
                  setClip={this.setClip.bind(this)}
                  />
              </div>
-             <div className='music-section instrument'>
+             <div className='music-section synth'>
                <Track
                  title='Synth'
                  track={this.state.tracks.synth}
@@ -141,7 +141,7 @@ class App extends Component {
                  setClip={this.setClip.bind(this)}
                  />
              </div>
-             <div className='music-section voice'>
+             <div className='music-section vocal'>
                <Track
                  title='Vocal'
                  track={this.state.tracks.voice}
