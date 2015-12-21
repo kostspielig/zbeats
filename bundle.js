@@ -19775,7 +19775,7 @@
 	                return b.points - a.points;
 	            });
 
-	            // Take the top 4 items
+	            // Take the top 6 items
 	            shopItems = this.state.items.slice(0, 6);
 	            this.setState({ shopItems: shopItems });
 	        }
@@ -19861,7 +19861,7 @@
 	                ),
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'music-section instrument' },
+	                    { className: 'music-section synth' },
 	                    _react2['default'].createElement(_musicTrackJsx2['default'], {
 	                        title: 'Synth',
 	                        track: this.state.tracks.synth,
@@ -19871,7 +19871,7 @@
 	                ),
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'music-section voice' },
+	                    { className: 'music-section vocal' },
 	                    _react2['default'].createElement(_musicTrackJsx2['default'], {
 	                        title: 'Vocal',
 	                        track: this.state.tracks.voice,
@@ -29609,13 +29609,13 @@
 
 	var _ClipListJsx2 = _interopRequireDefault(_ClipListJsx);
 
-	var _materialUiLibCardCard = __webpack_require__(235);
-
-	var _materialUiLibCardCard2 = _interopRequireDefault(_materialUiLibCardCard);
-
 	var _materialUiLibSlider = __webpack_require__(233);
 
 	var _materialUiLibSlider2 = _interopRequireDefault(_materialUiLibSlider);
+
+	var _materialUiLibFontIcon = __webpack_require__(210);
+
+	var _materialUiLibFontIcon2 = _interopRequireDefault(_materialUiLibFontIcon);
 
 	var Track = (function (_Component) {
 	    _inherits(Track, _Component);
@@ -29649,8 +29649,13 @@
 	                ),
 	                _react2['default'].createElement(_ClipListJsx2['default'], this.props),
 	                _react2['default'].createElement(
-	                    _materialUiLibCardCard2['default'],
+	                    'div',
 	                    { className: 'volume-card' },
+	                    _react2['default'].createElement(
+	                        _materialUiLibFontIcon2['default'],
+	                        { className: 'material-icons volume' },
+	                        'volume_up'
+	                    ),
 	                    _react2['default'].createElement(_materialUiLibSlider2['default'], { name: 'vol',
 	                        className: 'track-slider',
 	                        defaultValue: 100,
@@ -31514,7 +31519,7 @@
 	exports.i(__webpack_require__(264), "");
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  margin-right: 10px; }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 60px !important; }\n    .music-section .clip-list .track-slider {\n      margin: -2px 20px -25px 20px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n    .music-section .clip-list .clip-card > div {\n      position: relative; }\n      .music-section .clip-list .clip-card > div .waveform {\n        width: 100% !important;\n        height: 60px;\n        position: absolute; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
+	exports.push([module.id, "body {\n  font-family: 'Roboto', sans-serif; }\n\n.header-section {\n  color: white;\n  font-size: 25px; }\n  .header-section .material-icons {\n    font-size: 40px; }\n\n.bpm-header {\n  margin-right: 10px; }\n\n.bpm-slider {\n  width: 140px;\n  margin-bottom: -35px;\n  margin-top: -30px; }\n\n.bpm-title {\n  margin-left: -16px !important;\n  margin-top: -5px !important;\n  margin-bottom: -5px !important;\n  background-color: transparent !important; }\n\n.clip-header {\n  height: 60px !important;\n  margin-left: -10px !important; }\n\n.clip-icon {\n  margin-top: -10px !important; }\n\n.music-section {\n  padding: 20px 0px;\n  width: 16.6666%;\n  display: inline-block; }\n  .music-section .clip-list {\n    padding: 0 15px; }\n    .music-section .clip-list .title {\n      padding: 10px 0; }\n    .music-section .clip-list .volume-card {\n      margin-top: 20px;\n      height: 25px;\n      position: relative; }\n      .music-section .clip-list .volume-card .volume {\n        position: absolute !important;\n        margin-top: -2px; }\n      .music-section .clip-list .volume-card .track-slider {\n        margin: 0px 10px -25px 38px; }\n    .music-section .clip-list .on {\n      background-color: #f0ad4e; }\n    .music-section .clip-list .clip-card > div {\n      position: relative; }\n      .music-section .clip-list .clip-card > div .waveform {\n        width: 100% !important;\n        height: 60px;\n        position: absolute; }\n\n.shop-section {\n  margin-top: 5px; }\n  .shop-section .title {\n    padding: 20px 15px;\n    display: none; }\n  .shop-section .shop-item {\n    width: 16.66%;\n    float: left; }\n", ""]);
 
 	// exports
 
