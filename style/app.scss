@@ -69,6 +69,17 @@ body {
         .clip-card > div {
             position: relative;
 
+            .clip-header {
+                position: relative;
+                button { position: absolute !important; }
+                & > div { margin-left: 55px; display: block !important; }
+                span {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
             .waveform { width: 100% !important; height: 60px; position: absolute; }
         }
 
