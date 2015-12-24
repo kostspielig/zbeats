@@ -81,7 +81,7 @@ class Clip {
     }
 
     changeGlobalBpm(bpm, time) {
-        this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.actualDuration
+        this.lastCurrentTime = (this.lastCurrentTime + (time - this.lastChangeTime) * this.source.playbackRate.value) % this.actualDuration
         this.lastChangeTime = time
         this.source.playbackRate.setValueAtTime(
             bpm / this.clipData.bpm, time)
