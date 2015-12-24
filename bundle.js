@@ -23760,7 +23760,7 @@
 	  spacing: Spacing,
 	  fontFamily: 'Roboto, sans-serif',
 	  palette: {
-	    primary1Color: '#fb9521',
+	    primary1Color: Colors.cyan500,
 	    primary2Color: Colors.cyan700,
 	    primary3Color: Colors.grey400,
 	    accent1Color: Colors.pinkA200,
@@ -23773,7 +23773,6 @@
 	    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
 	  }
 	};
-
 
 /***/ },
 /* 203 */
@@ -29075,7 +29074,6 @@
 	  }
 	};
 
-
 /***/ },
 /* 243 */
 /***/ function(module, exports, __webpack_require__) {
@@ -30040,7 +30038,7 @@
 	    }, {
 	        key: 'changeGlobalBpm',
 	        value: function changeGlobalBpm(bpm, time) {
-	            this.lastCurrentTime = (this.lastCurrentTime + (this.context.currentTime - this.lastChangeTime) * this.source.playbackRate.value) % this.actualDuration;
+	            this.lastCurrentTime = (this.lastCurrentTime + (time - this.lastChangeTime) * this.source.playbackRate.value) % this.actualDuration;
 	            this.lastChangeTime = time;
 	            this.source.playbackRate.setValueAtTime(bpm / this.clipData.bpm, time);
 	        }
